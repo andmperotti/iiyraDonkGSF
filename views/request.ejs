@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Items</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+    <header> 
+        <nav>
+            <a href="/" class="nav-link"><span>Main</span></a>
+            <a href="/login" class="nav-link"><span>Login</span></a>
+            <a href="/signup" class="nav-link"><span>Signup</span></a>
+            <a href="/request" class="nav-link"><span>Request</span></a>
+            <a href="/uniques" class="nav-link"><span>Uniques</span></a>
+            <a href="/gems" class="nav-link"><span>Gems</span></a>
+            <a href="/others" class="nav-link"><span>Others</span></a>
+            <a href="/jobs" class="nav-link"><span>Jobs</span></a>
+            <a href="/users" class="nav-link"><span>Users</span></a>
+            <a href="/builds" class="nav-link"><span>Builds</span></a>
+            <a href="/resources" class="nav-link"><span>Resources</span></a>
+        </nav>
+    </header>
+
+    <h1>Request Items</h1>
+
+    <img src="images/where.gif">
+
+    <form action="/request/createRequestedItem" method='POST'>
+        <fieldset class="center-column">
+        	<legend class="request-item-legend">Request Item</legend>
+        	<section class="requested-inputs center-column">
+        		<label class="request-item-label"><input type="text" placeholder="Enter Name" name='requestedItem'></label>
+        		<section>
+        			<label><input type="radio" value="Unique" name="itemType" required>Unique</label>
+        			<label><input type="radio" value="Gem" name="itemType">Gem</label>
+        			<label><input type="radio" value="Other" name="itemType">Other</label>
+        		</section>
+        		<input type="submit" class="requested-inputs-submit">
+        	</section>
+        	<p class="request-item-p">Can type other things in name field like "Slitherpinch with elemental weakness corruption"</p>
+        	<p class="request-item-p">Other is for anything other than gems and uniques, like "Crit Quiver", however you should use the trade site to search for items</p>
+        </fieldset>
+    </form>
+
+    <h2>What you have requested:</h2>
+    <p>If you want to complete and item yourself, just click on it, to uncomplete it click on it again, if you want to delete it all together press the delete button beside it</p>
+
+    <figure class="requested-output">
+        <figcaption class="requested-text">Your requested <span class="uniques">Uniques</span>:</figcaption>
+        <ul class="displayed-list">
+            <% uniques.forEach( el => { %>
+                <li class='requestedItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.requestedItem %></span>
+                    <span class='del'> Delete </span>
+                </li>
+            <% }) %>    
+        </ul>
+    </figure>
+
+    <figure class="requested-output">
+        <figcaption class="requested-text">Your requested <span class="gems">Gems</span>:</figcaption>
+        <ul class="displayed-list">
+            <% gems.forEach( el => { %>
+                <li class='requestedItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.requestedItem %></span>
+                    <span class='del'> Delete </span>
+                </li>
+            <% }) %>    
+        </ul>
+    </figure>
+    <figure class="requested-output">
+        <figcaption class="requested-text">Your requested <span class="others">Others</span>:</figcaption>
+        <ul class="displayed-list">
+            <% others.forEach( el => { %>
+                <li class='requestedItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.requestedItem %></span>
+                    <span class='del'> Delete </span>
+                </li>
+            <% }) %>    
+        </ul>
+    </figure>
+
+
+    <a href="/logout" class="logout">Logout</a>
+    <script src="js/main.js"></script>
+</body>
+</html>

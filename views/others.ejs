@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misc Requested</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+    <header> 
+        <nav>
+            <a href="/" class="nav-link"><span>Main</span></a>
+            <a href="/login" class="nav-link"><span>Login</span></a>
+            <a href="/signup" class="nav-link"><span>Signup</span></a>
+            <a href="/request" class="nav-link"><span>Request</span></a>
+            <a href="/uniques" class="nav-link"><span>Uniques</span></a>
+            <a href="/gems" class="nav-link"><span>Gems</span></a>
+            <a href="/others" class="nav-link"><span>Others</span></a>
+            <a href="/jobs" class="nav-link"><span>Jobs</span></a>
+            <a href="/users" class="nav-link"><span>Users</span></a>
+            <a href="/builds" class="nav-link"><span>Builds</span></a>
+            <a href="/resources" class="nav-link"><span>Resources</span></a>
+        </nav>
+    </header>
+
+    <h1>Other Items Requested</h1>
+
+    <img src="images/other.gif">
+    <h2>What has been requested and by who, click to complete and remove from list</h2>
+    <figure class="requested-output">
+        <figcaption class="requested-text"> <h3>Requested <span class="others">Others</span>:</h3><h4>Item requested - Account Name</h4></figcaption>
+        <ul class="displayed-list">
+            <% others.forEach( el => { %>
+                    <li class='requestedItem' data-id='<%=el._id%>'>
+                        <span class='<%= el.completed === true ? 'completed' : 'not'%>'>
+                            <%= el.requestedItem %>- <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%=el.userName %></a> 
+                        </span>
+                    </li>
+            <% }) %>    
+        </ul>
+    </figure>
+
+
+
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>

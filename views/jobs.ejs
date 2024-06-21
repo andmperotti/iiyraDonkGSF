@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+    <header> 
+        <nav>
+            <a href="/" class="nav-link"><span>Main</span></a>
+            <a href="/login" class="nav-link"><span>Login</span></a>
+            <a href="/signup" class="nav-link"><span>Signup</span></a>
+            <a href="/request" class="nav-link"><span>Request</span></a>
+            <a href="/uniques" class="nav-link"><span>Uniques</span></a>
+            <a href="/gems" class="nav-link"><span>Gems</span></a>
+            <a href="/others" class="nav-link"><span>Others</span></a>
+            <a href="/jobs" class="nav-link"><span>Jobs</span></a>
+            <a href="/users" class="nav-link"><span>Users</span></a>
+            <a href="/builds" class="nav-link"><span>Builds</span></a>
+            <a href="/resources" class="nav-link"><span>Resources</span></a>
+        </nav>
+    </header>
+
+    <h1>Jobs</h1>
+
+    <img src="images/job.gif" alt="Oprah telling people, 'You get a job' gif">
+    <h2>What you do is what defines you</h2>
+
+    <form action="/jobs/createJob" method='POST' class="job-entry">
+        <input type="text" placeholder="Enter Job" name='jobItem'>
+        <input type="submit">
+    </form>
+    <p class="job-description">Examples: heister, bosser, blighter, etc.</p>
+    <figure class="job-list">
+        <figcaption class="current-jobs">Jobs:</figcaption>
+        <ul class="displayed-list">
+            <% jobs.forEach( el => { %>
+                    <li class='requestedItem' data-id='<%=el._id%>'>
+                        <%=el.jobName%> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName%></a>
+                        <% if(req.user.userName===el.userName){%>
+                            <span class='deljob'> Delete </span> 
+                        <%}%>
+                    </li>
+            <% }) %>    
+        </ul>
+    </figure>
+
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>

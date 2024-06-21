@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>builds</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+    <header> 
+        <nav>
+            <a href="/" class="nav-link"><span>Main</span></a>
+            <a href="/login" class="nav-link"><span>Login</span></a>
+            <a href="/signup" class="nav-link"><span>Signup</span></a>
+            <a href="/request" class="nav-link"><span>Request</span></a>
+            <a href="/uniques" class="nav-link"><span>Uniques</span></a>
+            <a href="/gems" class="nav-link"><span>Gems</span></a>
+            <a href="/others" class="nav-link"><span>Others</span></a>
+            <a href="/jobs" class="nav-link"><span>Jobs</span></a>
+            <a href="/users" class="nav-link"><span>Users</span></a>
+            <a href="/builds" class="nav-link"><span>Builds</span></a>
+            <a href="/resources" class="nav-link"><span>Resources</span></a>
+        </nav>
+    </header>
+
+    <h1>Builds</h1>
+
+    <img src="images/peepoPonderingPOB.webp" alt="peepo the frog staring at path of building">
+
+    <form action="/builds/createBuild" method='POST' class="center-column">
+        <input type="text" placeholder="Enter Build" name='buildName' required>
+        <input text="text" placeholder="Character Name" name="buildCharacterName" required>
+        <input type="text" placeholder="Optional pob link or resource" name="buildResource">
+        <input type="submit">
+    </form>
+    <p class="build-explanation">Can change the character name later, down below.</p>
+
+    <p>Account Name - Character Name - Build Description - Build resource(pob,etc) optional</p>
+    <ul class="displayed-list">
+        <% builds.forEach( el => { %>
+                <li class='requestedItem' data-id='<%=el._id%>'>
+                    <span>
+                        <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%=el.userName%></a> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>/characters?characterName=<%=el.buildCharacterName%>"><%=el.buildCharacterName%></a> - <a href="<%=el.buildResource%>"><%=el.buildName%></a>
+                    </span>
+                </li>
+        <% }) %>    
+    </ul>
+
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>
