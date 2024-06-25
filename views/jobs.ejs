@@ -34,19 +34,18 @@
         <input type="submit">
     </form>
     <p class="job-description">Examples: heister, bosser, blighter, etc.</p>
-    <figure class="job-list">
-        <figcaption class="current-jobs">Jobs:</figcaption>
-        <ul class="displayed-list">
-            <% jobs.forEach( el => { %>
-                    <li class='requestedItem' data-id='<%=el._id%>'>
-                        <%=el.jobName%> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName%></a>
-                        <% if(req.user.userName===el.userName){%>
-                            <span class='deljob'> Delete </span> 
-                        <%}%>
-                    </li>
-            <% }) %>    
-        </ul>
-    </figure>
+
+    <ul class="displayed-list">
+        <% jobs.forEach( el => { %>
+                <li class='requestedItem' data-id='<%=el._id%>'>
+                    <%=el.jobName%> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName%></a>
+                    <% if(req.user.userName===el.userName){%>
+                        <span class='deljob'> Delete </span> 
+                    <%}%>
+                </li>
+        <% }) %>    
+    </ul>
+
 
 
 
