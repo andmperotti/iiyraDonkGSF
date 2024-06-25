@@ -39,7 +39,7 @@
         <li class="field-description">Job - Poe Account Name - Discord Name</li>
         <% jobs.forEach( el => { %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
-                    <%=el.jobName%> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName%> - <%=el.discordName%></a>
+                    <%=el.jobName%> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName%></a> - <%=el.discordName%>
                     <% if(req.user.userName===el.userName){%>
                         <span class='deljob'> Delete </span> 
                     <%}%>
