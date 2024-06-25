@@ -7,7 +7,6 @@ module.exports = {
         try{
             //arrays of build documents, sorted from incomplete to completed
             let reqUser = req.user.userName
-            console.log(req.user.userName)
             const builds = await Build.find({})
             builds.sort((a,b)=>a.completed-b.completed) 
 
