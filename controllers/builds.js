@@ -12,6 +12,7 @@ module.exports = {
 
             //trigger render aka invoke ejs return
             res.render('builds.ejs', {builds: builds, reqUser: reqUser})
+            console.log(req)
         }catch(err){
             console.log(err)
         }

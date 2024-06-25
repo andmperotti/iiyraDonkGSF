@@ -445,6 +445,7 @@ h1{
     border: 5px solid black;
     display: flex;
     flex-direction: column;
+    padding-bottom: 1%;
 }
 .uniques{
     color: orange;
@@ -471,6 +472,7 @@ h1{
     border: 1px solid black;
     overflow: auto;
     height: 15vh;
+
 }
 
 /*Gems, job, and builds explanation paragraph styling*/
@@ -533,4 +535,17 @@ h1{
 .requestedItem, .userItem{
   padding: .5%;
   font-size: 1.2rem;
+}
+/* margin above the login image */
+.login-image{
+  margin-top: 1%;
+}
+
+.all-requested{
+  width: 60%;
+  text-align: center;
+  list-style-type: none;
+  border: 1px solid black;
+  overflow: auto;
+  height: 40vh;
 }

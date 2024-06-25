@@ -35,10 +35,11 @@
     </form>
     <p class="job-description">Examples: heister, bosser, blighter, etc.</p>
 
-    <ul class="displayed-list">
+    <ul class="all-requested">
+        <li class="field-description">Job - Poe Account Name - Discord Name</li>
         <% jobs.forEach( el => { %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
-                    <%=el.jobName%> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName%></a>
+                    <%=el.jobName%> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName%> - <%=el.discordName%></a>
                     <% if(req.user.userName===el.userName){%>
                         <span class='deljob'> Delete </span> 
                     <%}%>

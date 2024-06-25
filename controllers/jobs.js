@@ -16,7 +16,7 @@ module.exports = {
     },
     createJob: async (req, res)=>{
         try{
-            await Job.create({userName: req.user.userName, completed: false, jobName: req.body.jobItem})
+            await Job.create({userName: req.user.userName, completed: false, jobName: req.body.jobItem, discordName: req.user.discordName})
             res.redirect('/jobs')
         }catch(err){
             console.log(err)
