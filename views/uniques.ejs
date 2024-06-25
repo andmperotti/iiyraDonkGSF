@@ -35,8 +35,7 @@
     <% uniques.forEach( el => { %>
             <li class='requestedItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'>
-                    <%= el.requestedItem %> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName %></a> - <%= el.discordName%>
-                </span>
+                    <%= el.requestedItem %></span> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName %></a> - <%= el.discordName%>
             </li>
     <% }) %>    
 
