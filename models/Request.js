@@ -16,6 +16,10 @@ const RequestSchema = new mongoose.Schema({
   userName:{
     type: String,
     required: true
+  },
+  discordName:{
+    type: String,
+    required: true
   }
 })
 

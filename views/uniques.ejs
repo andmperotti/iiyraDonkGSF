@@ -24,17 +24,18 @@
         </nav>
     </header>
 
-    <h1>Uniques Requested</h1>
+    <h1 class="centered-description">Uniques Requested</h1>
 
     <img src="images/unique.gif">
-    <h2>What has been requested and by who, click to complete and remove from list</h2>
+    <h2 class="centered-description">What has been requested and by who, click to item text complete and move down the list, click their name to open their profile page.</h2>
     
-    <p>Unique Name - Account Name - Discord Name</p>
+
     <ul class="displayed-list">
+        <li class="field-description">Unique Name - Account Name - Discord Name</li>
     <% uniques.forEach( el => { %>
             <li class='requestedItem' data-id='<%=el._id%>'>
                 <span class='<%= el.completed === true ? 'completed' : 'not'%>'>
-                    <%= el.requestedItem %> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName %></a>
+                    <%= el.requestedItem %> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName %> - <%= el.discordName%></a>
                 </span>
             </li>
     <% }) %>    

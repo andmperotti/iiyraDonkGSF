@@ -15,7 +15,7 @@ module.exports = {
 
             const requestedOthers = await Request.find({userName:req.user.userName, itemType: "Other"})
             requestedGems.sort((a,b)=>a.completed-b.completed)
-            console.log(req)
+
 
             //trigger render aka invoke ejs return
             res.render('request.ejs', {gems: requestedGems, uniques: requestedUniques, others: requestedOthers})
@@ -25,7 +25,7 @@ module.exports = {
     },
     createRequestedItem: async (req, res)=>{
         try{
-            await Request.create({requestedItem: req.body.requestedItem, completed: false, userName: req.user.userName, itemType: req.body.itemType})
+            await Request.create({requestedItem: req.body.requestedItem, completed: false, userName: req.user.userName, itemType: req.body.itemType, discordName: req.user.discordName})
             res.redirect('/request')
         }catch(err){
             console.log(err)

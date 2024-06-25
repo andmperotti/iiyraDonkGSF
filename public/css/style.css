@@ -364,18 +364,15 @@ body, .center-column{
 }
 header{
     width: 100%;
-    display: flex;
-    justify-content: center;
     margin-bottom: 1%;
 }
 nav{
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
 }
 
 .nav-link{
-    width: 8%;
     color: lightgreen;
 }
 a{
@@ -397,7 +394,7 @@ h1{
 .information a {
     color: blue;
 }
-/*styling the welcome message with two images around it*/
+/*styling the welcome message with two images around the welcome text*/
 .welcome{
     display: flex;
     align-items: center;
@@ -427,10 +424,10 @@ h1{
 }
 
 /*disclaimer on signup page for account name to be === poe account name*/
-.signup{
+.signup, .centered-description{
     width: 70%;
     text-align: center;
-    margin-top: 1%;
+
 }
 
 /*Request Items page specific styles*/
@@ -444,10 +441,10 @@ h1{
     display: inline;
 }
 .requested-output{
-    border: 5px solid black;
     width: 50%;
-    height: 15vh;
-    overflow: auto;
+    border: 5px solid black;
+    display: flex;
+    flex-direction: column;
 }
 .uniques{
     color: orange;
@@ -458,7 +455,7 @@ h1{
 .others{
     color: rebeccapurple;
 }
-.requested-text,.current-jobs{
+.requested-text, .current-jobs{
     display: block;
     text-align: center;
     text-decoration: underline;
@@ -470,6 +467,10 @@ h1{
     width: 60%;
     text-align: center;
     list-style-type: none;
+    margin: 0 auto;
+    border: 1px solid black;
+    overflow: auto;
+    height: 15vh;
 }
 
 /*Gems, job, and builds explanation paragraph styling*/
@@ -489,7 +490,7 @@ h1{
 }
 
 /* styling for delete button next to list items */
-.del, .deljob{
+.del, .deljob,.delBuild{
   border: 1px solid black;
   background: black;
   color: red;
@@ -499,7 +500,8 @@ h1{
 
 /* styling of the logout link in the resources page*/
 .logout{
-  color: darkred;
+  color: rgb(156, 23, 0);
+  font-weight: bold;
 }
 
 /* styles for completed and not completed items*/
@@ -508,4 +510,27 @@ h1{
 }
 .not{
   text-decoration: underline;
+}
+
+/* format of lab section to cahnge them to vertical*/
+.labs{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px dotted black;
+  width: 50%;
+  padding-bottom: 1%;
+}
+
+/* bold of list item content that describes list item content for each ejs generated li*/
+.field-description{
+  font-weight: bold;
+  margin-bottom: 1%;
+  font-size: 1.4rem;
+}
+
+/*more styling, for list items generated into ejs*/
+.requestedItem, .userItem{
+  padding: .5%;
+  font-size: 1.2rem;
 }

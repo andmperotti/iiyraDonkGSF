@@ -27,16 +27,17 @@
     <h1>Users</h1>
 
     <img src="images/users.gif">
-    <h2>Who are you people?</h2>
-    <h3>Account Name - Discord Name</h3>
+    <h2 class="centered-description">Who are you people?</h2>
+
     <ul class="displayed-list">
-    <% users.forEach( el => { %>
-            <li class='userItem'  data-id='<%=el._id%>'>
-                <span>
-                    <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName %></a> - <%= el.discordName %>
-                </span>
-            </li>
-    <% }) %>   
+        <li class="field-description">Poe Account Name - Discord Name</li>
+        <% users.forEach( el => { %>
+                <li class='userItem'  data-id='<%=el._id%>'>
+                    <span>
+                        <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName %></a> - <%= el.discordName %>
+                    </span>
+                </li>
+        <% }) %>   
     </ul>
 
 

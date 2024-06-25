@@ -7,6 +7,6 @@ router.get('/', ensureAuth, buildsController.getBuilds)
 
 router.post('/createBuild', buildsController.createBuild)
 
-
+router.delete('/deleteBuild', buildsController.deleteBuild)
 
 module.exports = router

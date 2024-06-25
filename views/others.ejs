@@ -27,19 +27,18 @@
     <h1>Other Items Requested</h1>
 
     <img src="images/other.gif">
-    <h2>What has been requested and by who, click to complete and remove from list</h2>
-    <figure class="requested-output">
-        <figcaption class="requested-text"> <h3>Requested <span class="others">Others</span>:</h3><h4>Item requested - Account Name</h4></figcaption>
+    <h2 class="centered-description">What has been requested and by who, click to complete and move down the list, click profile name to be navigated to their poe account page</h2>
         <ul class="displayed-list">
+            <li class="field-description">What thing - Account Name - Discord Name</li>
             <% others.forEach( el => { %>
                     <li class='requestedItem' data-id='<%=el._id%>'>
                         <span class='<%= el.completed === true ? 'completed' : 'not'%>'>
-                            <%= el.requestedItem %>- <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%=el.userName %></a> 
+                            <%= el.requestedItem %>- <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%=el.userName %> - <%= el.discordName%></a> 
                         </span>
                     </li>
             <% }) %>    
         </ul>
-    </figure>
+
 
 
 

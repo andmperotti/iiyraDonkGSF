@@ -29,20 +29,23 @@
     <img src="images/peepoPonderingPOB.webp" alt="peepo the frog staring at path of building">
 
     <form action="/builds/createBuild" method='POST' class="center-column">
-        <input type="text" placeholder="Enter Build" name='buildName' required>
-        <input text="text" placeholder="Character Name" name="buildCharacterName" required>
+        <input type="text" placeholder="Enter Build, ex: 'dd necro'" name='buildName' required>
+        <input type="text" placeholder="Character Name" name="buildCharacterName" required>
         <input type="text" placeholder="Optional pob link or resource" name="buildResource">
         <input type="submit">
     </form>
-    <p class="build-explanation">Can change the character name later, down below.</p>
+    <p class="build-explanation">Need to change character name? Just delete it and remake.</p>
 
-    <p>Account Name - Character Name - Build Description - Build resource(pob,etc) optional</p>
     <ul class="displayed-list">
+        <li class="field-description">Account Name - Character Name - Build Description/Resource(pob,etc) optional</li>
         <% builds.forEach( el => { %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
                     <span>
                         <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%=el.userName%></a> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>/characters?characterName=<%=el.buildCharacterName%>"><%=el.buildCharacterName%></a> - <a href="<%=el.buildResource%>"><%=el.buildName%></a>
                     </span>
+                    <% if(reqUser === el.userName){%>
+                        <span class='delBuild'> Delete </span>
+                    <%}%>
                 </li>
         <% }) %>    
     </ul>
