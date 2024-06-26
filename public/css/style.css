@@ -360,51 +360,54 @@
 
 /* my styles */
 /*to align all root sibling elements in a colum orientation*/
+ul{
+  padding: 0 1%;
+}
 body, .center-column{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: gray;
 }
 header{
-    width: 100%;
-    margin-bottom: 1%;
+  width: 100%;
+  margin-bottom: 1%;
 }
 nav{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .nav-link{
-    color: lightgreen;
+  color: lightgreen;
 }
 a{
-    color: orange;
+  color: orange;
 }
 
 h1{
-    color: purple;
-    justify-content: center;
+  color: purple;
+  justify-content: center;
 }
 /*main page styling*/
 .intro{
-    width: 50%;
-    text-align: center;
+  width: 50%;
+  text-align: center;
 }
 .information{
-    border: 1px solid black;
-    width: 70%;
+  border: 1px solid black;
+  width: 70%;
 }
 .information a {
-    color: blue;
+  color: blue;
 }
 /*styling the welcome message with two images around the welcome text*/
 .welcome{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    max-width: 80%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  max-width: 80%;
 }
 /*chewing emote images*/
 .chewers{
@@ -412,17 +415,17 @@ h1{
 }
 /*image for trade filter*/
 .trade-filter{
-    max-width: 100%;
-    display: block;
-    margin: 0 auto;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
 }
 /**/
 .shameless-plug{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 70%;
 }
 .shameless-plug h6{
     text-align: center;
@@ -435,8 +438,8 @@ h1{
 
 /*resource page styling specifics*/
 .resources{
-    color: purple;
-    font-size: 150%;
+  color: purple;
+  font-size: 150%;
 }
 .resource-list{
   border: 1px solid black;
@@ -447,46 +450,55 @@ h1{
 
 /*disclaimer on signup page for account name to be === poe account name*/
 .signup, .centered-description{
-    width: 70%;
-    text-align: center;
-
+  width: 70%;
+  text-align: center;
+  
 }
 
 /*Request Items page specific styles*/
 .request-item-legend{
-    text-align: center;
+  text-align: center;
 }
 .request-item-p{
-    text-align: center;
+  text-align: center;
 }
 .requested-inputs-submit{
-    display: inline;
+  display: inline;
 }
 .requested-output{
-    width: 50%;
-    border: 5px solid black;
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 1%;
+  width: 50%;
+  border: 5px solid black;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1%;
 }
 .uniques{
     color: orange;
 }
+.uniquesList.displayed-list{
+  border: 1px solid orange;
+}
 .gems{
     color: lightgreen;
 }
+.gemsList.displayed-list{
+  border: 1px solid lightgreen;
+}
 .others{
     color: rebeccapurple;
+}
+.othersList.displayed-list{
+  border: 1px solid rebeccapurple;
 }
 .others li{
   padding: 0;
   margin: 0;
 }
 .requested-text, .current-jobs{
-    display: block;
-    text-align: center;
-    text-decoration: underline;
-    margin-bottom: 2vh;
+  display: block;
+  text-align: center;
+  text-decoration: underline;
+  margin-bottom: 2vh;
 }
 .requestBar{
   margin-bottom: 2vh;
@@ -498,31 +510,31 @@ h1{
 
 /*styling for the ul's on the requested page*/
 .displayed-list{
-    width: 60%;
-    text-align: center;
-    list-style-type: none;
-    margin: 0 auto;
-    border: 1px solid black;
-    overflow: auto;
-    height: 20vh;
-    padding-top: 2%;
+  width: 60%;
+  text-align: center;
+  list-style-type: none;
+  margin: 0 auto;
+  border: 1px solid black;
+  overflow: auto;
+  height: 20vh;
+  padding-top: 2%;
 
 }
 
 /*Gems, job, and builds explanation paragraph styling*/
 .disclaimer-gem, .job-description, .build-explanation{
-    color: orange;
+  color: orange;
     
 }
 /* job entry input element spacing */
 .job-entry{
-    margin-top: 1%;
+  margin-top: 1%;
 }
 
 /*job output element*/
 .job-list{
-    border: 5px solid black;
-    width: 60%;
+  border: 5px solid black;
+  width: 60%;
 }
 
 /* styling for delete button next to list items */
@@ -555,13 +567,12 @@ h1{
   text-align: center;
   border: 1px dotted black;
   width: 50%;
-  padding-bottom: 1%;
 }
 
 /* bold of list item content that describes list item content for each ejs generated li*/
 .field-description{
   font-weight: bold;
-  margin-bottom: 1%;
+  margin-bottom: 2%;
   font-size: 1.4rem;
 }
 
@@ -569,6 +580,8 @@ h1{
 .requestedItem, .userItem{
   display: block;
   font-size: 1.2rem;
+  border: .5px solid whitesmoke;
+
 }
 /* margin above the login image */
 .login-image{
@@ -621,6 +634,27 @@ h1{
   left: 1%;
   top: 1%;
 }
+/*editing the size of all images*/
+img{
+  width: 450px;
+}
+/*styling the margin on the countdown timer of hte gems page*/
+.timer{
+  margin: 0 1%;
+}
+
+.oprah{
+  width: 350px;
+}
+
+.buildsImg{
+  width: 300px;
+  max-width: 60%;
+}
+
+
+
+
 
 
 /* media queries for mobile layout */
@@ -631,7 +665,7 @@ h1{
     left: -9999px;
   }
   img{
-    max-width: 80%;
+    max-width: 60%;
   }
   .loginForm{
     display: flex;

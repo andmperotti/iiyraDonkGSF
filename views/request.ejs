@@ -73,7 +73,7 @@
     </section>
 
 
-        <ul class="displayed-list uniquesList">
+        <ul class="displayed-list uniquesList uniques">
             <% uniques.forEach( el => { %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
                     <span class='uniques <%= el.completed === true ? 'completed' : 'not'%>'><%= el.requestedItem %></span>
