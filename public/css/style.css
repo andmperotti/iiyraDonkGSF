@@ -636,7 +636,7 @@ h1{
 }
 /*editing the size of all images*/
 img{
-  width: 450px;
+  max-width: 450px;
 }
 /*styling the margin on the countdown timer of hte gems page*/
 .timer{
@@ -644,15 +644,16 @@ img{
 }
 
 .oprah{
-  width: 350px;
+ max-width: 260px;
 }
 
 .buildsImg{
-  width: 300px;
-  max-width: 60%;
+  max-width: 400px;
 }
 
-
+.signupForm{
+  margin-top: 1%;
+}
 
 
 
@@ -671,11 +672,8 @@ img{
     display: flex;
     flex-direction: column;
   }
-  .signupPic{
-    margin-top: 10%;
-    margin-bottom: 5%;
-  }
 }
+
 
 /*media query for when site isn't loaded on mobile*/
 /*Hide the menu button when the device loading the site has a width greater than 800px*/
@@ -692,5 +690,9 @@ img{
   .signupForm{
     display: flex;
     flex-direction: column;
+    margin-top: 0%;
+  }
+  .signupForm{
+    margin-top: 1vh;
   }
 }
