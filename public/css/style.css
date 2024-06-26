@@ -407,7 +407,9 @@ h1{
 }
 /*image for trade filter*/
 .trade-filter{
-    width: 90%
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
 }
 /**/
 .shameless-plug{
