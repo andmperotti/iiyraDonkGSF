@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-    <header> 
-        <nav>
+    <header>
+        <nav class="topNav">
             <a href="/" class="nav-link"><span>Main</span></a>
             <a href="/login" class="nav-link"><span>Login</span></a>
             <a href="/signup" class="nav-link"><span>Signup</span></a>
@@ -24,6 +24,21 @@
         </nav>
     </header>
 
+    <button id="menuButton" type="button">Menu</button>
+    <nav class="menuNav">
+        <a href="/" class="nav-link"><span>Main</span></a>
+        <a href="/login" class="nav-link"><span>Login</span></a>
+        <a href="/signup" class="nav-link"><span>Signup</span></a>
+        <a href="/request" class="nav-link"><span>Request</span></a>
+        <a href="/uniques" class="nav-link"><span>Uniques</span></a>
+        <a href="/gems" class="nav-link"><span>Gems</span></a>
+        <a href="/others" class="nav-link"><span>Others</span></a>
+        <a href="/jobs" class="nav-link"><span>Jobs</span></a>
+        <a href="/users" class="nav-link"><span>Users</span></a>
+        <a href="/builds" class="nav-link"><span>Builds</span></a>
+        <a href="/resources" class="nav-link"><span>Resources</span></a>
+    </nav>
+
     <h1>Gems Requested</h1>
 
     <img src="images/gems.gif">
@@ -37,7 +52,7 @@
         <a href="https://www.poelab.com/bcwmh/">Uber Lab</a>
     </section>
 
-    <h2 class="centered-description">What has been requested and by who, click the item text to complete the request and move down the list, click their Account name to open their profile page, click the completed item again to uncomplete and move up the list.</h2>
+    <p class="centered-description">Click on the gem name to complete it and move down list, click again to uncomplete it and move to top of list.</p>
 
     <ul class="all-requested">
         <li class="field-description">Gem Name - Account Name - Discord Name</li>
@@ -54,5 +69,44 @@
 
 
     <script src="js/main.js"></script>
+    <script>
+    //functionality to calculate time until next labyrinth reset
+
+        function timeUntilMidnightUTC() {
+            const now = new Date();
+            const nowUTC = new Date(Date.UTC(
+              now.getUTCFullYear(),
+              now.getUTCMonth(),
+              now.getUTCDate(),
+              now.getUTCHours(),
+              now.getUTCMinutes(),
+              now.getUTCSeconds(),
+              now.getUTCMilliseconds()
+            ));
+        
+            const midnightUTC = new Date(Date.UTC(
+              now.getUTCFullYear(),
+              now.getUTCMonth(),
+              now.getUTCDate() + 1, // move to next day
+              0, 0, 0, 0
+            ));
+        
+            const timeDifference = midnightUTC - nowUTC;
+        
+            const hours = Math.floor(timeDifference / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+        
+            return { hours, minutes, seconds };
+          }
+        
+          function displayTimeUntilMidnightUTC() {
+            const time = timeUntilMidnightUTC();
+            document.getElementById('time').textContent = `Lab resets in: ${time.hours}h ${time.minutes}m ${time.seconds}s`
+          }
+        
+          // Call the function to display the time when the page loads
+          displayTimeUntilMidnightUTC();
+        </script>
 </body>
 </html>

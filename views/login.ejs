@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css" >
+    <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-    <header> 
-        <nav>
+    <header>
+        <nav class="topNav">
             <a href="/" class="nav-link"><span>Main</span></a>
             <a href="/login" class="nav-link"><span>Login</span></a>
             <a href="/signup" class="nav-link"><span>Signup</span></a>
@@ -23,10 +23,25 @@
             <a href="/resources" class="nav-link"><span>Resources</span></a>
         </nav>
     </header>
+
+    <button id="menuButton" type="button">Menu</button>
+    <nav class="menuNav">
+        <a href="/" class="nav-link"><span>Main</span></a>
+        <a href="/login" class="nav-link"><span>Login</span></a>
+        <a href="/signup" class="nav-link"><span>Signup</span></a>
+        <a href="/request" class="nav-link"><span>Request</span></a>
+        <a href="/uniques" class="nav-link"><span>Uniques</span></a>
+        <a href="/gems" class="nav-link"><span>Gems</span></a>
+        <a href="/others" class="nav-link"><span>Others</span></a>
+        <a href="/jobs" class="nav-link"><span>Jobs</span></a>
+        <a href="/users" class="nav-link"><span>Users</span></a>
+        <a href="/builds" class="nav-link"><span>Builds</span></a>
+        <a href="/resources" class="nav-link"><span>Resources</span></a>
+    </nav>
     
     <h1>Login DN</h1>
 
-    <form action="/login" method="POST">
+    <form action="/login" method="POST" class="loginForm">
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Password">
         <input type="submit">

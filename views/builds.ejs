@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-    <header> 
-        <nav>
+    <header>
+        <nav class="topNav">
             <a href="/" class="nav-link"><span>Main</span></a>
             <a href="/login" class="nav-link"><span>Login</span></a>
             <a href="/signup" class="nav-link"><span>Signup</span></a>
@@ -24,6 +24,21 @@
         </nav>
     </header>
 
+    <button id="menuButton" type="button">Menu</button>
+    <nav class="menuNav">
+        <a href="/" class="nav-link"><span>Main</span></a>
+        <a href="/login" class="nav-link"><span>Login</span></a>
+        <a href="/signup" class="nav-link"><span>Signup</span></a>
+        <a href="/request" class="nav-link"><span>Request</span></a>
+        <a href="/uniques" class="nav-link"><span>Uniques</span></a>
+        <a href="/gems" class="nav-link"><span>Gems</span></a>
+        <a href="/others" class="nav-link"><span>Others</span></a>
+        <a href="/jobs" class="nav-link"><span>Jobs</span></a>
+        <a href="/users" class="nav-link"><span>Users</span></a>
+        <a href="/builds" class="nav-link"><span>Builds</span></a>
+        <a href="/resources" class="nav-link"><span>Resources</span></a>
+    </nav>
+
     <h1>Builds</h1>
 
     <img src="images/peepoPonderingPOB.webp" alt="peepo the frog staring at path of building">
@@ -34,7 +49,7 @@
         <input type="text" placeholder="Optional pob link or resource" name="buildResource">
         <input type="submit">
     </form>
-    <p class="build-explanation">Need to change character name? Just delete it and remake.</p>
+    <p class="centered-description">Need to change character name? Just delete it and remake.</p>
 
     <ul class="all-requested">
         <li class="field-description">Account Name - Character Name - Build Description/Resource(pob,etc) optional</li>

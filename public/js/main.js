@@ -1,3 +1,4 @@
+
 const deleteBtn = document.querySelectorAll('.del')
 const deleteJobBtn = document.querySelectorAll('.deljob')
 const requestedItem = document.querySelectorAll('span.not')
@@ -113,40 +114,9 @@ async function markIncomplete(){
 }
 
 
-//functionality to calculate time until next labyrinth reset
-
-function timeUntilMidnightUTC() {
-    const now = new Date();
-    const nowUTC = new Date(Date.UTC(
-      now.getUTCFullYear(),
-      now.getUTCMonth(),
-      now.getUTCDate(),
-      now.getUTCHours(),
-      now.getUTCMinutes(),
-      now.getUTCSeconds(),
-      now.getUTCMilliseconds()
-    ));
-
-    const midnightUTC = new Date(Date.UTC(
-      now.getUTCFullYear(),
-      now.getUTCMonth(),
-      now.getUTCDate() + 1, // move to next day
-      0, 0, 0, 0
-    ));
-
-    const timeDifference = midnightUTC - nowUTC;
-
-    const hours = Math.floor(timeDifference / (1000 * 60 * 60));
-    const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
-
-    return { hours, minutes, seconds };
-  }
-
-  function displayTimeUntilMidnightUTC() {
-    const time = timeUntilMidnightUTC();
-    document.getElementById('time').textContent = `Lab resets in: ${time.hours}h ${time.minutes}m ${time.seconds}s`;
-  }
-
-  // Call the function to display the time when the page loads
-  displayTimeUntilMidnightUTC();
+  //menu button logic, click to open menu
+  const navMenu = document.querySelector('#menuButton')
+  const menuNav = document.querySelector('.menuNav')
+  navMenu.addEventListener('click',e=>{
+    menuNav.classList.toggle("showMenu")
+  })

@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
-    <header> 
-        <nav>
+    <header>
+        <nav class="topNav">
             <a href="/" class="nav-link"><span>Main</span></a>
             <a href="/login" class="nav-link"><span>Login</span></a>
             <a href="/signup" class="nav-link"><span>Signup</span></a>
@@ -21,8 +21,25 @@
             <a href="/users" class="nav-link"><span>Users</span></a>
             <a href="/builds" class="nav-link"><span>Builds</span></a>
             <a href="/resources" class="nav-link"><span>Resources</span></a>
+            <a href="/logout" class="nav-link"><span>Logout</span></a>
         </nav>
     </header>
+
+    <button id="menuButton" type="button">Menu</button>
+    <nav class="menuNav">
+        <a href="/" class="nav-link"><span>Main</span></a>
+        <a href="/login" class="nav-link"><span>Login</span></a>
+        <a href="/signup" class="nav-link"><span>Signup</span></a>
+        <a href="/request" class="nav-link"><span>Request</span></a>
+        <a href="/uniques" class="nav-link"><span>Uniques</span></a>
+        <a href="/gems" class="nav-link"><span>Gems</span></a>
+        <a href="/others" class="nav-link"><span>Others</span></a>
+        <a href="/jobs" class="nav-link"><span>Jobs</span></a>
+        <a href="/users" class="nav-link"><span>Users</span></a>
+        <a href="/builds" class="nav-link"><span>Builds</span></a>
+        <a href="/resources" class="nav-link"><span>Resources</span></a>
+        <a href="/logout" class="nav-link"><span>Logout</span></a>
+    </nav>
 
     <h1>Request Items</h1>
 
@@ -41,50 +58,77 @@
         		<input type="submit" class="requested-inputs-submit">
         	</section>
         	<p class="request-item-p">Can type other things in name field like "Slitherpinch with elemental weakness corruption"</p>
-        	<p class="request-item-p">Other is for anything other than gems and uniques, like "Crit Quiver", however you should use the trade site to search for items</p>
+        	<p class="request-item-p">Other example: 'Crit Quiver'</p>
         </fieldset>
     </form>
 
-    <h2>What you have requested:</h2>
-    <p class="centered-description">If you want to complete and item yourself, just click on it, to uncomplete it click on it again, if you want to delete it all together press the delete button beside it</p>
+    <h3>What you have requested:</h3>
+    <p class="centered-description">If you want to complete an item yourself, just click on it, to uncomplete it click on it again, if you want to delete it all together press the delete button beside it :)</p>
 
-    <figure class="requested-output">
-        <figcaption class="requested-text">Your requested <span class="uniques">Uniques</span>:</figcaption>
-        <ul class="displayed-list">
+    <p>Click on a type below to see what you've requested from each:</p>
+    <section class="requestBar">
+        <span class="requestButton uniques uniqueButton">Uniques</span>
+        <span class="requestButton gems gemsButton">Gems</span>
+        <span class="requestButton others othersButton">Others</span>
+    </section>
+
+
+        <ul class="displayed-list uniquesList">
             <% uniques.forEach( el => { %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
-                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.requestedItem %></span>
+                    <span class='uniques <%= el.completed === true ? 'completed' : 'not'%>'><%= el.requestedItem %></span>
                     <span class='del'> Delete </span>
                 </li>
             <% }) %>    
         </ul>
-    </figure>
 
-    <figure class="requested-output">
-        <figcaption class="requested-text">Your requested <span class="gems">Gems</span>:</figcaption>
-        <ul class="displayed-list">
+
+
+        <ul class="displayed-list gemsList hideList">
             <% gems.forEach( el => { %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
-                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.requestedItem %></span>
+                    <span class='gems <%= el.completed === true ? 'completed' : 'not'%>'><%= el.requestedItem %></span>
                     <span class='del'> Delete </span>
                 </li>
             <% }) %>    
         </ul>
-    </figure>
-    <figure class="requested-output">
-        <figcaption class="requested-text">Your requested <span class="others">Others</span>:</figcaption>
-        <ul class="displayed-list">
+
+        
+        <ul class="displayed-list othersList hideList">
             <% others.forEach( el => { %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
-                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.requestedItem %></span>
+                    <span class='others <%= el.completed === true ? 'completed' : 'not'%>'><%= el.requestedItem %></span>
                     <span class='del'> Delete </span>
                 </li>
             <% }) %>    
         </ul>
-    </figure>
 
 
-    <a href="/logout" class="logout">Logout</a>
+
     <script src="js/main.js"></script>
+    <script>
+        const uniqueButton = document.querySelector('.uniqueButton')
+        const gemsButton = document.querySelector('.gemsButton')
+        const othersButton = document.querySelector('.othersButton')
+        const uniquesList = document.querySelector('.uniquesList')
+        const gemsList = document.querySelector('.gemsList')
+        const othersList = document.querySelector('.othersList')
+
+        uniqueButton.addEventListener('click', e=>{
+            uniquesList.classList.remove('hideList')
+            gemsList.classList.add('hideList')
+            othersList.classList.add('hideList')
+        })
+        gemsButton.addEventListener('click', e=>{
+            gemsList.classList.remove('hideList')
+            uniquesList.classList.add('hideList')
+            othersList.classList.add('hideList')
+        })
+        othersButton.addEventListener('click', e=>{
+            othersList.classList.remove('hideList')
+            gemsList.classList.add('hideList')
+            uniquesList.classList.add('hideList')
+        })
+    </script>
 </body>
 </html>
