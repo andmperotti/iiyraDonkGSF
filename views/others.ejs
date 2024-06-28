@@ -51,13 +51,13 @@
 
     <img src="images/other.gif">
 
-    <p class="centered-description">Click on the item name to complete it and move down list, click again to uncomplete it and move to top of list.</p>
+    <p class="centered-description">To delete your requested items, go to the request page, navigate to others, use the delete button beside your item.</p>
 
         <ul class="all-requested">
             <li class="field-description">What thing - Account Name - Discord Name</li>
             <% others.forEach( el => { %>
                     <li class='requestedItem' data-id='<%=el._id%>'>
-                        <span class='<%= el.completed === true ? 'completed' : 'not'%>'>
+                        <span>
                             <%= el.requestedItem %></span> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%=el.userName %></a> - <%= el.discordName%>
                         
                     </li>

@@ -552,13 +552,7 @@ h1{
   font-weight: bold;
 }
 
-/* styles for completed and not completed items*/
-.completed{
-  text-decoration: line-through;
-}
-.not{
-  text-decoration: underline;
-}
+
 
 /* format of lab section to cahnge them to vertical*/
 .labs{

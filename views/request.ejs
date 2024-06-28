@@ -69,7 +69,7 @@
     </form>
 
     <h3>What you have requested:</h3>
-    <p class="centered-description">If you want to complete an item yourself, just click on it, to uncomplete it click on it again, if you want to delete it all together press the delete button beside it :)</p>
+    <p class="centered-description">If you have received your item or no longer want what you requested, delete it using the button beside it :)</p>
 
     <p>Click on a type below to see what you've requested from each:</p>
     <section class="requestBar">
@@ -82,7 +82,7 @@
         <ul class="displayed-list uniquesList uniques">
             <% uniques.forEach( el => { %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
-                    <span class='uniques <%= el.completed === true ? 'completed' : 'not'%>'><%= el.requestedItem %></span>
+                    <span><%= el.requestedItem %></span>
                     <span class='del'> Delete </span>
                 </li>
             <% }) %>    
@@ -93,7 +93,7 @@
         <ul class="displayed-list gemsList hideList">
             <% gems.forEach( el => { %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
-                    <span class='gems <%= el.completed === true ? 'completed' : 'not'%>'><%= el.requestedItem %></span>
+                    <span><%= el.requestedItem %></span>
                     <span class='del'> Delete </span>
                 </li>
             <% }) %>    
@@ -103,7 +103,7 @@
         <ul class="displayed-list othersList hideList">
             <% others.forEach( el => { %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
-                    <span class='others <%= el.completed === true ? 'completed' : 'not'%>'><%= el.requestedItem %></span>
+                    <span><%= el.requestedItem %></span>
                     <span class='del'> Delete </span>
                 </li>
             <% }) %>    
