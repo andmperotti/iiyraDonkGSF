@@ -90,7 +90,7 @@
 
 
 
-        <ul class="displayed-list gemsList hideList">
+        <ul class="displayed-list gemsList hideList gems">
             <% gems.forEach( el => { %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
                     <span><%= el.requestedItem %></span>
@@ -100,7 +100,7 @@
         </ul>
 
         
-        <ul class="displayed-list othersList hideList">
+        <ul class="displayed-list othersList hideList others">
             <% others.forEach( el => { %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
                     <span><%= el.requestedItem %></span>
