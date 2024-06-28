@@ -5,7 +5,6 @@ const Job = require('../models/Job')
 module.exports = {
     getJobs: async (req,res)=>{
         try{
-
             const jobList = await Job.find({})
 
             //trigger render aka invoke ejs return

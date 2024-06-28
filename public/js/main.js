@@ -1,6 +1,6 @@
 
 const deleteBtn = document.querySelectorAll('.del')
-const deleteJobBtn = document.querySelectorAll('.deljob')``
+const deleteJobBtn = document.querySelectorAll('.deljob')
 const deleteBuildBtn = document.querySelectorAll('.delBuild')
 
 
@@ -10,7 +10,6 @@ Array.from(deleteBtn).forEach((el)=>{
 Array.from(deleteJobBtn).forEach((el)=>{
     el.addEventListener('click', deleteJob)
 })
-
 
 
 Array.from(deleteBuildBtn).forEach((el)=>{

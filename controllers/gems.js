@@ -5,9 +5,8 @@ const Request = require('../models/Request')
 module.exports = {
     getGems: async (req,res)=>{
         try{
-            //arrays of documents, sorted from incomplete to completed
+            //arrays of gem documents
             const requestedGems = await Request.find({itemType: 'Gem'})
-            requestedGems.sort((a,b)=>a.completed-b.completed) 
 
             //trigger render aka invoke ejs return
             res.render('gems.ejs', {gems: requestedGems})

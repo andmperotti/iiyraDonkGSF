@@ -5,10 +5,10 @@ const Build = require('../models/Build')
 module.exports = {
     getBuilds: async (req,res)=>{
         try{
-            //arrays of build documents, sorted from incomplete to completed
-            let reqUser = req.user.userName
+            //arrays of build documents
             const builds = await Build.find({})
-            builds.sort((a,b)=>a.completed-b.completed) 
+            //store requesting user so they can delete their builds
+            let reqUser = req.user.userName
 
             //trigger render aka invoke ejs return
             res.render('builds.ejs', {builds: builds, reqUser: reqUser})

@@ -5,17 +5,10 @@ const Request = require('../models/Request')
 module.exports = {
     getRequestedItems: async (req,res)=>{
         try{
-            //arrays of documents, sorted from incomplete to completed
+            //arrays of requested documents
             const requestedGems = await Request.find({userName:req.user.userName, itemType: 'Gem'})
-            //sort by incompleted first then completed
-            requestedGems.sort((a,b)=>a.completed-b.completed) 
-
             const requestedUniques = await Request.find({userName:req.user.userName, itemType: 'Unique'})
-            requestedUniques.sort((a,b)=>a.completed-b.completed) 
-
             const requestedOthers = await Request.find({userName:req.user.userName, itemType: "Other"})
-            requestedGems.sort((a,b)=>a.completed-b.completed)
-
 
             //trigger render aka invoke ejs return
             res.render('request.ejs', {gems: requestedGems, uniques: requestedUniques, others: requestedOthers})

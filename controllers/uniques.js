@@ -5,9 +5,8 @@ const Request = require('../models/Request')
 module.exports = {
     getUniques: async (req,res)=>{
         try{
-            //arrays of documents, sorted from incomplete to completed
+            //arrays of uniques documents
             const requestedUniques = await Request.find({itemType: 'Unique'})
-            requestedUniques.sort((a,b)=>a.completed-b.completed) 
 
             //trigger render aka invoke ejs return
             res.render('uniques.ejs', {uniques: requestedUniques})

@@ -5,9 +5,8 @@ const Request = require('../models/Request')
 module.exports = {
     getOthers: async (req,res)=>{
         try{
-            //arrays of documents, sorted from incomplete to completed
+            //arrays of others documents
             const requestedOthers = await Request.find({itemType: 'Other'})
-            requestedOthers.sort((a,b)=>a.completed-b.completed) 
 
             //trigger render aka invoke ejs return
             res.render('others.ejs', {others: requestedOthers})
