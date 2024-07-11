@@ -9,7 +9,7 @@ A full stack app that allows a group of players playing in a self found private 
 
 **Tech used:** HTML, CSS, JavaScript, EJS, Node, Express, MongoDB
 
-The project was build using Node.js with Express, which stores data from users on MongoDB, and uses EJS to create dynamic content.
+The project was built using Node.js with Express, which stores data from users on MongoDB, and uses EJS to create dynamic content.
 
 ## Optimizations
 
