@@ -7,7 +7,7 @@ const BuildSchema = new mongoose.Schema({
   },
   buildCharacterName:{
     type: String,
-    required: true,
+    required: false,
   },
   userName: {
     type: String,
