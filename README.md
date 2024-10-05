@@ -3,7 +3,7 @@ A full stack app that allows a group of players playing in a self found private 
 
 **Link to project:** removed for privacy of users sake
 
-
+![Homepage of PoeGSF helper project which displays the rules to the group self found league](images/homepage.png)
 
 Site is on a free tier so it takes a while to load up if the server hasn't been used recently.
 
