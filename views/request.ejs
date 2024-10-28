@@ -78,7 +78,6 @@
         <span class="requestButton others othersButton">Others</span>
     </section>
 
-
         <ul class="displayed-list uniquesList uniques">
             <% uniques.forEach( el => { %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
@@ -87,8 +86,6 @@
                 </li>
             <% }) %>    
         </ul>
-
-
 
         <ul class="displayed-list gemsList hideList gems">
             <% gems.forEach( el => { %>
@@ -99,7 +96,6 @@
             <% }) %>    
         </ul>
 
-        
         <ul class="displayed-list othersList hideList others">
             <% others.forEach( el => { %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
@@ -108,8 +104,6 @@
                 </li>
             <% }) %>    
         </ul>
-
-
 
     <script src="js/main.js"></script>
     <script>

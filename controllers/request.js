@@ -1,7 +1,5 @@
 const Request = require('../models/Request')
 
-
-
 module.exports = {
     getRequestedItems: async (req,res)=>{
         try{
@@ -9,6 +7,7 @@ module.exports = {
             const requestedGems = await Request.find({userName:req.user.userName, itemType: 'Gem'})
             const requestedUniques = await Request.find({userName:req.user.userName, itemType: 'Unique'})
             const requestedOthers = await Request.find({userName:req.user.userName, itemType: "Other"})
+            
 
             //trigger render aka invoke ejs return
             res.render('request.ejs', {gems: requestedGems, uniques: requestedUniques, others: requestedOthers})
