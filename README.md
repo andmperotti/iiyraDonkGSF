@@ -4,6 +4,8 @@ A full stack app that allows a group of players playing in a self found private 
 **Link to project:** removed for privacy of users sake
 
 ![Screenshot of the PoeGsf Project Homepage which lists the rules of the group self found league to its participants](https://i.ibb.co/hBG38TM/homepage.png)
+![Screehshot of the Request Items page of the PoeGSF project, which is where users are able to tell other players items they need](https://andmperotti.com/images/PoeGsf-request-items.png)
+![Screenshot of the requested unique items page, showing what unique items players need](https://andmperotti.com/images/PoeGsf-uniques-requested.png)
 
 Site is on a free tier so it takes a while to load up if the server hasn't been used recently.
 
