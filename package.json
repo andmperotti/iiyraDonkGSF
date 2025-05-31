@@ -1,11 +1,11 @@
 {
-  "name": "todo-mvc-auth-local",
+  "name": "Poe-GSF",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
   },
   "author": "",
   "license": "MIT",
@@ -24,5 +24,11 @@
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "validator": "^13.12.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.28.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.1",
+    "prettier": "^3.5.3"
   }
 }
