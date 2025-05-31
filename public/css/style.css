@@ -690,3 +690,34 @@ img{
     margin-top: 1vh;
   }
 }
+
+
+/*Styling the verify-disclaimer for the sign up page*/
+.verify-disclaimer{
+  color: darkred;
+  text-decoration: underline;
+}
+
+/*Styling for the span/buttons in the admin panel*/
+.verifyUser{
+  background-color: green;
+  border: 1px solid white;
+}
+.adminUser {
+  background-color: orange;
+  border: 1px solid white;
+}
+.deleteUser{
+  background-color: red;
+  border: 1px solid white;
+}
+.adminActions{
+  display: inline-flex;
+  width: 45%;
+  justify-content: space-between;
+  /* float: right; */
+}
+.userDescriptor{
+  width: 45%;
+  display: inline-flex;
+}
