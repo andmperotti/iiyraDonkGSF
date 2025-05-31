@@ -1,11 +1,11 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const BuildSchema = new mongoose.Schema({
   buildName: {
     type: String,
     required: true,
   },
-  buildCharacterName:{
+  buildCharacterName: {
     type: String,
     required: false,
   },
@@ -16,7 +16,7 @@ const BuildSchema = new mongoose.Schema({
   buildResource: {
     type: String,
     required: false,
-  }
-})
+  },
+});
 
-module.exports = mongoose.model('Build', BuildSchema)
+module.exports = mongoose.model("Build", BuildSchema);

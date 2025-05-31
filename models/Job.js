@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const JobSchema = new mongoose.Schema({
   jobName: {
@@ -11,12 +11,12 @@ const JobSchema = new mongoose.Schema({
   },
   userName: {
     type: String,
-    required: true
+    required: true,
   },
   discordName: {
     type: String,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
-module.exports = mongoose.model('Job', JobSchema)
+module.exports = mongoose.model("Job", JobSchema);

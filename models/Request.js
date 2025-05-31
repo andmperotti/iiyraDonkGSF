@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const RequestSchema = new mongoose.Schema({
   requestedItem: {
@@ -9,18 +9,18 @@ const RequestSchema = new mongoose.Schema({
     type: Boolean,
     required: false,
   },
-  itemType:{
+  itemType: {
     type: String,
-    required: true
+    required: true,
   },
-  userName:{
+  userName: {
     type: String,
-    required: true
+    required: true,
   },
-  discordName:{
+  discordName: {
     type: String,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
-module.exports = mongoose.model('Request', RequestSchema)
+module.exports = mongoose.model("Request", RequestSchema);
