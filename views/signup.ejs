@@ -49,11 +49,11 @@
     
     <img src="images/signup.gif" class="signupPic">
     <form action="/signup" method="POST" class="signupForm">
-        <input type="text" name="userName" placeholder="POE Account Name">
-        <input type="text" name="discordName" placeholder="Discord Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
+        <input type="text" name="userName" placeholder="POE Account Name" autocomplete="off">
+        <input type="text" name="discordName" placeholder="Discord Name" autocomplete="off">
+        <input type="email" name="email" placeholder="Email" autocomplete="off">
+        <input type="password" name="password" placeholder="Password" autocomplete="off">
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" autocomplete="off">
         <input type="submit">
     </form>
     <% if (locals.messages.errors) { %>

@@ -56,9 +56,16 @@
     <ul class="all-requested">
         <li class="field-description">Unique Name - Account Name - Discord Name</li>
     <% uniques.forEach( el => { %>
+         <%
+            let poeAccountName = el.userName;
+            let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
+            let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
+            let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
+            let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
+        %>
             <li class='requestedItem' data-id='<%=el._id%>'>
                 <span>
-                    <%= el.requestedItem %></span> - <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName %></a> - <%= el.discordName%>
+                    <%= el.requestedItem %></span> - <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a> - <%= el.discordName%>
             </li>
     <% }) %>    
 
