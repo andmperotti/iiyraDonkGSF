@@ -9,393 +9,387 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
- html {
-    line-height: 1.15; /* 1 */
-    -webkit-text-size-adjust: 100%; /* 2 */
-  }
-  
-  /* Sections
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/* Sections
      ========================================================================== */
-  
-  /**
+
+/**
    * Remove the margin in all browsers.
    */
-  
-  body {
-    margin: 0;
-  }
-  
-  /**
+
+body {
+  margin: 0;
+}
+
+/**
    * Render the `main` element consistently in IE.
    */
-  
-  main {
-    display: block;
-  }
-  
-  /**
+
+main {
+  display: block;
+}
+
+/**
    * Correct the font size and margin on `h1` elements within `section` and
    * `article` contexts in Chrome, Firefox, and Safari.
    */
-  
-  h1 {
-    font-size: 2em;
-    margin: 0.67em 0;
-  }
-  
-  /* Grouping content
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
      ========================================================================== */
-  
-  /**
+
+/**
    * 1. Add the correct box sizing in Firefox.
    * 2. Show the overflow in Edge and IE.
    */
-  
-  hr {
-    box-sizing: content-box; /* 1 */
-    height: 0; /* 1 */
-    overflow: visible; /* 2 */
-  }
-  
-  /**
+
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+
+/**
    * 1. Correct the inheritance and scaling of font size in all browsers.
    * 2. Correct the odd `em` font sizing in all browsers.
    */
-  
-  pre {
-    font-family: monospace, monospace; /* 1 */
-    font-size: 1em; /* 2 */
-  }
-  
-  /* Text-level semantics
+
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/* Text-level semantics
      ========================================================================== */
-  
-  /**
+
+/**
    * Remove the gray background on active links in IE 10.
    */
-  
-  a {
-    background-color: transparent;
-  }
-  
-  /**
+
+a {
+  background-color: transparent;
+}
+
+/**
    * 1. Remove the bottom border in Chrome 57-
    * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
    */
-  
-  abbr[title] {
-    border-bottom: none; /* 1 */
-    text-decoration: underline; /* 2 */
-    text-decoration: underline dotted; /* 2 */
-  }
-  
-  /**
+
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+
+/**
    * Add the correct font weight in Chrome, Edge, and Safari.
    */
-  
-  b,
-  strong {
-    font-weight: bolder;
-  }
-  
-  /**
+
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
    * 1. Correct the inheritance and scaling of font size in all browsers.
    * 2. Correct the odd `em` font sizing in all browsers.
    */
-  
-  code,
-  kbd,
-  samp {
-    font-family: monospace, monospace; /* 1 */
-    font-size: 1em; /* 2 */
-  }
-  
-  /**
+
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+
+/**
    * Add the correct font size in all browsers.
    */
-  
-  small {
-    font-size: 80%;
-  }
-  
-  /**
+
+small {
+  font-size: 80%;
+}
+
+/**
    * Prevent `sub` and `sup` elements from affecting the line height in
    * all browsers.
    */
-  
-  sub,
-  sup {
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
-  
-  sub {
-    bottom: -0.25em;
-  }
-  
-  sup {
-    top: -0.5em;
-  }
-  
-  /* Embedded content
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
      ========================================================================== */
-  
-  /**
+
+/**
    * Remove the border on images inside links in IE 10.
    */
-  
-  img {
-    border-style: none;
-  }
-  
-  /* Forms
+
+img {
+  border-style: none;
+}
+
+/* Forms
      ========================================================================== */
-  
-  /**
+
+/**
    * 1. Change the font styles in all browsers.
    * 2. Remove the margin in Firefox and Safari.
    */
-  
-  button,
-  input,
-  optgroup,
-  select,
-  textarea {
-    font-family: inherit; /* 1 */
-    font-size: 100%; /* 1 */
-    line-height: 1.15; /* 1 */
-    margin: 0; /* 2 */
-  }
-  
-  /**
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+
+/**
    * Show the overflow in IE.
    * 1. Show the overflow in Edge.
    */
-  
-  button,
-  input { /* 1 */
-    overflow: visible;
-  }
-  
-  /**
+
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
    * Remove the inheritance of text transform in Edge, Firefox, and IE.
    * 1. Remove the inheritance of text transform in Firefox.
    */
-  
-  button,
-  select { /* 1 */
-    text-transform: none;
-  }
-  
-  /**
+
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
    * Correct the inability to style clickable types in iOS and Safari.
    */
-  
-  button,
-  [type="button"],
-  [type="reset"],
-  [type="submit"] {
-    -webkit-appearance: button;
-  }
-  
-  /**
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+/**
    * Remove the inner border and padding in Firefox.
    */
-  
-  button::-moz-focus-inner,
-  [type="button"]::-moz-focus-inner,
-  [type="reset"]::-moz-focus-inner,
-  [type="submit"]::-moz-focus-inner {
-    border-style: none;
-    padding: 0;
-  }
-  
-  /**
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
    * Restore the focus styles unset by the previous rule.
    */
-  
-  button:-moz-focusring,
-  [type="button"]:-moz-focusring,
-  [type="reset"]:-moz-focusring,
-  [type="submit"]:-moz-focusring {
-    outline: 1px dotted ButtonText;
-  }
-  
-  /**
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
    * Correct the padding in Firefox.
    */
-  
-  fieldset {
-    padding: 0.35em 0.75em 0.625em;
-  }
-  
-  /**
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
    * 1. Correct the text wrapping in Edge and IE.
    * 2. Correct the color inheritance from `fieldset` elements in IE.
    * 3. Remove the padding so developers are not caught out when they zero out
    *    `fieldset` elements in all browsers.
    */
-  
-  legend {
-    box-sizing: border-box; /* 1 */
-    color: inherit; /* 2 */
-    display: table; /* 1 */
-    max-width: 100%; /* 1 */
-    padding: 0; /* 3 */
-    white-space: normal; /* 1 */
-  }
-  
-  /**
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
    * Add the correct vertical alignment in Chrome, Firefox, and Opera.
    */
-  
-  progress {
-    vertical-align: baseline;
-  }
-  
-  /**
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
    * Remove the default vertical scrollbar in IE 10+.
    */
-  
-  textarea {
-    overflow: auto;
-  }
-  
-  /**
+
+textarea {
+  overflow: auto;
+}
+
+/**
    * 1. Add the correct box sizing in IE 10.
    * 2. Remove the padding in IE 10.
    */
-  
-  [type="checkbox"],
-  [type="radio"] {
-    box-sizing: border-box; /* 1 */
-    padding: 0; /* 2 */
-  }
-  
-  /**
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
    * Correct the cursor style of increment and decrement buttons in Chrome.
    */
-  
-  [type="number"]::-webkit-inner-spin-button,
-  [type="number"]::-webkit-outer-spin-button {
-    height: auto;
-  }
-  
-  /**
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
    * 1. Correct the odd appearance in Chrome and Safari.
    * 2. Correct the outline style in Safari.
    */
-  
-  [type="search"] {
-    -webkit-appearance: textfield; /* 1 */
-    outline-offset: -2px; /* 2 */
-  }
-  
-  /**
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
    * Remove the inner padding in Chrome and Safari on macOS.
    */
-  
-  [type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
-  
-  /**
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
    * 1. Correct the inability to style clickable types in iOS and Safari.
    * 2. Change font properties to `inherit` in Safari.
    */
-  
-  ::-webkit-file-upload-button {
-    -webkit-appearance: button; /* 1 */
-    font: inherit; /* 2 */
-  }
-  
-  /* Interactive
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
      ========================================================================== */
-  
-  /*
+
+/*
    * Add the correct display in Edge, IE 10+, and Firefox.
    */
-  
-  details {
-    display: block;
-  }
-  
-  /*
+
+details {
+  display: block;
+}
+
+/*
    * Add the correct display in all browsers.
    */
-  
-  summary {
-    display: list-item;
-  }
-  
-  /* Misc
+
+summary {
+  display: list-item;
+}
+
+/* Misc
      ========================================================================== */
-  
-  /**
+
+/**
    * Add the correct display in IE 10+.
    */
-  
-  template {
-    display: none;
-  }
-  
-  /**
+
+template {
+  display: none;
+}
+
+/**
    * Add the correct display in IE 10.
    */
-  
-  [hidden] {
-    display: none;
-  }
 
-
-
-
-
-  
-
-
-
+[hidden] {
+  display: none;
+}
 
 /* my styles */
 /*to align all root sibling elements in a colum orientation*/
-ul{
+ul {
   padding: 0 1%;
 }
-body, .center-column{
+body,
+.center-column {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: gray;
 }
-header{
+header {
   width: 100%;
   margin-bottom: 1%;
 }
-nav{
+nav {
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
 
-.nav-link{
+.nav-link {
   color: lightgreen;
 }
-a{
+a {
   color: orange;
 }
 
-h1{
+h1 {
   color: purple;
   justify-content: center;
 }
 /*main page styling*/
-.intro{
+.intro {
   width: 50%;
   text-align: center;
 }
-.information{
+.information {
   border: 1px solid black;
   width: 70%;
 }
@@ -403,45 +397,43 @@ h1{
   color: blue;
 }
 /*styling the welcome message with two images around the welcome text*/
-.welcome{
+.welcome {
   display: flex;
   align-items: center;
   text-align: center;
   max-width: 80%;
 }
 /*chewing emote images*/
-.chewers{
+.chewers {
   max-width: 50%;
 }
 /*image for trade filter*/
-.trade-filter{
+.trade-filter {
   max-width: 100%;
   display: block;
   margin: 0 auto;
 }
 /**/
-.shameless-plug{
+.shameless-plug {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 70%;
 }
-.shameless-plug h6{
-    text-align: center;
+.shameless-plug h6 {
+  text-align: center;
 }
-.shameless-plug-img{
+.shameless-plug-img {
   width: 20vw;
 }
 
-
-
 /*resource page styling specifics*/
-.resources{
+.resources {
   color: purple;
   font-size: 150%;
 }
-.resource-list{
+.resource-list {
   border: 1px solid black;
   max-height: 50vh;
   overflow: auto;
@@ -449,67 +441,77 @@ h1{
 }
 
 /*disclaimer on signup page for account name to be === poe account name*/
-.signup, .centered-description{
+.signup,
+.centered-description {
   width: 70%;
   text-align: center;
-  
+}
+
+.signupForm {
+  display: grid;
+}
+.signupForm input:not([type="submit"]):valid {
+  border-color: green;
+}
+.signupForm input:not([type="submit"]):invalid {
+  border-color: red;
 }
 
 /*Request Items page specific styles*/
-.request-item-legend{
+.request-item-legend {
   text-align: center;
 }
-.request-item-p{
+.request-item-p {
   text-align: center;
 }
-.requested-inputs-submit{
+.requested-inputs-submit {
   display: inline;
 }
-.requested-output{
+.requested-output {
   width: 50%;
   border: 5px solid black;
   display: flex;
   flex-direction: column;
   padding-bottom: 1%;
 }
-.uniques{
-    color: orange;
+.uniques {
+  color: orange;
 }
-.uniquesList.displayed-list{
+.uniquesList.displayed-list {
   border: 1px solid orange;
 }
-.gems{
-    color: lightgreen;
+.gems {
+  color: lightgreen;
 }
-.gemsList.displayed-list{
+.gemsList.displayed-list {
   border: 1px solid lightgreen;
 }
-.others{
-    color: plum;
+.others {
+  color: plum;
 }
-.othersList.displayed-list{
+.othersList.displayed-list {
   border: 1px solid plum;
 }
-.others li{
+.others li {
   padding: 0;
   margin: 0;
 }
-.requested-text, .current-jobs{
+.requested-text,
+.current-jobs {
   display: block;
   text-align: center;
   text-decoration: underline;
   margin-bottom: 2vh;
 }
-.requestBar{
+.requestBar {
   margin-bottom: 2vh;
 }
-.requestButton{
+.requestButton {
   background: black;
-
 }
 
 /*styling for the ul's on the requested page*/
-.displayed-list{
+.displayed-list {
   width: 60%;
   text-align: center;
   list-style-type: none;
@@ -518,27 +520,29 @@ h1{
   overflow: auto;
   height: 20vh;
   padding-top: 2%;
-
 }
 
 /*Gems, job, and builds explanation paragraph styling*/
-.disclaimer-gem, .job-description, .build-explanation{
+.disclaimer-gem,
+.job-description,
+.build-explanation {
   color: orange;
-    
 }
 /* job entry input element spacing */
-.job-entry{
+.job-entry {
   margin-top: 1%;
 }
 
 /*job output element*/
-.job-list{
+.job-list {
   border: 5px solid black;
   width: 60%;
 }
 
 /* styling for delete button next to list items */
-.del, .deljob,.delBuild{
+.del,
+.deljob,
+.delBuild {
   border: 1px solid black;
   background: black;
   color: red;
@@ -547,15 +551,13 @@ h1{
 }
 
 /* styling of the logout link in the resources page*/
-.logout{
+.logout {
   color: rgb(156, 23, 0);
   font-weight: bold;
 }
 
-
-
 /* format of lab section to cahnge them to vertical*/
-.labs{
+.labs {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -564,26 +566,26 @@ h1{
 }
 
 /* bold of list item content that describes list item content for each ejs generated li*/
-.field-description{
+.field-description {
   font-weight: bold;
   margin-bottom: 2%;
   font-size: 1.4rem;
 }
 
 /*more styling, for list items generated into ejs*/
-.requestedItem, .userItem{
+.requestedItem,
+.userItem {
   display: block;
   font-size: 1.2rem;
-  border: .5px solid whitesmoke;
-
+  border: 0.5px solid whitesmoke;
 }
 /* margin above the login image */
-.login-image{
+.login-image {
   margin-top: 1%;
 }
 
 /*Styling for the ul's on the requsted gems, uniques, others page, also the jobs, builds, and user page's ul's */
-.all-requested{
+.all-requested {
   width: 60%;
   text-align: center;
   list-style-type: none;
@@ -593,15 +595,13 @@ h1{
 }
 
 /*toggle hide styling for request page lists */
-.hideList{
+.hideList {
   position: absolute;
   left: -9999px;
 }
 
-
-
 /* style for menu */
-.menuNav{
+.menuNav {
   display: flex;
   flex-direction: column;
   background-color: lightgray;
@@ -612,94 +612,89 @@ h1{
 }
 
 /*class for toggling menu button menu, used in clientside js*/
-.showMenu{
+.showMenu {
   position: fixed;
   top: 1%;
   left: 15%;
 }
 
-.menuNav .nav-link{
+.menuNav .nav-link {
   color: black;
   font-size: 1.2rem;
 }
 
-#menuButton{
+#menuButton {
   position: fixed;
   left: 1%;
   top: 1%;
 }
 /*editing the size of all images*/
-img{
+img {
   max-width: 450px;
 }
 /*styling the margin on the countdown timer of hte gems page*/
-.timer{
+.timer {
   margin: 0 1%;
 }
 
-.oprah{
- max-width: 260px;
+.oprah {
+  max-width: 260px;
 }
 
-.buildsImg{
+.buildsImg {
   max-width: 400px;
 }
 
-.signupForm{
+.signupForm {
   margin-top: 1%;
 }
 
-
-
-
 /* media queries for mobile layout */
 /*hide nav element when device of less than 801px wide loads site */
-@media all and (max-width: 800px){
-  .topNav{
+@media all and (max-width: 800px) {
+  .topNav {
     position: absolute;
     left: -9999px;
   }
-  img{
+  img {
     max-width: 60%;
   }
-  .loginForm{
+  .loginForm {
     display: flex;
     flex-direction: column;
   }
 }
 
-
 /*media query for when site isn't loaded on mobile*/
 /*Hide the menu button when the device loading the site has a width greater than 800px*/
-@media all and (min-width: 801px){
-  #menuButton, .menuNav{
+@media all and (min-width: 801px) {
+  #menuButton,
+  .menuNav {
     position: absolute;
     left: -99999px;
   }
 }
 
-
 /*Media query to make the sign up page look better when viewport is less than 1110px wide*/
-@media all and (max-width: 1110px){
-  .signupForm{
+@media all and (max-width: 1110px) {
+  .signupForm {
     display: flex;
     flex-direction: column;
     margin-top: 0%;
   }
-  .signupForm{
+  .signupForm {
     margin-top: 1vh;
   }
 }
 
-
 /*Styling the verify-disclaimer for the sign up page*/
-.verify-disclaimer{
+.verify-disclaimer {
   color: darkred;
   text-decoration: underline;
 }
 
 /*Styling for the span/buttons in the admin panel*/
-.verifyUser{
+.verifyUser {
   background-color: green;
   border: 1px solid white;
 }
@@ -707,17 +702,17 @@ img{
   background-color: orange;
   border: 1px solid white;
 }
-.deleteUser{
+.deleteUser {
   background-color: red;
   border: 1px solid white;
 }
-.adminActions{
+/*container for admin action buttons*/
+.adminActions {
   display: inline-flex;
   width: 45%;
-  justify-content: space-between;
-  /* float: right; */
+  justify-content: space-around;
 }
-.userDescriptor{
+.userDescriptor {
   width: 45%;
   display: inline-flex;
 }
