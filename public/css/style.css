@@ -716,3 +716,11 @@ img {
   width: 45%;
   display: inline-flex;
 }
+
+/*Admin panel verify modal styling*/
+.verifyModal{
+  background-color: white;
+  border: 1px solid red;
+  position: absolute;
+  top:25%;
+}

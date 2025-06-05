@@ -73,7 +73,7 @@ async function deleteBuild() {
 //nav menu button logic, click to open menu
 const navMenu = document.querySelector("#menuButton");
 const menuNav = document.querySelector(".menuNav");
-navMenu.addEventListener("click", (e) => {
+navMenu.addEventListener("click", () => {
   menuNav.classList.toggle("showMenu");
 });
 
@@ -92,18 +92,19 @@ Array.from(adminUserBtn).forEach((el) => {
 async function deleteUser() {
   const requestId = this.parentNode.parentNode.dataset.id;
   try {
-    //add logic here to delte their entries
-
-    const response = await fetch("admin/deleteUser", {
-      method: "delete",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({
-        requestIdFromJsFile: requestId,
-      }),
-    });
-    const data = await response.json();
-    console.log(data);
-    location.reload();
+    let confirm = await verifyModal("Delete");
+    if (confirm === true) {
+      const response = await fetch("admin/deleteUser", {
+        method: "delete",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          requestIdFromJsFile: requestId,
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+      location.reload();
+    }
   } catch (err) {
     console.log(err);
   }
@@ -112,16 +113,19 @@ async function deleteUser() {
 async function verifyUser() {
   const requestId = this.parentNode.parentNode.dataset.id;
   try {
-    const response = await fetch("admin/verifyUser", {
-      method: "post",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({
-        requestIdFromJsFile: requestId,
-      }),
-    });
-    const data = await response.json();
-    console.log(data);
-    location.reload();
+    let confirm = await verifyModal("Verify");
+    if (confirm === true) {
+      const response = await fetch("admin/verifyUser", {
+        method: "post",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          requestIdFromJsFile: requestId,
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+      location.reload();
+    }
   } catch (err) {
     console.log(err);
   }
@@ -130,17 +134,63 @@ async function verifyUser() {
 async function adminUser() {
   const requestId = this.parentNode.parentNode.dataset.id;
   try {
-    const response = await fetch("admin/adminUser", {
-      method: "post",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({
-        requestIdFromJsFile: requestId,
-      }),
-    });
-    const data = await response.json();
-    console.log(data);
-    location.reload();
+    let confirm = await verifyModal("Admin");
+    if (confirm === true) {
+      const response = await fetch("admin/adminUser", {
+        method: "post",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          requestIdFromJsFile: requestId,
+        }),
+      });
+      const data = await response.json();
+      console.log(data);
+      location.reload();
+    }
   } catch (err) {
     console.log(err);
   }
+}
+
+//modal for verifying actions of admin panel
+function verifyModal(type) {
+  return new Promise((resolve) => {
+    let modalUi = document.createElement("div");
+    modalUi.classList.add("verifyModal");
+
+    let modalHeader = document.createElement("h2");
+    modalHeader.textContent = "Verify Action";
+    modalUi.appendChild(modalHeader);
+
+    let modalDescription = document.createElement("p");
+    modalDescription.textContent = `Are you sure you want to ${type} this user?`;
+    modalUi.appendChild(modalDescription);
+
+    let actionButtons = document.createElement("section");
+    let verifyButton = document.createElement("button");
+    let cancelButton = document.createElement("button");
+    verifyButton.type = "button";
+    cancelButton.type = "button";
+    verifyButton.id = "verifyConfirm";
+    cancelButton.id = "cancelConfirm";
+    verifyButton.textContent = `${type}`;
+    cancelButton.textContent = "Cancel";
+    actionButtons.appendChild(verifyButton);
+    actionButtons.appendChild(cancelButton);
+    modalUi.appendChild(actionButtons);
+
+    document.querySelector("body").appendChild(modalUi);
+
+    let adminAction = document.querySelector("#verifyConfirm");
+    let adminCancel = document.querySelector("#cancelConfirm");
+    //how do i tell the function to not return undefined and wait for one of these listeners to be invoked and return?
+    adminAction.addEventListener("click", () => {
+      document.querySelector(".verifyModal").remove();
+      resolve(true);
+    });
+    adminCancel.addEventListener("click", () => {
+      document.querySelector(".verifyModal").remove();
+      resolve(false);
+    });
+  });
 }
