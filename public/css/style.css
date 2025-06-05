@@ -570,6 +570,9 @@ h1 {
   font-weight: bold;
   margin-bottom: 2%;
   font-size: 1.4rem;
+  position: sticky;
+  top: 1px;
+  background-color: gray;
 }
 
 /*more styling, for list items generated into ejs*/
