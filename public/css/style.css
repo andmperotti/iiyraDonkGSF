@@ -383,6 +383,7 @@ a {
 h1 {
   color: purple;
   justify-content: center;
+  text-decoration: underline;
 }
 /*main page styling*/
 .intro {
