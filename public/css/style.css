@@ -572,7 +572,7 @@ h1 {
   margin-bottom: 2%;
   font-size: 1.4rem;
   position: sticky;
-  top: 1px;
+  top: 0px;
   background-color: gray;
 }
 
