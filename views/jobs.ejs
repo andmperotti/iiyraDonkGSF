@@ -69,7 +69,7 @@
                 let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
             %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
-                    <%=el.jobName%> - <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName%></a>  <%=el.discordName%>
+                    <%=el.jobName%> - <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName%></a> - <%=el.discordName%>
                     <% if(req.user.userName===el.userName){%>
                         <span class='deljob'> Delete </span> 
                     <%}%>

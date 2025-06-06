@@ -71,7 +71,7 @@
             %>
                 <li class='requestedItem' data-id='<%=el._id%>'>
                     <span>
-                        <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%=el.userName%></a> l <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>/characters?characterName=<%=el.buildCharacterName%>"><%=el.buildCharacterName%></a>  <a href="<%=el.buildResource%>"><%=el.buildName%></a>
+                        <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%=el.userName%></a> - <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>/characters?characterName=<%=el.buildCharacterName%>"><%=el.buildCharacterName%></a>   - <a href="<%=el.buildResource%>"><%=el.buildName%></a>
                     </span>
                     <% if(reqUser === el.userName){%>
                         <span class='delBuild'> Delete </span>
