@@ -719,6 +719,9 @@ img {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
 }
+.adminActions > span {
+  width: 8ch;
+}
 .userDescriptor {
   width: 45%;
   display: inline-flex;
