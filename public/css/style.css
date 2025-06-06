@@ -712,9 +712,12 @@ img {
 }
 /*container for admin action buttons*/
 .adminActions {
-  display: inline-flex;
+  /* display: inline-flex;
   width: 45%;
-  justify-content: space-around;
+  justify-content: space-around; */
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
 }
 .userDescriptor {
   width: 45%;
@@ -727,4 +730,11 @@ img {
   border: 1px solid red;
   position: absolute;
   top:25%;
+}
+
+/*more styling for already verified and admin'd users */
+.verifiedUser, .adminedUser{
+  background-color: gray;
+  border: 1px solid black;
+  color: white;
 }

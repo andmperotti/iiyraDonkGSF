@@ -57,9 +57,17 @@
                     </span>
                     <section class="adminActions">
                         <% if(!el.isVerified){%>
-                        <span class="verifyUser">Verify</span>
-                    <%}%>
-                        <span class="adminUser">Admin</span>
+                            <span class="verifyUser">Verify</span>
+                        <%}%>                        
+                        <% if(el.isVerified){%>
+                            <span class="verifiedUser">Verified</span>
+                        <%}%>
+                         <% if(!el.isAdmin){%>
+                            <span class="adminUser">Admin</span>
+                        <%}%>
+                        <% if(el.isAdmin){%>
+                            <span class="adminedUser">Admin</span>
+                        <%}%>
                         <span class="deleteUser">Delete</span>
                     </section>
 
