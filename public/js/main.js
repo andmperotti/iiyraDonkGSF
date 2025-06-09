@@ -92,7 +92,10 @@ Array.from(adminUserBtn).forEach((el) => {
 async function deleteUser() {
   const requestId = this.parentNode.parentNode.dataset.id;
   try {
-    let confirm = await verifyModal("Delete");
+    let confirm = await verifyModal(
+      "Delete",
+      this.parentNode.parentNode.childNodes[1].textContent.trim()
+    );
     if (confirm === true) {
       const response = await fetch("admin/deleteUser", {
         method: "delete",
@@ -113,7 +116,10 @@ async function deleteUser() {
 async function verifyUser() {
   const requestId = this.parentNode.parentNode.dataset.id;
   try {
-    let confirm = await verifyModal("Verify");
+    let confirm = await verifyModal(
+      "Verify",
+      this.parentNode.parentNode.childNodes[1].textContent.trim()
+    );
     if (confirm === true) {
       const response = await fetch("admin/verifyUser", {
         method: "post",
@@ -134,7 +140,10 @@ async function verifyUser() {
 async function adminUser() {
   const requestId = this.parentNode.parentNode.dataset.id;
   try {
-    let confirm = await verifyModal("Admin");
+    let confirm = await verifyModal(
+      "Admin",
+      this.parentNode.parentNode.childNodes[1].textContent.trim()
+    );
     if (confirm === true) {
       const response = await fetch("admin/adminUser", {
         method: "post",
@@ -153,7 +162,7 @@ async function adminUser() {
 }
 
 //modal for verifying actions of admin panel
-function verifyModal(type) {
+function verifyModal(type, username) {
   return new Promise((resolve) => {
     let modalUi = document.createElement("div");
     modalUi.classList.add("verifyModal");
@@ -163,7 +172,7 @@ function verifyModal(type) {
     modalUi.appendChild(modalHeader);
 
     let modalDescription = document.createElement("p");
-    modalDescription.textContent = `Are you sure you want to ${type} this user?`;
+    modalDescription.textContent = `Are you sure you want to ${type} ${username}?`;
     modalUi.appendChild(modalDescription);
 
     let actionButtons = document.createElement("section");
