@@ -41,50 +41,46 @@ module.exports = {
       } catch (err) {
         console.log(err);
       }
+    } else {
+      console.log("user not verified");
     }
   },
   markComplete: async (req, res) => {
-    if (req.user.isVerified) {
-      try {
-        await Request.findOneAndUpdate(
-          { _id: req.body.requestIdFromJsFile },
-          {
-            completed: true,
-          }
-        );
-        console.log("Marked Complete");
-        res.json("Marked Complete");
-      } catch (err) {
-        console.log(err);
-      }
+    try {
+      await Request.findOneAndUpdate(
+        { _id: req.body.requestIdFromJsFile },
+        {
+          completed: true,
+        }
+      );
+      console.log("Marked Complete");
+      res.json("Marked Complete");
+    } catch (err) {
+      console.log(err);
     }
   },
   markIncomplete: async (req, res) => {
-    if (req.user.isVerified) {
-      try {
-        await Request.findOneAndUpdate(
-          { _id: req.body.requestIdFromJsFile },
-          {
-            completed: false,
-          }
-        );
-        console.log("Marked Incomplete");
-        res.json("Marked Incomplete");
-      } catch (err) {
-        console.log(err);
-      }
+    try {
+      await Request.findOneAndUpdate(
+        { _id: req.body.requestIdFromJsFile },
+        {
+          completed: false,
+        }
+      );
+      console.log("Marked Incomplete");
+      res.json("Marked Incomplete");
+    } catch (err) {
+      console.log(err);
     }
   },
   deleteRequested: async (req, res) => {
-    if (req.user.isVerified) {
-      console.log(req.body.requestIdFromJsFile);
-      try {
-        await Request.findOneAndDelete({ _id: req.body.requestIdFromJsFile });
-        console.log("Deleted request");
-        res.json("Deleted It");
-      } catch (err) {
-        console.log(err);
-      }
+    console.log(req.body.requestIdFromJsFile);
+    try {
+      await Request.findOneAndDelete({ _id: req.body.requestIdFromJsFile });
+      console.log("Deleted request");
+      res.json("Deleted It");
+    } catch (err) {
+      console.log(err);
     }
   },
 };
