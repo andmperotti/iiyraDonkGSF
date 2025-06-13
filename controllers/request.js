@@ -42,6 +42,7 @@ module.exports = {
         console.log(err);
       }
     } else {
+      res.redirect("/request");
       console.log("user not verified");
     }
   },
