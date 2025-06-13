@@ -26,6 +26,9 @@ module.exports = {
       } catch (err) {
         console.log(err);
       }
+    } else {
+      res.redirect("/request");
+      console.log("user not verified");
     }
   },
   markIncomplete: async (req, res) => {
@@ -42,6 +45,9 @@ module.exports = {
       } catch (err) {
         console.log(err);
       }
+    } else {
+      res.redirect("/request");
+      console.log("user not verified");
     }
   },
 };

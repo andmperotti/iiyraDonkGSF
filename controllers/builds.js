@@ -30,6 +30,9 @@ module.exports = {
       } catch (err) {
         console.log(err);
       }
+    } else {
+      res.redirect("/request");
+      console.log("user not verified");
     }
   },
   deleteBuild: async (req, res) => {
@@ -42,6 +45,9 @@ module.exports = {
       } catch (err) {
         console.log(err);
       }
+    } else {
+      res.redirect("/request");
+      console.log("user not verified");
     }
   },
 };

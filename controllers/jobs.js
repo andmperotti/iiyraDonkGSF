@@ -24,6 +24,9 @@ module.exports = {
       } catch (err) {
         console.log(err);
       }
+    } else {
+      res.redirect("/request");
+      console.log("user not verified");
     }
   },
   markComplete: async (req, res) => {
@@ -40,6 +43,9 @@ module.exports = {
       } catch (err) {
         console.log(err);
       }
+    } else {
+      res.redirect("/request");
+      console.log("user not verified");
     }
   },
   markIncomplete: async (req, res) => {
@@ -56,6 +62,9 @@ module.exports = {
       } catch (err) {
         console.log(err);
       }
+    } else {
+      res.redirect("/request");
+      console.log("user not verified");
     }
   },
   deleteJob: async (req, res) => {
@@ -68,6 +77,9 @@ module.exports = {
       } catch (err) {
         console.log(err);
       }
+    } else {
+      res.redirect("/request");
+      console.log("user not verified");
     }
   },
 };
