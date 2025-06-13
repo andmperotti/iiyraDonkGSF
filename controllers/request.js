@@ -75,7 +75,6 @@ module.exports = {
     }
   },
   deleteRequested: async (req, res) => {
-    console.log(req.body.requestIdFromJsFile);
     try {
       await Request.findOneAndDelete({ _id: req.body.requestIdFromJsFile });
       console.log("Deleted request");

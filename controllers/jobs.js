@@ -69,7 +69,6 @@ module.exports = {
   },
   deleteJob: async (req, res) => {
     if (req.user.isVerified) {
-      console.log(req.body.jobIdFromJsFile);
       try {
         await Job.findOneAndDelete({ _id: req.body.requestIdFromJsFile });
         console.log("Deleted job");

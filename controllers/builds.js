@@ -37,7 +37,6 @@ module.exports = {
   },
   deleteBuild: async (req, res) => {
     if (req.user.isVerified) {
-      console.log(req.body.jobIdFromJsFile);
       try {
         await Build.findOneAndDelete({ _id: req.body.requestIdFromJsFile });
         console.log("Deleted build");
