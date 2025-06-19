@@ -566,36 +566,48 @@ h1 {
   width: 50%;
 }
 
-/* bold of list item content that describes list item content for each ejs generated li*/
+/*Styling table which holds the requested items, users, builds, etc. This class is reused on most pages displaying database data*/
+.all-requested {
+  /* height: 50px;
+  overflow: scroll; */
+  /* max-width: 80%; */
+
+  /* table-layout: fixed; */
+  table-layout: auto;
+  width: 50%;
+  max-width: 80%;
+  /* margin: 0 auto; */
+  border-collapse: collapse;
+}
+
+/*Descriptive thead of table */
 .field-description {
-  font-weight: bold;
+  /* font-weight: bold;
   margin-bottom: 2%;
   font-size: 1.4rem;
   position: sticky;
   top: 0px;
-  background-color: gray;
+  background-color: gray; */
 }
 
-/*more styling, for list items generated into ejs*/
+/* Table headers of tables that hold data of items requested, users in league, builds of users, etc */
+.field-description th {
+  text-align: start;
+  border: 1px solid white;
+}
+
+/*Styling of table rows which represent items requested  by others and by the current user*/
 .requestedItem,
 .userItem {
-  display: block;
+  /* display: block;
   font-size: 1.2rem;
-  border: 0.5px solid whitesmoke;
+  border: 0.5px solid whitesmoke; */
+  border: 1px solid whitesmoke;
+  word-break: break-all;
 }
 /* margin above the login image */
 .login-image {
   margin-top: 1%;
-}
-
-/*Styling for the ul's on the requsted gems, uniques, others page, also the jobs, builds, and user page's ul's */
-.all-requested {
-  width: 60%;
-  text-align: center;
-  list-style-type: none;
-  border: 1px solid black;
-  overflow: auto;
-  height: 40vh;
 }
 
 /*toggle hide styling for request page lists */
@@ -728,15 +740,16 @@ img {
 }
 
 /*Admin panel verify modal styling*/
-.verifyModal{
+.verifyModal {
   background-color: white;
   border: 1px solid red;
   position: absolute;
-  top:25%;
+  top: 25%;
 }
 
 /*more styling for already verified and admin'd users */
-.verifiedUser, .adminedUser{
+.verifiedUser,
+.adminedUser {
   background-color: gray;
   border: 1px solid black;
   color: white;
