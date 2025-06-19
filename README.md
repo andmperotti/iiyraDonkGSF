@@ -1,7 +1,7 @@
 ## Path of Exile Group Self Found Project
 A full stack app that allows a group of players playing in a self found private league in the video game Path of Exile, to organize what items/gems/etc they need for their characters.
 
-**Link to project:** removed for privacy of users sake
+**Link to project:** poegsf.onrender.com
 
 ![Screenshot of the PoeGsf Project Homepage which lists the rules of the group self found league to its participants](https://i.ibb.co/hBG38TM/homepage.png)
 ![Screehshot of the Request Items page of the PoeGSF project, which is where users are able to tell other players items they need](https://andmperotti.com/images/PoeGsf-request-items.png)
