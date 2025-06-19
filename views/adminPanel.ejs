@@ -48,14 +48,28 @@
     </nav>
 
     <h1>God Mode:</h1>
-    <ul class="all-requested">
-        <li class="field-description">Poe Account Name - Discord Name</li>
-        <% users.forEach( el => { %>
-                <li class='userItem'  data-id='<%=el._id%>'>
-                    <span class="userDescriptor">
-                        <a href="https://www.pathofexile.com/account/view-profile/<%=el.userName%>"><%= el.userName %></a> - <%= el.discordName %>
-                    </span>
-                    <section class="adminActions">
+
+    <table class="all-requested">
+      <thead>
+      <tr class="field-description">
+          <th scope="col">POE Account</th>
+          <th scope="col">Discord Name</th>
+          <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody
+      <% users.forEach( el => { %>
+          <%
+          let poeAccountName = el.userName;
+          let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
+          let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
+          let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
+          let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
+          %>
+              <tr class='requestedItem' data-id='<%=el._id%>'>
+                  <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a></td>  
+                  <td><%= el.discordName%></td>
+                  <td>                    <section class="adminActions">
                         <% if(!el.isVerified){%>
                             <span class="verifyUser">Verify</span>
                         <%}%>                        
@@ -70,12 +84,11 @@
                         <%}%>
                         <span class="deleteUser">Delete</span>
                     </section>
-
-
-                </li>
-        <% }) %>   
-    </ul>
-
+</td>
+              </tr>
+      <% }) %>
+          </tbody>
+    </table>
 
     <script src="js/main.js"></script>
 </body>
