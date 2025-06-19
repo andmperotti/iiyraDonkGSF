@@ -58,26 +58,34 @@
     </form>
     <p class="job-description">Examples: heister, bosser, blighter, etc.</p>
 
-    <ul class="all-requested">
-        <li class="field-description">Job - Poe Account Name - Discord Name</li>
-        <% jobs.forEach( el => { %>
-            <%
+        <table class="all-requested">
+            <thead>
+            <tr class="field-description">
+                <th scope="col">Job</th>
+                <th scope="col">Poe Account</th>
+                <th scope="col">Discord Name</th>
+
+            </tr>
+            </thead>
+            <tbody
+            <% jobs.forEach( el => { %>
+                <%
                 let poeAccountName = el.userName;
                 let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
                 let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
                 let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
                 let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
-            %>
-                <li class='requestedItem' data-id='<%=el._id%>'>
-                    <%=el.jobName%> - <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName%></a> - <%=el.discordName%>
-                    <% if(req.user.userName===el.userName){%>
-                        <span class='deljob'> Delete </span> 
-                    <%}%>
-                </li>
-        <% }) %>    
-    </ul>
-
-
+                %>
+                    <tr class='requestedItem' data-id='<%=el._id%>'>
+                        <td><%=el.jobName%></td>
+                        <td>
+                            <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a>
+                        </td>  
+                        <td><%= el.discordName%></td>
+                    </tr>
+            <% }) %>
+                </tbody>
+        </table>
 
 
     <script src="js/main.js"></script>

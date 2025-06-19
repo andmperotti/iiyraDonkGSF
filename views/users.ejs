@@ -52,23 +52,33 @@
     <img src="images/users.gif">
     <h2 class="centered-description">Who are you people?</h2>
 
-<ul class="all-requested">
-    <li class="field-description">Poe Account Name - Discord Name</li>
-    <% users.forEach( el => { %>
-        <%
+
+
+    <table class="all-requested">
+        <thead>
+        <tr class="field-description">
+            <th scope="col">Poe Account</th>
+            <th scope="col">Discord Name</th>
+        </tr>
+        </thead>
+        <tbody
+        <% users.forEach( el => { %>
+            <%
             let poeAccountName = el.userName;
             let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
             let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
             let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
             let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
-        %>
-        <li class='userItem' data-id='<%=el._id%>'>
-            <span>
-                <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a> - <%= el.discordName %>
-            </span>
-        </li>
-    <% }) %>
-</ul>
+            %>
+                <tr class='requestedItem' data-id='<%=el._id%>'>
+                    <td>
+                        <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a>
+                    </td>  
+                    <td><%= el.discordName%></td>
+                </tr>
+        <% }) %>
+            </tbody>
+    </table>
 
 
     <script src="js/main.js"></script>
