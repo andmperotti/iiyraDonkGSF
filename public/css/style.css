@@ -588,6 +588,8 @@ h1 {
   position: sticky;
   top: 0px;
   background-color: gray; */
+
+  font-size: 1.3rem;
 }
 
 /* Table headers of tables that hold data of items requested, users in league, builds of users, etc */
@@ -604,6 +606,7 @@ h1 {
   border: 0.5px solid whitesmoke; */
   border: 1px solid whitesmoke;
   word-break: break-all;
+  font-size: 1.1rem;
 }
 /* margin above the login image */
 .login-image {
