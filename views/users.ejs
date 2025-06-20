@@ -56,28 +56,38 @@
 
     <table class="all-requested">
         <thead>
-        <tr class="field-description">
-            <th scope="col">Poe Account</th>
-            <th scope="col">Discord Name</th>
-        </tr>
+            <tr class="field-description">
+                <th scope="col">Poe Account</th>
+                <th scope="col">Discord Name</th>
+            </tr>
         </thead>
-        <tbody
-        <% users.forEach( el => { %>
+
+        <tbody>
             <%
-            let poeAccountName = el.userName;
-            let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
-            let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
-            let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
-            let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
+                users.sort((a,b)=>{
+                    if(a.userName.toLowerCase()<b.userName.toLowerCase()){
+                        return -1
+                    }else{
+                        return 1
+                    }
+                })
+                users.forEach( el => { 
             %>
-                <tr class='requestedItem' data-id='<%=el._id%>'>
-                    <td>
-                        <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a>
-                    </td>  
-                    <td><%= el.discordName%></td>
-                </tr>
-        <% }) %>
-            </tbody>
+                <%
+                    let poeAccountName = el.userName;
+                    let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
+                    let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
+                    let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
+                    let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
+                %>
+                    <tr class='requestedItem' data-id='<%=el._id%>'>
+                        <td>
+                            <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a>
+                        </td>  
+                        <td><%= el.discordName%></td>
+                    </tr>
+                <% }) %>
+        </tbody>
     </table>
 
 

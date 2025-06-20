@@ -71,7 +71,14 @@
       </tr>
       </thead>
       <tbody
-      <% gems.forEach( el => { %>
+      <% gems.sort((a,b)=>{
+          if(a.requestedItem.toLowerCase()<b.requestedItem.toLowerCase()){
+            return -1
+          }else{
+            return 1
+          }
+        })
+      gems.forEach( el => { %>
           <%
           let poeAccountName = el.userName;
           let firstNameMatch = poeAccountName.match(/(\w+)\#/); 

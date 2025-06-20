@@ -59,27 +59,6 @@
     </form>
     <p class="centered-description">Need to change character name? Just delete it and remake.</p>
 
-    <!-- <ul class="all-requested">
-        <li class="field-description">Account Name - Character Name - Build Description/Resource(pob,etc) optional</li>
-        <% builds.forEach( el => { %>
-                        <%
-                let poeAccountName = el.userName;
-                let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
-                let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
-                let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
-                let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
-            %>
-                <li class='requestedItem' data-id='<%=el._id%>'>
-                    <span>
-                        <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%=el.userName%></a> - <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>/characters?characterName=<%=el.buildCharacterName%>"><%=el.buildCharacterName%></a>   - <a href="<%=el.buildResource%>"><%=el.buildName%></a>
-                    </span>
-                    <% if(reqUser === el.userName){%>
-                        <span class='delBuild'> Delete </span>
-                    <%}%>
-                </li>
-        <% }) %>    
-    </ul> -->
-
     <table class="all-requested">
         <thead>
         <tr class="field-description">
@@ -88,8 +67,15 @@
             <th scope="col">Build Description/Resource(pob,etc) optional</th>
         </tr>
         </thead>
-        <tbody
-        <% builds.forEach( el => { %>
+        <tbody>
+        <% builds.sort((a,b)=>{
+            if(a.buildName.toLowerCase()<b.buildName.toLowerCase()){
+                return -1
+            }else{
+                return 1
+            }
+        })
+        builds.forEach( el => { %>
             <%
             let poeAccountName = el.userName;
             let firstNameMatch = poeAccountName.match(/(\w+)\#/); 

@@ -68,7 +68,14 @@
             </tr>
             </thead>
             <tbody
-            <% jobs.forEach( el => { %>
+            <% jobs.sort((a,b)=>{
+                if(a.jobName.toLowerCase()<b.jobName.toLowerCase()){
+                    return -1
+                }else{
+                    return 1
+                }
+            })
+            jobs.forEach( el => { %>
                 <%
                 let poeAccountName = el.userName;
                 let firstNameMatch = poeAccountName.match(/(\w+)\#/); 

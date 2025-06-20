@@ -61,8 +61,15 @@
                 <th scope="col">Discord Name</th>
             </tr>
             </thead>
-            <tbody
-            <% others.forEach( el => { %>
+            <tbody>
+            <% others.sort((a,b)=>{
+                if(a.requestedItem.toLowerCase()<b.requestedItem.toLowerCase()){
+                    return -1
+                }else{
+                    return 1
+                }
+            })
+            others.forEach( el => { %>
                 <%
                 let poeAccountName = el.userName;
                 let firstNameMatch = poeAccountName.match(/(\w+)\#/); 

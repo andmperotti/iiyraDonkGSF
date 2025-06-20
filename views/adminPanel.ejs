@@ -57,7 +57,7 @@
           <th scope="col">Actions</th>
       </tr>
       </thead>
-      <tbody
+      <tbody>
       <% users.forEach( el => { %>
           <%
           let poeAccountName = el.userName;
@@ -66,10 +66,12 @@
           let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
           let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
           %>
-              <tr class='requestedItem' data-id='<%=el._id%>'>
-                  <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a></td>  
-                  <td><%= el.discordName%></td>
-                  <td>                    <section class="adminActions">
+            <tr class='requestedItem' data-id='<%=el._id%>'>
+                <td>
+                    <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a>
+                </td>  
+                <td><%= el.discordName%></td>
+                <td><section class="adminActions">
                         <% if(!el.isVerified){%>
                             <span class="verifyUser">Verify</span>
                         <%}%>                        
@@ -84,8 +86,8 @@
                         <%}%>
                         <span class="deleteUser">Delete</span>
                     </section>
-</td>
-              </tr>
+                </td>
+            </tr>
       <% }) %>
           </tbody>
     </table>
