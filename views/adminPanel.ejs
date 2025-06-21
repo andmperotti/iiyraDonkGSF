@@ -48,30 +48,32 @@
     </nav>
 
     <h1>God Mode:</h1>
+    <p class="centered-description">By default ordering of list is age order; first/oldest created to -> last/newly created.</p>
 
     <table class="all-requested">
       <thead>
       <tr class="field-description">
-          <th scope="col">POE Account</th>
-          <th scope="col">Discord Name</th>
+          <th scope="col" onclick="sorttable(0)">POE Account ↑↓</th>
+          <th scope="col" onclick="sorttable(1)">Discord Name ↑↓</th>
           <th scope="col">Actions</th>
       </tr>
       </thead>
       <tbody>
-      <% users.forEach( el => { %>
-          <%
-          let poeAccountName = el.userName;
-          let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
-          let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
-          let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
-          let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
-          %>
+        <% users.forEach( el => { %>
+            <%
+                let poeAccountName = el.userName;
+                let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
+                let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
+                let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
+                let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
+            %>
             <tr class='requestedItem' data-id='<%=el._id%>'>
                 <td>
                     <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a>
                 </td>  
                 <td><%= el.discordName%></td>
-                <td><section class="adminActions">
+                <td>
+                    <section class="adminActions">
                         <% if(!el.isVerified){%>
                             <span class="verifyUser">Verify</span>
                         <%}%>                        
@@ -88,8 +90,8 @@
                     </section>
                 </td>
             </tr>
-      <% }) %>
-          </tbody>
+        <% }) %>
+    </tbody>
     </table>
 
     <script src="js/main.js"></script>

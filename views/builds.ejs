@@ -58,38 +58,33 @@
         <input type="submit" value="Add Build">
     </form>
     <p class="centered-description">Need to change character name? Just delete it and remake.</p>
+    <p class="centered-description">By default ordering of builds is submittance order; first/oldest submitted to -> last/newly submitted.</p>
+
 
     <table class="all-requested">
         <thead>
         <tr class="field-description">
-            <th scope="col">Account Name</th>
-            <th scope="col">Character Name</th>
-            <th scope="col">Build Description/Resource(pob,etc) optional</th>
+            <th scope="col" onclick="sortTable(0)">Account Name ↑↓</th>
+            <th scope="col" onclick="sortTable(0)">Character Name ↑↓</th>
+            <th scope="col" onclick="sortTable(0)">Build Description/Resource(pob,etc) optional ↑↓</th>
         </tr>
         </thead>
         <tbody>
-        <% builds.sort((a,b)=>{
-            if(a.buildName.toLowerCase()<b.buildName.toLowerCase()){
-                return -1
-            }else{
-                return 1
-            }
-        })
-        builds.forEach( el => { %>
-            <%
-            let poeAccountName = el.userName;
-            let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
-            let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
-            let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
-            let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
-            %>
-                <tr class='requestedItem' data-id='<%=el._id%>'>
-                    <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%=el.userName%></a></td>  
-                    <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>/characters?characterName=<%=el.buildCharacterName%>"><%=el.buildCharacterName%></a></td>  
-                    <td><a href="<%=el.buildResource%>"><%=el.buildName%></td>
-                </tr>
-        <% }) %>
-            </tbody>
+            <% builds.forEach( el => { %>
+                <%
+                    let poeAccountName = el.userName;
+                    let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
+                    let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
+                    let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
+                    let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
+                %>
+                    <tr class='requestedItem' data-id='<%=el._id%>'>
+                        <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%=el.userName%></a></td>  
+                        <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>/characters?characterName=<%=el.buildCharacterName%>"><%=el.buildCharacterName%></a></td>  
+                        <td><a href="<%=el.buildResource%>"><%=el.buildName%></td>
+                    </tr>s
+            <% }) %>
+        </tbody>
     </table>
 
 

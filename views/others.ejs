@@ -52,38 +52,32 @@
     <img src="images/other.gif">
 
     <p class="centered-description">To delete your requested other items, go to the request page, navigate to others, use the delete button beside your item.</p>
+    <p class="centered-description">By default ordering of other items is submittance order; first/oldest submitted to -> last/newly submitted.</p>
 
         <table class="all-requested">
             <thead>
             <tr class="field-description">
-                <th scope="col">Other What</th>
-                <th scope="col">Poe Account</th>
-                <th scope="col">Discord Name</th>
+                <th scope="col" onclick="sortTable(0)">Other What ↑↓</th>
+                <th scope="col" onclick="sortTable(1)">Poe Account ↑↓</th>
+                <th scope="col" onclick="sortTable(2)">Discord Name ↑↓</th>
             </tr>
             </thead>
             <tbody>
-            <% others.sort((a,b)=>{
-                if(a.requestedItem.toLowerCase()<b.requestedItem.toLowerCase()){
-                    return -1
-                }else{
-                    return 1
-                }
-            })
-            others.forEach( el => { %>
-                <%
-                let poeAccountName = el.userName;
-                let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
-                let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
-                let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
-                let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
-                %>
+                <% others.forEach( el => { %>
+                    <%
+                        let poeAccountName = el.userName;
+                        let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
+                        let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
+                        let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
+                        let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
+                    %>
                     <tr class='requestedItem' data-id='<%=el._id%>'>
                         <td><%= el.requestedItem %></td>  
                         <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a></td>  
                         <td><%= el.discordName%></td>
                     </tr>
-            <% }) %>
-                </tbody>
+                <% }) %>
+            </tbody>
         </table>
 
 

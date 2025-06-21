@@ -57,32 +57,26 @@
         <input type="submit" value="Submit Job">
     </form>
     <p class="job-description">Examples: heister, bosser, blighter, etc.</p>
+    <p class="centered-description">By default ordering of jobs is submittance order; first/oldest submitted to -> last/newly submitted.</p>
 
         <table class="all-requested">
             <thead>
             <tr class="field-description">
-                <th scope="col">Job</th>
-                <th scope="col">Poe Account</th>
-                <th scope="col">Discord Name</th>
+                <th scope="col" onclick="sortTable(0)">Job ↑↓</th>
+                <th scope="col" onclick="sortTable(1)">Poe Account ↑↓</th>
+                <th scope="col" onclick="sortTable(2)">Discord Name ↑↓</th>
 
             </tr>
             </thead>
             <tbody
-            <% jobs.sort((a,b)=>{
-                if(a.jobName.toLowerCase()<b.jobName.toLowerCase()){
-                    return -1
-                }else{
-                    return 1
-                }
-            })
-            jobs.forEach( el => { %>
-                <%
-                let poeAccountName = el.userName;
-                let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
-                let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
-                let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
-                let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
-                %>
+                <% jobs.forEach( el => { %>
+                    <%
+                        let poeAccountName = el.userName;
+                        let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
+                        let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
+                        let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
+                        let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
+                    %>
                     <tr class='requestedItem' data-id='<%=el._id%>'>
                         <td><%=el.jobName%></td>
                         <td>
@@ -90,8 +84,8 @@
                         </td>  
                         <td><%= el.discordName%></td>
                     </tr>
-            <% }) %>
-                </tbody>
+                <% }) %>
+            </tbody>
         </table>
 
 

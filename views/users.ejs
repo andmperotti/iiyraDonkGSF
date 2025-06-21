@@ -51,28 +51,20 @@
 
     <img src="images/users.gif">
     <h2 class="centered-description">Who are you people?</h2>
+    <p class="centered-description">By default ordering of users is creation order; first/oldest created to -> last/newly created.</p>
 
 
 
     <table class="all-requested">
         <thead>
             <tr class="field-description">
-                <th scope="col">Poe Account</th>
-                <th scope="col">Discord Name</th>
+                <th scope="col" onclick="sortTable(0)">Poe Account ↑↓</th>
+                <th scope="col" onclick="sortTable(1)">Discord Name ↑↓</th>
             </tr>
         </thead>
 
         <tbody>
-            <%
-                users.sort((a,b)=>{
-                    if(a.userName.toLowerCase()<b.userName.toLowerCase()){
-                        return -1
-                    }else{
-                        return 1
-                    }
-                })
-                users.forEach( el => { 
-            %>
+            <% users.forEach( el => { %>
                 <%
                     let poeAccountName = el.userName;
                     let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
@@ -86,7 +78,7 @@
                         </td>  
                         <td><%= el.discordName%></td>
                     </tr>
-                <% }) %>
+            <% }) %>
         </tbody>
     </table>
 
