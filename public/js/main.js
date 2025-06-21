@@ -205,6 +205,7 @@ function verifyModal(type, username) {
 }
 
 //sorting function for table headers, snagged from w3schools, bless them
+// eslint-disable-next-line no-unused-vars
 function sortTable(n) {
   var table,
     rows,

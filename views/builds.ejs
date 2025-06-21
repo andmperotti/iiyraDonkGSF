@@ -57,17 +57,17 @@
         <input type="text" placeholder="Optional pob link or resource" name="buildResource" autocomplete="off">
         <input type="submit" value="Add Build">
     </form>
+
     <p class="centered-description">Need to change character name? Just delete it and remake.</p>
     <p class="centered-description">By default ordering of builds is submittance order; first/oldest submitted to -> last/newly submitted.</p>
-
-
+    
     <table class="all-requested">
         <thead>
-        <tr class="field-description">
-            <th scope="col" onclick="sortTable(0)">Account Name ↑↓</th>
-            <th scope="col" onclick="sortTable(0)">Character Name ↑↓</th>
-            <th scope="col" onclick="sortTable(0)">Build Description/Resource(pob,etc) optional ↑↓</th>
-        </tr>
+            <tr class="field-description">
+                <th scope="col" onclick="sortTable(0)">Account Name ↑↓</th>
+                <th scope="col" onclick="sortTable(0)">Character Name ↑↓</th>
+                <th scope="col" onclick="sortTable(0)">Build Description/Resource(pob,etc) optional ↑↓</th>
+            </tr>
         </thead>
         <tbody>
             <% builds.forEach( el => { %>
@@ -82,7 +82,7 @@
                         <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%=el.userName%></a></td>  
                         <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>/characters?characterName=<%=el.buildCharacterName%>"><%=el.buildCharacterName%></a></td>  
                         <td><a href="<%=el.buildResource%>"><%=el.buildName%></td>
-                    </tr>s
+                    </tr>
             <% }) %>
         </tbody>
     </table>
