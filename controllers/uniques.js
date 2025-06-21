@@ -19,6 +19,7 @@ module.exports = {
           { _id: req.body.requestIdFromJsFile },
           {
             completed: true,
+            // eslint-disable-next-line prettier/prettier
           }
         );
         console.log("Marked Complete");
@@ -38,6 +39,7 @@ module.exports = {
           { _id: req.body.requestIdFromJsFile },
           {
             completed: false,
+            // eslint-disable-next-line prettier/prettier
           }
         );
         console.log("Marked Incomplete");
