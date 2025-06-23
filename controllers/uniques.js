@@ -32,24 +32,13 @@ module.exports = {
       console.log("user not verified");
     }
   },
-  markIncomplete: async (req, res) => {
-    if (req.user.isVerified) {
-      try {
-        await Request.findOneAndUpdate(
-          { _id: req.body.requestIdFromJsFile },
-          {
-            completed: false,
-            // eslint-disable-next-line prettier/prettier
-          }
-        );
-        console.log("Marked Incomplete");
-        res.json("Marked Incomplete");
-      } catch (err) {
-        console.log(err);
-      }
-    } else {
-      res.redirect("/request");
-      console.log("user not verified");
+  deleteRequested: async (req, res) => {
+    try {
+      await Request.findOneAndDelete({ _id: req.body.requestIdFromJsFile });
+      console.log("Deleted request");
+      res.json("Deleted It");
+    } catch (err) {
+      console.log(err);
     }
   },
 };
