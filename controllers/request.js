@@ -36,6 +36,7 @@ module.exports = {
           userName: req.user.userName,
           itemType: req.body.itemType,
           discordName: req.user.discordName,
+          requestedDate: Date.now(),
         });
         res.redirect("/request");
       } catch (err) {
@@ -52,6 +53,7 @@ module.exports = {
         { _id: req.body.requestIdFromJsFile },
         {
           completed: true,
+          // eslint-disable-next-line prettier/prettier
         }
       );
       console.log("Marked Complete");
@@ -66,6 +68,7 @@ module.exports = {
         { _id: req.body.requestIdFromJsFile },
         {
           completed: false,
+          // eslint-disable-next-line prettier/prettier
         }
       );
       console.log("Marked Incomplete");
