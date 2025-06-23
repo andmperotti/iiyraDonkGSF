@@ -53,18 +53,18 @@
 
     <form action="/request/createRequestedItem" method='POST'>
         <fieldset class="center-column">
-        	<legend class="request-item-legend">Request Item</legend>
-        	<section class="requested-inputs center-column">
-        		<label class="request-item-label"><input type="text" placeholder="Enter Name" name='requestedItem' autocomplete="off" minlength="1" required></label>
-        		<section>
-        			<label><input type="radio" value="Unique" name="itemType" required autocomplete="off">Unique</label>
-        			<label><input type="radio" value="Gem" name="itemType" autocomplete="off">Gem</label>
-        			<label><input type="radio" value="Other" name="itemType" autocomplete="off">Other</label>
-        		</section>
-        		<input type="submit" class="requested-inputs-submit" value="Request">
-        	</section>
-        	<p class="request-item-p">Can type other things in name field like "Slitherpinch with elemental weakness corruption"</p>
-        	<p class="request-item-p">Other example: 'Crit Quiver'</p>
+          <legend class="request-item-legend">Request Item</legend>
+          <section class="requested-inputs center-column">
+            <label class="request-item-label"><input type="text" placeholder="Enter Name" name='requestedItem' autocomplete="off" minlength="1" required></label>
+            <section>
+              <label><input type="radio" value="Unique" name="itemType" required autocomplete="off">Unique</label>
+              <label><input type="radio" value="Gem" name="itemType" autocomplete="off">Gem</label>
+              <label><input type="radio" value="Other" name="itemType" autocomplete="off">Other</label>
+            </section>
+            <input type="submit" class="requested-inputs-submit" value="Request">
+          </section>
+          <p class="request-item-p">Can type other things in name field like "Slitherpinch with elemental weakness corruption"</p>
+          <p class="request-item-p">Other example: 'Crit Quiver'</p>
         </fieldset>
     </form>
 
@@ -128,7 +128,7 @@
                 gems.forEach( el => { %>
                     <tr class='requestedItem' data-id='<%=el._id%>'>
                         <td><%= el.requestedItem %></td>
-                        <td><%= `${el.requestedDate.getMonth()}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
+                        <td><%= `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
                         <td class='del'> Delete </td>
                     </tr>
                 <% }) %>    
@@ -154,7 +154,7 @@
                 others.forEach( el => { %>
                     <tr class='requestedItem' data-id='<%=el._id%>'>
                         <td><%= el.requestedItem %></td>
-                        <td><%= `${el.requestedDate.getMonth()}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
+                        <td><%= `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
                         <td class='del'> Delete </td>
                     </tr>
                 <% }) %>    
