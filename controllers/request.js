@@ -36,7 +36,7 @@ module.exports = {
           userName: req.user.userName,
           itemType: req.body.itemType,
           discordName: req.user.discordName,
-          requestedDate: Date.now(),
+          requestedDate: new Date().toJSON().slice(0, 10),
         });
         res.redirect("/request");
       } catch (err) {

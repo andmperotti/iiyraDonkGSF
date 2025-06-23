@@ -70,20 +70,28 @@
             </tr>
         </thead>
         <tbody>
-            <% builds.forEach( el => { %>
-                <%
+            <% if(builds.length<1){%>
+                <tr class='requestedItem'>
+                    <td>None Created</td>
+                    <td>None Created</td>
+                    <td>None Created</td>
+                </tr>
+            <%}else{
+                builds.forEach( el => {
                     let poeAccountName = el.userName;
                     let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
                     let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
                     let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
                     let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
-                %>
-                    <tr class='requestedItem' data-id='<%=el._id%>'>
-                        <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%=el.userName%></a></td>  
-                        <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>/characters?characterName=<%=el.buildCharacterName%>"><%=el.buildCharacterName%></a></td>  
-                        <td><a href="<%=el.buildResource%>"><%=el.buildName%></td>
-                    </tr>
-            <% }) %>
+                    %>
+                        <tr class='requestedItem' data-id='<%=el._id%>'>
+                            <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%=el.userName%></a></td>  
+                            <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>/characters?characterName=<%=el.buildCharacterName%>"><%=el.buildCharacterName%></a></td>  
+                            <td><a href="<%=el.buildResource%>"><%=el.buildName%></td>
+                        </tr>
+                <% }) 
+            }%>
+
         </tbody>
     </table>
 

@@ -69,11 +69,18 @@
           <th scope="col" onclick="sortTable(0)">Gem Name ↑↓</th>
           <th scope="col" onclick="sortTable(1)">Poe Account ↑↓</th>
           <th scope="col" onclick="sortTable(2)">Discord Name ↑↓</th>
+          <th scope="col" onclick="sortTable(3)">Date Requested ↑↓</th>
+
       </tr>
       </thead>
       <tbody>
-        <% gems.forEach( el => { %>
-            <%
+        <% if(gems.length<1){ %>
+          <tr>
+            <td>None Requested</td>
+            <td>None Requested</td>
+            <td>None Requested</td>
+          </tr>
+        <% }else{gems.forEach( el => { 
             let poeAccountName = el.userName;
             let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
             let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
@@ -84,8 +91,15 @@
                 <td><%= el.requestedItem %></td>  
                 <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a></td>  
                 <td><%= el.discordName%></td>
+                <td class="requestedDate">
+                    <%=
+                        `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
+                        ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                    %>
+                </td>
               </tr>
-        <% }) %>
+        <%})
+      } %>
         </tbody>
     </table>
 

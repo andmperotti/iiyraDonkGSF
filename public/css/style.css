@@ -516,14 +516,7 @@ h1 {
   text-align: center;
 }
 
-/*styling for the ul's on the requested page*/
-.displayed-table {
-  table-layout: fixed;
-  width: 60%;
-  max-width: 80%;
-  border-collapse: collapse;
-}
-
+/* further styling of request page table elements */
 .displayed-table th{
   text-align: start;
 }
@@ -585,10 +578,10 @@ h1 {
 }
 
 /*Styling table which holds the requested items, users, builds, etc. This class is reused on most pages displaying database data*/
-.all-requested {
+.all-requested, .displayed-table {
   table-layout: auto;
-  width: 50%;
-  max-width: 80%;
+  width: 60%;
+  max-width: 90%;
   border-collapse: collapse;
 }
 

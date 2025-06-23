@@ -68,23 +68,29 @@
 
             </tr>
             </thead>
-            <tbody
-                <% jobs.forEach( el => { %>
-                    <%
+            <tbody>
+                <% if(jobs.length<1){ %>
+                    <tr class='requestedItem'>
+                        <td>None Created</td>
+                        <td>None Created</td>
+                        <td>None Created</td>
+                    </tr>
+                <%}else{
+                    jobs.forEach( el => {
                         let poeAccountName = el.userName;
                         let firstNameMatch = poeAccountName.match(/(\w+)\#/); 
                         let descriptorMatch = poeAccountName.match(/\#(\d+)/); 
                         let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
-                        let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
-                    %>
-                    <tr class='requestedItem' data-id='<%=el._id%>'>
-                        <td><%=el.jobName%></td>
-                        <td>
-                            <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a>
-                        </td>  
-                        <td><%= el.discordName%></td>
-                    </tr>
-                <% }) %>
+                        let descriptor = descriptorMatch ? descriptorMatch[1] : ''; %>
+                        <tr class='requestedItem' data-id='<%=el._id%>'>
+                            <td><%=el.jobName%></td>
+                            <td>
+                                <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a>
+                            </td>  
+                            <td><%= el.discordName%></td>
+                        </tr>
+                <% })
+                }%>
             </tbody>
         </table>
 

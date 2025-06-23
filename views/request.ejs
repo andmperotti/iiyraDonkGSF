@@ -87,17 +87,22 @@
                 </tr>
             </thead>
             <tbody>
-                <% if(uniques.length===0){ %>
+                <% if(uniques.length<1){ %>
                     <tr class='requestedItem'>
                         <td>None Requested</td>
                         <td>None Requested</td>
-                        <td>None Requested</td>
+                        <td>None</td>
                     </tr>
-                <%}%>
-                <% uniques.forEach( el => { %>
+                <% }
+                uniques.forEach( el => { %>
                     <tr class='requestedItem' data-id='<%=el._id%>'>
                         <td><%= el.requestedItem %></td>
-                        <td><%= `${el.requestedDate.getMonth()}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
+                        <td>
+                            <%= 
+                                `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
+                                ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                            %>
+                        </td>
                         <td class='del'> Delete </td>
                     </tr>
                 <% }) %>    
@@ -107,20 +112,20 @@
         <table class="displayed-table gemsTable hideTable gems">
             <thead>
                 <tr>
-                    <th onclick="sortTable(0)">Gem Name ↑↓</th>
-                    <th onclick="sortTable(1)" class="table-date">Requested Date ↑↓</th>
-                    <th class="table-actions">Actions</th>
+                    <th onclick="sortTable(0)" scope="col">Gem Name ↑↓</th>
+                    <th onclick="sortTable(1)" class="table-date" scope="col">Requested Date ↑↓</th>
+                    <th class="table-actions" scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <% if(gems.length===0){ %>
+                <% if(gems.length<1){ %>
                     <tr class='requestedItem'>
                         <td>None Requested</td>
                         <td>None Requested</td>
-                        <td>None Requested</td>
+                        <td>None</td>
                     </tr>
-                <%}%>
-                <% gems.forEach( el => { %>
+                <% }
+                gems.forEach( el => { %>
                     <tr class='requestedItem' data-id='<%=el._id%>'>
                         <td><%= el.requestedItem %></td>
                         <td><%= `${el.requestedDate.getMonth()}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
@@ -139,14 +144,14 @@
                 </tr>
             </thead>
             <tbody>
-                <% if(others.length===0){ %>
+                <% if(others.length<1){ %>
                     <tr class='requestedItem'>
                         <td>None Requested</td>
                         <td>None Requested</td>
-                        <td>None Requested</td>
+                        <td>None</td>
                     </tr>
-                <%}%>
-                <% others.forEach( el => { %>
+                <% }
+                others.forEach( el => { %>
                     <tr class='requestedItem' data-id='<%=el._id%>'>
                         <td><%= el.requestedItem %></td>
                         <td><%= `${el.requestedDate.getMonth()}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
