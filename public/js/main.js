@@ -94,6 +94,7 @@ async function deleteUser() {
   try {
     let confirm = await verifyModal(
       "Delete",
+      // eslint-disable-next-line prettier/prettier
       this.parentNode.parentNode.childNodes[1].textContent.trim()
     );
     if (confirm === true) {
@@ -118,6 +119,7 @@ async function verifyUser() {
   try {
     let confirm = await verifyModal(
       "Verify",
+      // eslint-disable-next-line prettier/prettier
       this.parentNode.parentNode.childNodes[1].textContent.trim()
     );
     if (confirm === true) {
@@ -142,6 +144,7 @@ async function adminUser() {
   try {
     let confirm = await verifyModal(
       "Admin",
+      // eslint-disable-next-line prettier/prettier
       this.parentNode.parentNode.childNodes[1].textContent.trim()
     );
     if (confirm === true) {
@@ -216,7 +219,7 @@ function sortTable(n) {
     shouldSwitch,
     dir,
     switchcount = 0;
-  table = document.querySelector(".all-requested");
+  table = document.querySelector("table");
   switching = true;
   // Set the sorting direction to ascending:
   dir = "asc";
