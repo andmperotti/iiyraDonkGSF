@@ -78,56 +78,107 @@
         <span class="requestButton others othersButton">Others</span>
     </section>
 
-        <ul class="displayed-list uniquesList uniques">
-            <% uniques.forEach( el => { %>
-                <li class='requestedItem' data-id='<%=el._id%>'>
-                    <span><%= el.requestedItem %></span>
-                    <span class='del'> Delete </span>
-                </li>
-            <% }) %>    
-        </ul>
+        <table class="displayed-table uniquesTable uniques">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Unique Name ↑↓</th>
+                    <th onclick="sortTable(1)" class="table-date">Requested Date ↑↓</th>
+                    <th class="table-actions">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(uniques.length===0){ %>
+                    <tr class='requestedItem'>
+                        <td>None Requested</td>
+                        <td>None Requested</td>
+                        <td>None Requested</td>
+                    </tr>
+                <%}%>
+                <% uniques.forEach( el => { %>
+                    <tr class='requestedItem' data-id='<%=el._id%>'>
+                        <td><%= el.requestedItem %></td>
+                        <td><%= `${el.requestedDate.getMonth()}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
+                        <td class='del'> Delete </td>
+                    </tr>
+                <% }) %>    
+            </tbody>
+        </table>
 
-        <ul class="displayed-list gemsList hideList gems">
-            <% gems.forEach( el => { %>
-                <li class='requestedItem' data-id='<%=el._id%>'>
-                    <span><%= el.requestedItem %></span>
-                    <span class='del'> Delete </span>
-                </li>
-            <% }) %>    
-        </ul>
+        <table class="displayed-table gemsTable hideTable gems">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Gem Name ↑↓</th>
+                    <th onclick="sortTable(1)" class="table-date">Requested Date ↑↓</th>
+                    <th class="table-actions">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(gems.length===0){ %>
+                    <tr class='requestedItem'>
+                        <td>None Requested</td>
+                        <td>None Requested</td>
+                        <td>None Requested</td>
+                    </tr>
+                <%}%>
+                <% gems.forEach( el => { %>
+                    <tr class='requestedItem' data-id='<%=el._id%>'>
+                        <td><%= el.requestedItem %></td>
+                        <td><%= `${el.requestedDate.getMonth()}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
+                        <td class='del'> Delete </td>
+                    </tr>
+                <% }) %>    
+            </tbody>
+        </table>
 
-        <ul class="displayed-list othersList hideList others">
-            <% others.forEach( el => { %>
-                <li class='requestedItem' data-id='<%=el._id%>'>
-                    <span><%= el.requestedItem %></span>
-                    <span class='del'> Delete </span>
-                </li>
-            <% }) %>    
-        </ul>
+        <table class="displayed-table othersTable hideTable others">
+            <thead>
+                <tr>
+                    <th onclick="sortTable(0)">Other Name ↑↓</th>
+                    <th onclick="sortTable(1)" class="table-date">Requested Date ↑↓</th>
+                    <th class="table-actions">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(others.length===0){ %>
+                    <tr class='requestedItem'>
+                        <td>None Requested</td>
+                        <td>None Requested</td>
+                        <td>None Requested</td>
+                    </tr>
+                <%}%>
+                <% others.forEach( el => { %>
+                    <tr class='requestedItem' data-id='<%=el._id%>'>
+                        <td><%= el.requestedItem %></td>
+                        <td><%= `${el.requestedDate.getMonth()}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
+                        <td class='del'> Delete </td>
+                    </tr>
+                <% }) %>    
+            </tbody>
+        </table>
 
     <script src="js/main.js"></script>
     <script>
         const uniqueButton = document.querySelector('.uniqueButton')
         const gemsButton = document.querySelector('.gemsButton')
         const othersButton = document.querySelector('.othersButton')
-        const uniquesList = document.querySelector('.uniquesList')
-        const gemsList = document.querySelector('.gemsList')
-        const othersList = document.querySelector('.othersList')
+        const uniquesTable = document.querySelector('.uniquesTable')
+        const gemsTable = document.querySelector('.gemsTable')
+        const othersTable = document.querySelector('.othersTable')
 
         uniqueButton.addEventListener('click', e=>{
-            uniquesList.classList.remove('hideList')
-            gemsList.classList.add('hideList')
-            othersList.classList.add('hideList')
+            uniquesTable.classList.remove('hideTable')
+            gemsTable.classList.add('hideTable')
+            othersTable.classList.add('hideTable')
         })
         gemsButton.addEventListener('click', e=>{
-            gemsList.classList.remove('hideList')
-            uniquesList.classList.add('hideList')
-            othersList.classList.add('hideList')
+            gemsTable.classList.remove('hideTable')
+            uniquesTable.classList.add('hideTable')
+            othersTable.classList.add('hideTable')
         })
         othersButton.addEventListener('click', e=>{
-            othersList.classList.remove('hideList')
-            gemsList.classList.add('hideList')
-            uniquesList.classList.add('hideList')
+            othersTable.classList.remove('hideTable')
+            gemsTable.classList.add('hideTable')
+            uniquesTable.classList.add('hideTable')
         })
     </script>
 </body>
