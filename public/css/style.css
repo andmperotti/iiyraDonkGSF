@@ -477,19 +477,19 @@ h1 {
 .uniques {
   color: orange;
 }
-.uniquesList.displayed-table {
+.uniquesTable.displayed-table {
   border: 1px solid orange;
 }
 .gems {
   color: lightgreen;
 }
-.gemsList.displayed-table {
+.gemsTable.displayed-table {
   border: 1px solid lightgreen;
 }
 .others {
   color: plum;
 }
-.othersList.displayed-table {
+.othersTable.displayed-table {
   border: 1px solid plum;
 }
 .others li {
@@ -557,7 +557,7 @@ h1 {
   width: 60%;
 }
 
-/* styling for delete button next to list items */
+/* styling for delete button next to table rows */
 .del,
 .deljob,
 .delBuild {
@@ -615,7 +615,7 @@ h1 {
   margin-top: 1%;
 }
 
-/*toggle hide styling for request page lists */
+/*toggle hide styling for request page tables */
 .hideTable {
   position: absolute;
   left: -9999px;
