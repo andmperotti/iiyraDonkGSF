@@ -21,6 +21,10 @@ const RequestSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  requestedDate: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 module.exports = mongoose.model("Request", RequestSchema);
