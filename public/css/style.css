@@ -352,7 +352,6 @@ template {
 }
 
 /* my styles */
-/*to align all root sibling elements in a colum orientation*/
 ul {
   padding: 0 1%;
 }
@@ -478,19 +477,19 @@ h1 {
 .uniques {
   color: orange;
 }
-.uniquesList.displayed-list {
+.uniquesList.displayed-table {
   border: 1px solid orange;
 }
 .gems {
   color: lightgreen;
 }
-.gemsList.displayed-list {
+.gemsList.displayed-table {
   border: 1px solid lightgreen;
 }
 .others {
   color: plum;
 }
-.othersList.displayed-list {
+.othersList.displayed-table {
   border: 1px solid plum;
 }
 .others li {
@@ -506,21 +505,39 @@ h1 {
 }
 .requestBar {
   margin-bottom: 2vh;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  border: 1px solid yellow;
 }
 .requestButton {
   background: black;
+  border-radius: 10%;
+  text-align: center;
 }
 
 /*styling for the ul's on the requested page*/
-.displayed-list {
+.displayed-table {
+  table-layout: fixed;
   width: 60%;
-  text-align: center;
-  list-style-type: none;
-  margin: 0 auto;
+  max-width: 80%;
+  border-collapse: collapse;
+}
+
+.displayed-table th{
+  text-align: start;
+}
+
+.displayed-table td, .displayed-table th {
   border: 1px solid black;
-  overflow: auto;
-  height: 20vh;
-  padding-top: 2%;
+}
+
+.table-date {
+  width: 150px;
+}
+
+.table-actions {
+  width: 80px;
 }
 
 /*Gems, job, and builds explanation paragraph styling*/
@@ -549,6 +566,7 @@ h1 {
   color: red;
   font-weight: bold;
   margin-left: 1%;
+  text-align: center;
 }
 
 /* styling of the logout link in the resources page*/
@@ -568,27 +586,14 @@ h1 {
 
 /*Styling table which holds the requested items, users, builds, etc. This class is reused on most pages displaying database data*/
 .all-requested {
-  /* height: 50px;
-  overflow: scroll; */
-  /* max-width: 80%; */
-
-  /* table-layout: fixed; */
   table-layout: auto;
   width: 50%;
   max-width: 80%;
-  /* margin: 0 auto; */
   border-collapse: collapse;
 }
 
 /*Descriptive thead of table */
 .field-description {
-  /* font-weight: bold;
-  margin-bottom: 2%;
-  font-size: 1.4rem;
-  position: sticky;
-  top: 0px;
-  background-color: gray; */
-
   font-size: 1.3rem;
 }
 
@@ -601,9 +606,6 @@ h1 {
 /*Styling of table rows which represent items requested  by others and by the current user*/
 .requestedItem,
 .userItem {
-  /* display: block;
-  font-size: 1.2rem;
-  border: 0.5px solid whitesmoke; */
   border: 1px solid whitesmoke;
   word-break: break-all;
   font-size: 1.1rem;
@@ -614,7 +616,7 @@ h1 {
 }
 
 /*toggle hide styling for request page lists */
-.hideList {
+.hideTable {
   position: absolute;
   left: -9999px;
 }
