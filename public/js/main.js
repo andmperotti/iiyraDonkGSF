@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const deleteBtn = document.querySelectorAll(".delete-request");
 const deleteJobBtn = document.querySelectorAll(".delete-job");
 const deleteBuildBtn = document.querySelectorAll(".delete-build");
@@ -229,7 +230,6 @@ function verifyModal(action, thing) {
 }
 
 //sorting function for table headers, snagged from w3schools, bless them
-// eslint-disable-next-line no-unused-vars
 function sortTable(n) {
   var table,
     rows,

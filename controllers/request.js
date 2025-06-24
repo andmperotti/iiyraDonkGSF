@@ -53,6 +53,7 @@ module.exports = {
         { _id: req.body.requestIdFromJsFile },
         {
           completed: true,
+          completedBy: `${req.user.userName}`,
           // eslint-disable-next-line prettier/prettier
         }
       );
@@ -68,6 +69,8 @@ module.exports = {
         { _id: req.body.requestIdFromJsFile },
         {
           completed: false,
+          completedBy: ``,
+
           // eslint-disable-next-line prettier/prettier
         }
       );

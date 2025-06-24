@@ -25,6 +25,9 @@ const RequestSchema = new mongoose.Schema({
     type: Date,
     default: Date.now(),
   },
+  completedBy: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("Request", RequestSchema);
