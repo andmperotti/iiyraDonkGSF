@@ -192,26 +192,7 @@
                     <tr class='requestedItem' data-id='<%=el._id%>'>
                         <td><%= el.requestedItem %></td>
                         <td><%= `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
-<<<<<<< HEAD
                         <td class='del'> Delete </td>
-=======
-                        <td>
-                            <% if(el.completed===true){ %>
-                                <span>Completed</span>
-                            <%}else{%>
-                                <span>Active</span>
-                            <%}%>
-                        </td>
-                        <td class="request-actions">
-                            <span class='delete-request'>Delete</span>
-                                <% if(el.completed===true){%>
-                                    <span class="mark-uncomplete">Uncomplete</span>
-                                <%}%>
-                                <% if(el.completed===false){%>
-                                    <span class="complete-item">Complete</span>
-                                <%}%>
-                        </td>
->>>>>>> b4462b1 (feat: add tables with dynamic content)
                     </tr>
                 <% }) %>    
             </tbody>
