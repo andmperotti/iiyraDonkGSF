@@ -5,12 +5,9 @@ module.exports = {
     try {
       //arrays of build documents
       const builds = await Build.find({});
-      //store requesting user so they can delete their builds
-      let reqUser = req.user.userName;
 
       //trigger render aka invoke ejs return
-      res.render("builds.ejs", { builds: builds, reqUser: reqUser });
-      console.log(req);
+      res.render("builds.ejs", { builds: builds, requestor: req.user });
     } catch (err) {
       console.log(err);
     }

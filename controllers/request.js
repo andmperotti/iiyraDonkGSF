@@ -62,7 +62,7 @@ module.exports = {
       console.log(err);
     }
   },
-  markIncomplete: async (req, res) => {
+  markUncomplete: async (req, res) => {
     try {
       await Request.findOneAndUpdate(
         { _id: req.body.requestIdFromJsFile },

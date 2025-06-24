@@ -56,6 +56,7 @@ exports.logout = (req, res) => {
       if (err) {
         console.error(
           "Error: Failed to destroy the session during logout.",
+          // eslint-disable-next-line prettier/prettier
           err
         );
         return res.redirect("/");

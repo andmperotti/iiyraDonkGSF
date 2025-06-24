@@ -1,17 +1,12 @@
-const express = require('express')
-const router = express.Router()
-const requestedController = require('../controllers/request') 
-const { ensureAuth } = require('../middleware/auth')
+const express = require("express");
+const router = express.Router();
+const requestController = require("../controllers/request");
+const { ensureAuth } = require("../middleware/auth");
 
+router.get("/", ensureAuth, requestController.getRequestedItems);
+router.post("/createRequestedItem", requestController.createRequestedItem);
+router.put("/markComplete", requestController.markComplete);
+router.put("/markUncomplete", requestController.markUncomplete);
+router.delete("/deleteRequested", requestController.deleteRequested);
 
-router.get('/', ensureAuth, requestedController.getRequestedItems)
-
-router.post('/createRequestedItem', requestedController.createRequestedItem)
-
-router.put('/markComplete', requestedController.markComplete)
-
-router.put('/markIncomplete', requestedController.markIncomplete)
-
-router.delete('/deleteRequested', requestedController.deleteRequested)
-
-module.exports = router
+module.exports = router;

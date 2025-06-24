@@ -6,7 +6,7 @@ module.exports = {
       const jobList = await Job.find({});
 
       //trigger render aka invoke ejs return
-      res.render("jobs.ejs", { jobs: jobList, req: req });
+      res.render("jobs.ejs", { jobs: jobList, requestor: req.user });
     } catch (err) {
       console.log(err);
     }
@@ -21,44 +21,6 @@ module.exports = {
           discordName: req.user.discordName,
         });
         res.redirect("/jobs");
-      } catch (err) {
-        console.log(err);
-      }
-    } else {
-      res.redirect("/request");
-      console.log("user not verified");
-    }
-  },
-  markComplete: async (req, res) => {
-    if (req.user.isVerified) {
-      try {
-        await Job.findOneAndUpdate(
-          { _id: req.body.requestIdFromJsFile },
-          {
-            completed: true,
-          }
-        );
-        console.log("Marked Complete");
-        res.json("Marked Complete");
-      } catch (err) {
-        console.log(err);
-      }
-    } else {
-      res.redirect("/request");
-      console.log("user not verified");
-    }
-  },
-  markIncomplete: async (req, res) => {
-    if (req.user.isVerified) {
-      try {
-        await Job.findOneAndUpdate(
-          { _id: req.body.requestIdFromJsFile },
-          {
-            completed: false,
-          }
-        );
-        console.log("Marked Incomplete");
-        res.json("Marked Incomplete");
       } catch (err) {
         console.log(err);
       }

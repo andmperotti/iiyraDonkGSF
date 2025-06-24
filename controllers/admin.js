@@ -19,6 +19,7 @@ module.exports = {
         { _id: req.body.requestIdFromJsFile },
         {
           isVerified: true,
+          // eslint-disable-next-line prettier/prettier
         }
       );
       console.log("Verified User");
@@ -33,6 +34,7 @@ module.exports = {
         { _id: req.body.requestIdFromJsFile },
         {
           isAdmin: true,
+          // eslint-disable-next-line prettier/prettier
         }
       );
       res.json("Admin added");
