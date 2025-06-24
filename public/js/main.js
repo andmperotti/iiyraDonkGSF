@@ -1,6 +1,7 @@
-const deleteBtn = document.querySelectorAll(".del");
-const deleteJobBtn = document.querySelectorAll(".deljob");
-const deleteBuildBtn = document.querySelectorAll(".delBuild");
+const deleteBtn = document.querySelectorAll(".delete-request");
+const deleteJobBtn = document.querySelectorAll(".delete-job");
+const deleteBuildBtn = document.querySelectorAll(".delete-build");
+let modalActive = false;
 
 Array.from(deleteBtn).forEach((el) => {
   el.addEventListener("click", deleteRequested);
@@ -14,54 +15,72 @@ Array.from(deleteBuildBtn).forEach((el) => {
 });
 
 async function deleteRequested() {
-  const requestId = this.parentNode.dataset.id;
+  const requestId = this.parentNode.parentNode.dataset.id;
   try {
-    const response = await fetch("request/deleteRequested", {
-      method: "delete",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({
-        requestIdFromJsFile: requestId,
-      }),
-    });
-    const data = await response.json();
-    console.log(data);
-    location.reload();
+    let confirm = await verifyModal(
+      "Delete:",
+      // eslint-disable-next-line prettier/prettier
+      this.parentNode.parentNode.childNodes[1].textContent.trim()
+    );
+    if (confirm === true) {
+      const response = await fetch("request/deleteRequested", {
+        method: "delete",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          requestIdFromJsFile: requestId,
+        }),
+      });
+      const data = await response.json();
+      location.reload();
+    }
   } catch (err) {
     console.log(err);
   }
 }
 
 async function deleteJob() {
-  const requestId = this.parentNode.dataset.id;
+  const requestId = this.parentNode.parentNode.dataset.id;
   try {
-    const response = await fetch("jobs/deleteJob", {
-      method: "delete",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({
-        requestIdFromJsFile: requestId,
-      }),
-    });
-    const data = await response.json();
-    console.log(data);
-    location.reload();
+    let confirm = await verifyModal(
+      "Delete:",
+      // eslint-disable-next-line prettier/prettier
+      this.parentNode.parentNode.childNodes[1].textContent.trim()
+    );
+    if (confirm === true) {
+      const response = await fetch("jobs/deleteJob", {
+        method: "delete",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          requestIdFromJsFile: requestId,
+        }),
+      });
+      const data = await response.json();
+      location.reload();
+    }
   } catch (err) {
     console.log(err);
   }
 }
 
 async function deleteBuild() {
-  const requestId = this.parentNode.dataset.id;
+  const requestId = this.parentNode.parentNode.dataset.id;
   try {
-    const response = await fetch("builds/deleteBuild", {
-      method: "delete",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify({
-        requestIdFromJsFile: requestId,
-      }),
-    });
-    const data = await response.json();
-    console.log(data);
-    location.reload();
+    let confirm = await verifyModal(
+      "Delete:",
+      // eslint-disable-next-line prettier/prettier
+      this.parentNode.parentNode.childNodes[5].textContent.trim()
+    );
+    if (confirm === true) {
+      const response = await fetch("builds/deleteBuild", {
+        method: "delete",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          requestIdFromJsFile: requestId,
+        }),
+      });
+      const data = await response.json();
+      location.reload();
+    }
   } catch (err) {
     console.log(err);
   }
@@ -93,7 +112,7 @@ async function deleteUser() {
   const requestId = this.parentNode.parentNode.dataset.id;
   try {
     let confirm = await verifyModal(
-      "Delete",
+      "Delete:",
       // eslint-disable-next-line prettier/prettier
       this.parentNode.parentNode.childNodes[1].textContent.trim()
     );
@@ -106,7 +125,6 @@ async function deleteUser() {
         }),
       });
       const data = await response.json();
-      console.log(data);
       location.reload();
     }
   } catch (err) {
@@ -118,7 +136,7 @@ async function verifyUser() {
   const requestId = this.parentNode.parentNode.dataset.id;
   try {
     let confirm = await verifyModal(
-      "Verify",
+      "Verify:",
       // eslint-disable-next-line prettier/prettier
       this.parentNode.parentNode.childNodes[1].textContent.trim()
     );
@@ -131,7 +149,6 @@ async function verifyUser() {
         }),
       });
       const data = await response.json();
-      console.log(data);
       location.reload();
     }
   } catch (err) {
@@ -143,7 +160,7 @@ async function adminUser() {
   const requestId = this.parentNode.parentNode.dataset.id;
   try {
     let confirm = await verifyModal(
-      "Admin",
+      "Admin:",
       // eslint-disable-next-line prettier/prettier
       this.parentNode.parentNode.childNodes[1].textContent.trim()
     );
@@ -156,7 +173,6 @@ async function adminUser() {
         }),
       });
       const data = await response.json();
-      console.log(data);
       location.reload();
     }
   } catch (err) {
@@ -165,46 +181,51 @@ async function adminUser() {
 }
 
 //modal for verifying actions of admin panel
-function verifyModal(type, username) {
-  return new Promise((resolve) => {
-    let modalUi = document.createElement("div");
-    modalUi.classList.add("verifyModal");
+function verifyModal(action, thing) {
+  if (modalActive === false) {
+    modalActive = true;
+    return new Promise((resolve) => {
+      let modalUi = document.createElement("div");
+      modalUi.classList.add("verifyModal");
 
-    let modalHeader = document.createElement("h2");
-    modalHeader.textContent = "Verify Action";
-    modalUi.appendChild(modalHeader);
+      let modalHeader = document.createElement("h2");
+      modalHeader.textContent = "Verify Action";
+      modalUi.appendChild(modalHeader);
 
-    let modalDescription = document.createElement("p");
-    modalDescription.textContent = `Are you sure you want to ${type} ${username}?`;
-    modalUi.appendChild(modalDescription);
+      let modalDescription = document.createElement("p");
+      modalDescription.textContent = `Are you sure you want to ${action} ${thing}?`;
+      modalUi.appendChild(modalDescription);
 
-    let actionButtons = document.createElement("section");
-    let verifyButton = document.createElement("button");
-    let cancelButton = document.createElement("button");
-    verifyButton.type = "button";
-    cancelButton.type = "button";
-    verifyButton.id = "verifyConfirm";
-    cancelButton.id = "cancelConfirm";
-    verifyButton.textContent = `${type}`;
-    cancelButton.textContent = "Cancel";
-    actionButtons.appendChild(verifyButton);
-    actionButtons.appendChild(cancelButton);
-    modalUi.appendChild(actionButtons);
+      let actionButtons = document.createElement("section");
+      let verifyButton = document.createElement("button");
+      let cancelButton = document.createElement("button");
+      verifyButton.type = "button";
+      cancelButton.type = "button";
+      verifyButton.id = "verifyConfirm";
+      cancelButton.id = "cancelConfirm";
+      verifyButton.textContent = `${action.slice(0, -1)}`;
+      cancelButton.textContent = "Cancel";
+      actionButtons.appendChild(verifyButton);
+      actionButtons.appendChild(cancelButton);
+      actionButtons.classList.add("action-section");
+      modalUi.appendChild(actionButtons);
 
-    document.querySelector("body").appendChild(modalUi);
+      document.querySelector("body").appendChild(modalUi);
 
-    let adminAction = document.querySelector("#verifyConfirm");
-    let adminCancel = document.querySelector("#cancelConfirm");
-    //how do i tell the function to not return undefined and wait for one of these listeners to be invoked and return?
-    adminAction.addEventListener("click", () => {
-      document.querySelector(".verifyModal").remove();
-      resolve(true);
+      let adminAction = document.querySelector("#verifyConfirm");
+      let adminCancel = document.querySelector("#cancelConfirm");
+      //how do i tell the function to not return undefined and wait for one of these listeners to be invoked and return?
+      adminAction.addEventListener("click", () => {
+        document.querySelector(".verifyModal").remove();
+        resolve(true);
+      });
+      adminCancel.addEventListener("click", () => {
+        document.querySelector(".verifyModal").remove();
+        resolve(false);
+      });
     });
-    adminCancel.addEventListener("click", () => {
-      document.querySelector(".verifyModal").remove();
-      resolve(false);
-    });
-  });
+  }
+  modalActive = false;
 }
 
 //sorting function for table headers, snagged from w3schools, bless them
@@ -271,3 +292,63 @@ function sortTable(n) {
     }
   }
 }
+
+// action span listners
+let markCompleteSpans = Array.from(document.querySelectorAll(".complete-item"));
+let uncompleteSpans = Array.from(document.querySelectorAll(".mark-uncomplete"));
+
+async function uncompleteRequested() {
+  const requestId = this.parentNode.parentNode.dataset.id;
+  try {
+    let confirm = await verifyModal(
+      "Uncomplete:",
+      // eslint-disable-next-line prettier/prettier
+      this.parentNode.parentNode.childNodes[1].textContent.trim()
+    );
+    if (confirm === true) {
+      const response = await fetch("request/markUncomplete", {
+        method: "put",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          requestIdFromJsFile: requestId,
+        }),
+      });
+      const data = await response.json();
+      location.reload();
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+uncompleteSpans.forEach((el) => {
+  el.addEventListener("click", uncompleteRequested);
+});
+
+async function markComplete() {
+  const requestId = this.parentNode.parentNode.dataset.id;
+  try {
+    let confirm = await verifyModal(
+      "Complete:",
+      // eslint-disable-next-line prettier/prettier
+      this.parentNode.parentNode.childNodes[1].textContent.trim()
+    );
+    if (confirm === true) {
+      const response = await fetch("request/markComplete", {
+        method: "put",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify({
+          requestIdFromJsFile: requestId,
+        }),
+      });
+      const data = await response.json();
+      location.reload();
+    }
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+markCompleteSpans.forEach((el) => {
+  el.addEventListener("click", markComplete);
+});
