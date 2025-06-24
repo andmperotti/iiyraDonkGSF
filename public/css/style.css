@@ -578,7 +578,7 @@ h1 {
 /*Styling table which holds the requested items, users, builds, etc. This class is reused on most pages displaying database data*/
 .all-requested, .displayed-table {
   table-layout: auto;
-  max-width: 90%;
+  max-width: 80%;
   border-collapse: collapse;
 }
 
