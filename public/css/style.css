@@ -469,7 +469,6 @@ h1 {
 }
 .requested-output {
   width: 50%;
-  border: 5px solid black;
   display: flex;
   flex-direction: column;
   padding-bottom: 1%;
@@ -478,19 +477,19 @@ h1 {
   color: orange;
 }
 .uniquesTable.displayed-table {
-  border: 1px solid orange;
+  border: 1px solid black;
 }
 .gems {
   color: lightgreen;
 }
 .gemsTable.displayed-table {
-  border: 1px solid lightgreen;
+  border: 1px solid black;
 }
 .others {
   color: plum;
 }
 .othersTable.displayed-table {
-  border: 1px solid plum;
+  border: 1px solid black;
 }
 .others li {
   padding: 0;
@@ -529,10 +528,6 @@ h1 {
   width: 150px;
 }
 
-.table-actions {
-  width: 80px;
-}
-
 /*Gems, job, and builds explanation paragraph styling*/
 .disclaimer-gem,
 .job-description,
@@ -551,15 +546,15 @@ h1 {
 }
 
 /* styling for delete button next to table rows */
-.del,
-.deljob,
-.delBuild {
-  border: 1px solid black;
-  background: black;
-  color: red;
+.delete-request,
+.delete-job,
+.delete-build,
+.delete-item {
+  background: red;
+  color: black;
   font-weight: bold;
-  margin-left: 1%;
   text-align: center;
+  vertical-align: middle;
 }
 
 /* styling of the logout link in the resources page*/
@@ -568,7 +563,7 @@ h1 {
   font-weight: bold;
 }
 
-/* format of lab section to cahnge them to vertical*/
+/* format of lab section to change them to vertical*/
 .labs {
   display: flex;
   flex-direction: column;
@@ -580,7 +575,6 @@ h1 {
 /*Styling table which holds the requested items, users, builds, etc. This class is reused on most pages displaying database data*/
 .all-requested, .displayed-table {
   table-layout: auto;
-  width: 60%;
   max-width: 90%;
   border-collapse: collapse;
 }
@@ -599,7 +593,6 @@ h1 {
 /*Styling of table rows which represent items requested  by others and by the current user*/
 .requestedItem,
 .userItem {
-  border: 1px solid whitesmoke;
   word-break: break-all;
   font-size: 1.1rem;
 }
@@ -741,8 +734,9 @@ img {
 .verifyModal {
   background-color: white;
   border: 1px solid red;
-  position: absolute;
-  top: 25%;
+  position: fixed;
+  top: 25vh;
+  padding: 5%;
 }
 
 /*more styling for already verified and admin'd users */
@@ -751,4 +745,43 @@ img {
   background-color: gray;
   border: 1px solid black;
   color: white;
+}
+
+/* styling of action buttons on requested item pages like uniques, gems, others*/
+.request-actions {
+  display: flex;
+  width: max-content;
+  gap: 5px;
+  width: 98%;
+  border-collapse: collapse;
+  justify-content: space-between;
+}
+
+.complete-item {
+  border-radius: 12%;
+  background-color: white;
+  color: black;
+  padding: 1px;
+  display: block;
+}
+.mark-uncomplete {
+  border-radius: 12%;
+  background-color: black;
+  color: white;
+  padding: 1px;
+}
+
+.fulfillment-actions {
+  width: fit-content;
+}
+.request-actions span {
+  width: 100%;
+  border-radius: 10%;
+  text-wrap: nowrap;
+}
+
+.action-section {
+  display: flex;
+  justify-content: space-between;
+  padding: 1%;
 }
