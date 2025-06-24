@@ -51,7 +51,7 @@
 
     <img src="images/other.gif">
 
-    <p class="centered-description">To delete your requested other items, go to the request page, navigate to others, use the delete button beside your item.</p>
+    <p class="centered-description">To mark your requested other items as uncomplete so they show on this list again, go to the request page, navigate to others, use the uncomplete button beside your item.</p>
     <p class="centered-description">By default ordering of other items is submittance order; first/oldest submitted to -> last/newly submitted.</p>
 
         <table class="all-requested">
@@ -61,6 +61,8 @@
                 <th scope="col" onclick="sortTable(1)">Poe Account ↑↓</th>
                 <th scope="col" onclick="sortTable(2)">Discord Name ↑↓</th>
                 <th scope="col" onclick="sortTable(3)">Date Requested ↑↓</th>
+                <th scope="col" class="fulfillment-actions">Actions</th>
+
 
             </tr>
             </thead>
@@ -88,6 +90,12 @@
                                     `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
                                     ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
                                 %>
+                            </td>
+                            <td class="request-actions">
+                                <span class="complete-item">Complete</span>
+                                <% if(requestor.isAdmin||requestor.userName===el.userName){ %>
+                                    <span class="delete-request">Delete</span>
+                                <% } %>
                             </td>
                         </tr>
                     <% })

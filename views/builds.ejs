@@ -67,11 +67,14 @@
                 <th scope="col" onclick="sortTable(0)">Account Name ↑↓</th>
                 <th scope="col" onclick="sortTable(0)">Character Name ↑↓</th>
                 <th scope="col" onclick="sortTable(0)">Build Description/Resource(pob,etc) optional ↑↓</th>
+                <th scope="col" class="fulfillment-actions">Actions</th>
+
             </tr>
         </thead>
         <tbody>
             <% if(builds.length<1){%>
                 <tr class='requestedItem'>
+                    <td>None Created</td>
                     <td>None Created</td>
                     <td>None Created</td>
                     <td>None Created</td>
@@ -88,6 +91,11 @@
                             <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%=el.userName%></a></td>  
                             <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>/characters?characterName=<%=el.buildCharacterName%>"><%=el.buildCharacterName%></a></td>  
                             <td><a href="<%=el.buildResource%>"><%=el.buildName%></td>
+                            <td class="request-actions">
+                                <% if(el.userName===requestor.userName||requestor.isAdmin){%>
+                                <span class="delete-build">Delete</span>
+                            <% } %>                            
+                            </td>
                         </tr>
                 <% }) 
             }%>

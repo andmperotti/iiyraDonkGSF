@@ -65,6 +65,7 @@
                 <th scope="col" onclick="sortTable(0)">Job ↑↓</th>
                 <th scope="col" onclick="sortTable(1)">Poe Account ↑↓</th>
                 <th scope="col" onclick="sortTable(2)">Discord Name ↑↓</th>
+                <th scope="col" class="fulfillment-actions">Actions</th>
 
             </tr>
             </thead>
@@ -74,6 +75,8 @@
                         <td>None Created</td>
                         <td>None Created</td>
                         <td>None Created</td>
+                        <td>None Created</td>
+
                     </tr>
                 <%}else{
                     jobs.forEach( el => {
@@ -86,8 +89,13 @@
                             <td><%=el.jobName%></td>
                             <td>
                                 <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a>
-                            </td>  
-                            <td><%= el.discordName%></td>
+                            </td>
+                            <td><%= el.discordName%></td> 
+                            <td class="request-actions">
+                                <% if(el.userName===requestor.userName||requestor.isAdmin){%>
+                                <span class="delete-job">Delete</span>
+                            <% } %>       
+                            </td>
                         </tr>
                 <% })
                 }%>

@@ -51,18 +51,19 @@
 
     <img src="images/duffBlood.gif">
     <p class="centered-description">
-        To delete your requested uniques, go to the request page, navigate to uniques, use the delete button beside your item.
+        To mark your requested uniques as uncomplete so they show on this list again, go to the request page, navigate to uniques, use the uncomplete button beside your item.
     </p>
     <p class="centered-description">By default ordering of uniques is submittance order; first/oldest submitted to -> last/newly submitted.</p>
 
     <table class="all-requested">
         <thead>
-        <tr class="field-description">
-            <th scope="col" onclick="sortTable(0)">Unique Name ↑↓</th>
-            <th scope="col" onclick="sortTable(1)">Poe Account ↑↓</th>
-            <th scope="col" onclick="sortTable(2)">Discord Name ↑↓</th>
-            <th scope="col" onclick="sortTable(3)">Date Requested ↑↓</th>
-        </tr>
+            <tr class="field-description">
+                <th scope="col" onclick="sortTable(0)">Unique Name ↑↓</th>
+                <th scope="col" onclick="sortTable(1)">Poe Account ↑↓</th>
+                <th scope="col" onclick="sortTable(2)">Discord Name ↑↓</th>
+                <th scope="col" onclick="sortTable(3)">Date Requested ↑↓</th>
+                <th scope="col" class="fulfillment-actions">Actions</th>
+            </tr>
         </thead>
         <tbody>
             <% if(uniques.length<1){%>
@@ -70,6 +71,7 @@
                     <td>None Requested</td>
                     <td>None Requested</td>
                     <td>None Requested</td>
+                    <td>None</td>
                 </tr>
             <%}else{
                 uniques.forEach( el => {
@@ -88,6 +90,12 @@
                                 ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
                             %>
                         </td>
+                            <td class="request-actions">
+                                <span class="complete-item">Complete</span>
+                                <% if(requestor.isAdmin||requestor.userName===el.userName){ %>
+                                    <span class="delete-request">Delete</span>
+                                <% } %>
+                            </td>
                     </tr>
                 <% })
             }%>

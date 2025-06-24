@@ -83,7 +83,8 @@
                 <tr>
                     <th onclick="sortTable(0)">Unique Name ↑↓</th>
                     <th onclick="sortTable(1)" class="table-date">Requested Date ↑↓</th>
-                    <th class="table-actions">Actions</th>
+                    <th scope="col">Status</th>
+                    <th class="fulfillment-actions">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -91,6 +92,7 @@
                     <tr class='requestedItem'>
                         <td>None Requested</td>
                         <td>None Requested</td>
+                        <td>None</td>
                         <td>None</td>
                     </tr>
                 <% }
@@ -103,7 +105,22 @@
                                 ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
                             %>
                         </td>
-                        <td class='del'> Delete </td>
+                        <td>
+                            <% if(el.completed===true){ %>
+                                <span>Completed</span>
+                            <%}else{%>
+                                <span>Active</span>
+                            <%}%>
+                        </td>
+                        <td class="request-actions">
+                            <span class='delete-request'>Delete</span>
+                                <% if(el.completed===true){%>
+                                    <span class="mark-uncomplete">Uncomplete</span>
+                                <%}%>
+                                <% if(el.completed===false){%>
+                                    <span class="complete-item">Complete</span>
+                                <%}%>
+                        </td>
                     </tr>
                 <% }) %>    
             </tbody>
@@ -114,6 +131,7 @@
                 <tr>
                     <th onclick="sortTable(0)" scope="col">Gem Name ↑↓</th>
                     <th onclick="sortTable(1)" class="table-date" scope="col">Requested Date ↑↓</th>
+                    <th scope="col">Status</th>
                     <th class="table-actions" scope="col">Actions</th>
                 </tr>
             </thead>
@@ -123,13 +141,30 @@
                         <td>None Requested</td>
                         <td>None Requested</td>
                         <td>None</td>
+                        <td>None</td>
                     </tr>
                 <% }
                 gems.forEach( el => { %>
                     <tr class='requestedItem' data-id='<%=el._id%>'>
                         <td><%= el.requestedItem %></td>
                         <td><%= `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
-                        <td class='del'> Delete </td>
+
+                        <td>
+                            <% if(el.completed===true){ %>
+                                <span>Completed</span>
+                            <%}else{%>
+                                <span>Active</span>
+                            <%}%>
+                        </td>
+                        <td class="request-actions">
+                            <span class='delete-request'>Delete</span>
+                                <% if(el.completed===true){%>
+                                    <span class="mark-uncomplete">Uncomplete</span>
+                                <%}%>
+                                <% if(el.completed===false){%>
+                                    <span class="complete-item">Complete</span>
+                                <%}%>
+                        </td>
                     </tr>
                 <% }) %>    
             </tbody>
@@ -140,6 +175,7 @@
                 <tr>
                     <th onclick="sortTable(0)">Other Name ↑↓</th>
                     <th onclick="sortTable(1)" class="table-date">Requested Date ↑↓</th>
+                    <th scope="col">Status</th>
                     <th class="table-actions">Actions</th>
                 </tr>
             </thead>
@@ -149,13 +185,33 @@
                         <td>None Requested</td>
                         <td>None Requested</td>
                         <td>None</td>
+                        <td>None</td>
                     </tr>
                 <% }
                 others.forEach( el => { %>
                     <tr class='requestedItem' data-id='<%=el._id%>'>
                         <td><%= el.requestedItem %></td>
                         <td><%= `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
+<<<<<<< HEAD
                         <td class='del'> Delete </td>
+=======
+                        <td>
+                            <% if(el.completed===true){ %>
+                                <span>Completed</span>
+                            <%}else{%>
+                                <span>Active</span>
+                            <%}%>
+                        </td>
+                        <td class="request-actions">
+                            <span class='delete-request'>Delete</span>
+                                <% if(el.completed===true){%>
+                                    <span class="mark-uncomplete">Uncomplete</span>
+                                <%}%>
+                                <% if(el.completed===false){%>
+                                    <span class="complete-item">Complete</span>
+                                <%}%>
+                        </td>
+>>>>>>> b4462b1 (feat: add tables with dynamic content)
                     </tr>
                 <% }) %>    
             </tbody>
