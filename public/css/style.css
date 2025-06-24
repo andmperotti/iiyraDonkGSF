@@ -519,7 +519,9 @@ h1 {
 .displayed-table th{
   text-align: start;
 }
-
+.displayed-table th{
+  text-align: center;
+}
 .displayed-table td, .displayed-table th {
   border: 1px solid black;
 }
@@ -576,7 +578,7 @@ h1 {
 /*Styling table which holds the requested items, users, builds, etc. This class is reused on most pages displaying database data*/
 .all-requested, .displayed-table {
   table-layout: auto;
-  max-width: 80%;
+  max-width: 90%;
   border-collapse: collapse;
 }
 
@@ -587,7 +589,7 @@ h1 {
 
 /* Table headers of tables that hold data of items requested, users in league, builds of users, etc */
 .field-description th {
-  text-align: start;
+  text-align: center;
   border: 1px solid white;
 }
 
