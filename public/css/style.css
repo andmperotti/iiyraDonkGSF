@@ -555,6 +555,7 @@ h1 {
   font-weight: bold;
   text-align: center;
   vertical-align: middle;
+  padding: 3px;
 }
 
 /* styling of the logout link in the resources page*/
@@ -750,9 +751,7 @@ img {
 /* styling of action buttons on requested item pages like uniques, gems, others*/
 .request-actions {
   display: flex;
-  width: max-content;
   gap: 5px;
-  width: 98%;
   border-collapse: collapse;
   justify-content: space-between;
 }
@@ -768,7 +767,7 @@ img {
   border-radius: 12%;
   background-color: black;
   color: white;
-  padding: 1px;
+  padding: 3px;
 }
 
 .fulfillment-actions {
@@ -785,3 +784,32 @@ img {
   justify-content: space-between;
   padding: 1%;
 }
+
+/*Styling completed by text to be displayed on hover, thanks again to w3schools */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  width: fit-content;
+  text-wrap: nowrap;
+  padding: 0 2px;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  background-color: white;
+  text-align: center;
+  padding: 5px 5px;
+  border-radius: 6px;
+  color: black;
+  font-size: 1rem;
+  
+ 
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+

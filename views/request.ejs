@@ -107,7 +107,7 @@
                         </td>
                         <td>
                             <% if(el.completed===true){ %>
-                                <span>Completed by <%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDay()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${el.completedAt.getMinutes()}:${el.completedAt.getSeconds()}`%></span>
+                                <span class="tooltip">Completed by:<div class='tooltiptext'><%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDay()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${el.completedAt.getMinutes()}:${el.completedAt.getSeconds()}`%></div></span>
                             <%}else{%>
                                 <span>
                                     Active
@@ -152,7 +152,7 @@
                         <td><%= `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
                         <td>
                             <% if(el.completed===true){ %>
-                                <span>Completed by <%=el.completedBy%> at <%=el.completedAt%></span>
+                                <span class="tooltip">Completed by:<div class='tooltiptext'><%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDay()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${el.completedAt.getMinutes()}:${el.completedAt.getSeconds()}`%></div></span>
                             <%}else{%>
                                 <span>
                                     Active
@@ -161,13 +161,12 @@
                         </td>
                         <td class="request-actions">
                             <span class='delete-request'>Delete</span>
-                             <% if(el.completed===true){ %>
-                                <span>Completed by <%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDay()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${el.completedAt.getMinutes()}:${el.completedAt.getSeconds()}`%></span>
-                            <%}else{%>
-                                <span>
-                                    Active
-                                </span>
-                            <%}%>
+                                <% if(el.completed===true){%>
+                                    <span class="mark-uncomplete">Uncomplete</span>
+                                <%}%>
+                                <% if(el.completed!==true){%>
+                                    <span class="complete-item">Complete</span>
+                                <%}%>
                         </td>
                     </tr>
                 <% }) %>    
@@ -198,7 +197,7 @@
                         <td><%= `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
                         <td>
                             <% if(el.completed===true){ %>
-                                <span>Completed by <%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDay()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${el.completedAt.getMinutes()}:${el.completedAt.getSeconds()}`%></span>
+                                <span class="tooltip">Completed by:<div class='tooltiptext'><%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDay()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${el.completedAt.getMinutes()}:${el.completedAt.getSeconds()}`%></div></span>
                             <%}else{%>
                                 <span>
                                     Active
