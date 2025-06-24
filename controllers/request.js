@@ -54,6 +54,7 @@ module.exports = {
         {
           completed: true,
           completedBy: `${req.user.userName}`,
+          completedAt: Date.now(),
           // eslint-disable-next-line prettier/prettier
         }
       );
@@ -70,6 +71,7 @@ module.exports = {
         {
           completed: false,
           completedBy: ``,
+          completedAt: "",
 
           // eslint-disable-next-line prettier/prettier
         }

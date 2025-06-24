@@ -107,7 +107,7 @@
                         </td>
                         <td>
                             <% if(el.completed===true){ %>
-                                <span>Completed by <%=el.completedBy%></span>
+                                <span>Completed by <%=el.completedBy%> at <%=el.completedAt%></span>
                             <%}else{%>
                                 <span>
                                     Active
@@ -150,10 +150,9 @@
                     <tr class='requestedItem' data-id='<%=el._id%>'>
                         <td><%= el.requestedItem %></td>
                         <td><%= `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
-
                         <td>
                             <% if(el.completed===true){ %>
-                                <span>Completed by <%=el.completedBy%></span>
+                                <span>Completed by <%=el.completedBy%> at <%=el.completedAt%></span>
                             <%}else{%>
                                 <span>
                                     Active
@@ -198,7 +197,7 @@
                         <td><%= `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
                         <td>
                             <% if(el.completed===true){ %>
-                                <span>Completed by <%=el.completedBy%></span>
+                                <span>Completed by <%=el.completedBy%> at <%=el.completedAt%></span>
                             <%}else{%>
                                 <span>
                                     Active

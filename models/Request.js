@@ -28,6 +28,9 @@ const RequestSchema = new mongoose.Schema({
   completedBy: {
     type: String,
   },
+  completedAt: {
+    type: Date,
+  },
 });
 
 module.exports = mongoose.model("Request", RequestSchema);
