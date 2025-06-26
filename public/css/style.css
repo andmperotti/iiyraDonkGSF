@@ -351,6 +351,28 @@ template {
   display: none;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* my styles */
 ul {
   padding: 0 1%;
@@ -374,6 +396,8 @@ nav {
 
 .nav-link {
   color: lightgreen;
+  font-size: calc(.5rem + .85vw);
+  text-align: center;
 }
 a {
   color: orange;
@@ -445,6 +469,7 @@ h1 {
 .centered-description {
   width: 70%;
   text-align: center;
+  font-size: calc(1rem + .25vw);
 }
 
 .signupForm {
@@ -506,7 +531,7 @@ h1 {
   margin-bottom: 2vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  gap: 1ch;
   border: 1px solid yellow;
 }
 .requestButton {
@@ -517,17 +542,7 @@ h1 {
 
 /* further styling of request page table elements */
 .displayed-table th{
-  text-align: start;
-}
-.displayed-table th{
   text-align: center;
-}
-.displayed-table td, .displayed-table th {
-  border: 1px solid black;
-}
-
-.table-date {
-  width: 150px;
 }
 
 /*Gems, job, and builds explanation paragraph styling*/
@@ -543,8 +558,8 @@ h1 {
 
 /*job output element*/
 .job-list {
-  border: 5px solid black;
   width: 60%;
+  max-width: 80%;
 }
 
 /* styling for delete button next to table rows */
@@ -555,9 +570,6 @@ h1 {
   background: red;
   color: black;
   font-weight: bold;
-  text-align: center;
-  vertical-align: middle;
-  padding: 3px;
 }
 
 /* styling of the logout link in the resources page*/
@@ -566,7 +578,7 @@ h1 {
   font-weight: bold;
 }
 
-/* format of lab section to change them to vertical*/
+/* format of lab section of gems page to change links to vertical layout*/
 .labs {
   display: flex;
   flex-direction: column;
@@ -578,30 +590,50 @@ h1 {
 /*Styling table which holds the requested items, users, builds, etc. This class is reused on most pages displaying database data*/
 .all-requested, .displayed-table {
   table-layout: auto;
-  max-width: 80%;
+  max-width: 90%;
   border-collapse: collapse;
 }
 
-/*Descriptive thead of table */
-.field-description {
-  font-size: 1.3rem;
-}
+
 
 /* Table headers of tables that hold data of items requested, users in league, builds of users, etc */
 .field-description th {
   text-align: center;
   border: 1px solid white;
+  overflow-wrap: break-all;
+  top: 0ch;
+  background-color: white;
+  border: 1px solid black;
+  position: sticky;
 }
 
-/*Styling of table rows which represent items requested  by others and by the current user*/
-.requestedItem,
-.userItem {
-  word-break: break-all;
-  font-size: 1.1rem;
+.input-radio-section {
+  margin: 1ch 0;
 }
 /* margin above the login image */
 .login-image {
   margin-top: 1%;
+}
+
+.loginForm {
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: repeat(3, 1fr);
+  max-width: 80%;
+}
+.loginForm label{
+  display: flex;
+  justify-content: space-between;
+}
+.loginForm input[type='submit']{
+  justify-self: end;
+}
+.loginForm input{
+  max-width: 20ch;
+  width: 100%;
+}
+.login-button{
+  margin: 0 auto;
 }
 
 /*toggle hide styling for request page tables */
@@ -640,16 +672,15 @@ h1 {
 }
 /*editing the size of all images*/
 img {
-  max-width: 450px;
+  max-width: 35%;
+
 }
 /*styling the margin on the countdown timer of hte gems page*/
 .timer {
   margin: 0 1%;
 }
 
-.oprah {
-  max-width: 260px;
-}
+
 
 .buildsImg {
   max-width: 400px;
@@ -659,6 +690,11 @@ img {
   margin-top: 1%;
 }
 
+.topNav{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
 /* media queries for mobile layout */
 /*hide nav element when device of less than 801px wide loads site */
 @media all and (max-width: 800px) {
@@ -666,13 +702,13 @@ img {
     position: absolute;
     left: -9999px;
   }
-  img {
-    max-width: 60%;
+  .field-description th {
+    top: 6ch;
   }
-  .loginForm {
-    display: flex;
-    flex-direction: column;
+  table{
+    margin-left: 6ch;
   }
+
 }
 
 /*media query for when site isn't loaded on mobile*/
@@ -685,45 +721,35 @@ img {
   }
 }
 
-/*Media query to make the sign up page look better when viewport is less than 1110px wide*/
-@media all and (max-width: 1110px) {
-  .signupForm {
-    display: flex;
-    flex-direction: column;
-    margin-top: 0%;
-  }
-  .signupForm {
-    margin-top: 1vh;
-  }
-}
 
-/*Styling the verify-disclaimer for the sign up page*/
+/* Styling the verify-disclaimer for the sign up page */
 .verify-disclaimer {
   color: darkred;
   text-decoration: underline;
+  max-width: 70%;
 }
 
 /*Styling for the span/buttons in the admin panel*/
 .verifyUser {
   background-color: green;
-  border: 1px solid white;
 }
 .adminUser {
   background-color: orange;
-  border: 1px solid white;
 }
 .deleteUser {
   background-color: red;
+}
+.verifyUser, 
+.adminUser, 
+.deleteUser {
   border: 1px solid white;
+  text-align: center;
 }
 /*container for admin action buttons*/
 .adminActions {
-  /* display: inline-flex;
-  width: 45%;
-  justify-content: space-around; */
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1ch;
 }
 .adminActions > span {
   width: 8ch;
@@ -748,44 +774,46 @@ img {
   background-color: gray;
   border: 1px solid black;
   color: white;
+  text-align: center;
 }
 
 /* styling of action buttons on requested item pages like uniques, gems, others*/
 .request-actions {
   display: flex;
-  gap: 5px;
-  border-collapse: collapse;
+  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: space-between;
+  /* justify-items: space-between;
+  align-items: space-between;
+  align-content: space-between; */
+}
+.request-actions span {
+  border: none;
 }
 
 .complete-item {
-  border-radius: 12%;
   background-color: white;
   color: black;
-  padding: 1px;
-  display: block;
 }
 .mark-uncomplete {
-  border-radius: 12%;
   background-color: black;
   color: white;
-  padding: 3px;
 }
-
-.fulfillment-actions {
-  width: fit-content;
-}
-.request-actions span {
-  width: 100%;
-  border-radius: 10%;
+.complete-item, 
+.mark-uncomplete,
+.delete-request,
+.delete-job,
+.delete-build,
+.delete-item{
+  padding: 2px;
+  text-align: center;
+  border-radius: 2%;
   text-wrap: nowrap;
+  min-width: fit-content;
+  flex: 1 0 fit-content;
+
 }
 
-.action-section {
-  display: flex;
-  justify-content: space-between;
-  padding: 1%;
-}
 
 /*Styling completed by text to be displayed on hover, thanks again to w3schools */
 .tooltip {
@@ -815,3 +843,36 @@ img {
   visibility: visible;
 }
 
+.request-form{
+  max-width: 80%;
+}
+
+th, .requested-cell {
+  text-wrap: wrap;
+  word-break: break-word;
+}
+.requested-cell {
+  padding: 0 .5ch;
+  font-size: calc(.8rem + .4vw);
+  border: .5px solid black;
+  overflow-wrap: break-word;
+}
+
+.lab-link {
+  display: inline;
+  padding: 0;
+  margin: 0;
+  font-size: calc(.6rem + .75vw);
+}
+
+h1{
+  font-size: calc();
+}
+/*Dynamic table header font size of table */
+th {
+  font-size: calc(1rem + .5vw);
+}
+
+#admin-wipe-button{
+  margin-top: 10ch;
+}

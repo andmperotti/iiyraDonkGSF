@@ -27,7 +27,7 @@
             <a href="/users" class="nav-link"><span>Users</span></a>
             <a href="/builds" class="nav-link"><span>Builds</span></a>
             <a href="/resources" class="nav-link"><span>Resources</span></a>
-            <a href="/logout" class="nav-link"><span>Logout</span></a>
+            <a href="/logout" class="nav-link logout"><span>Logout</span></a>
         </nav>
     </header>
 
@@ -44,10 +44,10 @@
         <a href="/users" class="nav-link"><span>Users</span></a>
         <a href="/builds" class="nav-link"><span>Builds</span></a>
         <a href="/resources" class="nav-link"><span>Resources</span></a>
-        <a href="/logout" class="nav-link"><span>Logout</span></a>
+        <a href="/logout" class="nav-link logout"><span>Logout</span></a>
     </nav>
 
-    <h1>God Mode:</h1>
+    <h1>God Mode</h1>
     <p class="centered-description">By default ordering of list is age order; first/oldest created to -> last/newly created.</p>
 
     <table class="all-requested">
@@ -68,12 +68,11 @@
                 let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
             %>
             <tr class='requestedItem' data-id='<%=el._id%>'>
-                <td>
+                <td class="requested-cell">
                     <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a>
                 </td>  
-                <td><%= el.discordName%></td>
-                <td>
-                    <section class="adminActions">
+                <td class="requested-cell"><%= el.discordName%></td>
+                <td class="adminActions">
                         <% if(!el.isVerified){%>
                             <span class="verifyUser">Verify</span>
                         <%}%>                        
@@ -87,12 +86,12 @@
                             <span class="adminedUser">Admined</span>
                         <%}%>
                         <span class="deleteUser">Delete</span>
-                    </section>
                 </td>
             </tr>
         <% }) %>
     </tbody>
     </table>
+    <button id="admin-wipe-button">Wipe Everything/ Season Reset</button>
 
     <script src="js/main.js"></script>
 </body>

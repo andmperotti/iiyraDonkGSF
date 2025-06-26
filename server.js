@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+// eslint-disable-next-line no-unused-vars
 const mongoose = require("mongoose");
 const passport = require("passport");
 const session = require("express-session");
@@ -37,6 +38,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: process.env.DB_STRING }),
+    // eslint-disable-next-line prettier/prettier
   })
 );
 

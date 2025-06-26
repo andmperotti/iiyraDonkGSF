@@ -27,7 +27,7 @@
             <a href="/users" class="nav-link"><span>Users</span></a>
             <a href="/builds" class="nav-link"><span>Builds</span></a>
             <a href="/resources" class="nav-link"><span>Resources</span></a>
-            <a href="/logout" class="nav-link"><span>Logout</span></a>
+            <a href="/logout" class="nav-link logout"><span>Logout</span></a>
         </nav>
     </header>
 
@@ -44,15 +44,19 @@
         <a href="/users" class="nav-link"><span>Users</span></a>
         <a href="/builds" class="nav-link"><span>Builds</span></a>
         <a href="/resources" class="nav-link"><span>Resources</span></a>
-        <a href="/logout" class="nav-link"><span>Logout</span></a>
+        <a href="/logout" class="nav-link logout"><span>Logout</span></a>
     </nav>
     
-    <h1>Login DN</h1>
+    <h1>Login</h1>
 
     <form action="/login" method="POST" class="loginForm">
-        <input type="email" name="email" placeholder="Email" autocomplete="off">
-        <input type="password" name="password" placeholder="Password" autocomplete="off">
-        <input type="submit" value="LOGIN">
+        <label >Email:
+            <input type="email" name="email"  autocomplete="off">
+        </label>
+        <label>Password:
+            <input type="password" name="password" autocomplete="off">
+        </label>
+        <input type="submit" value="LOGIN" class="login-button">
     </form>
 
     <section class="login">

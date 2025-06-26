@@ -27,7 +27,7 @@
             <a href="/users" class="nav-link"><span>Users</span></a>
             <a href="/builds" class="nav-link"><span>Builds</span></a>
             <a href="/resources" class="nav-link"><span>Resources</span></a>
-            <a href="/logout" class="nav-link"><span>Logout</span></a>
+            <a href="/logout" class="nav-link logout"><span>Logout</span></a>
         </nav>
     </header>
 
@@ -44,19 +44,19 @@
         <a href="/users" class="nav-link"><span>Users</span></a>
         <a href="/builds" class="nav-link"><span>Builds</span></a>
         <a href="/resources" class="nav-link"><span>Resources</span></a>
-        <a href="/logout" class="nav-link"><span>Logout</span></a>
+        <a href="/logout" class="nav-link logout"><span>Logout</span></a>
     </nav>
 
     <h1>Request Items</h1>
 
     <img src="images/where.gif">
 
-    <form action="/request/createRequestedItem" method='POST'>
+    <form action="/request/createRequestedItem" method='POST' class="request-form">
         <fieldset class="center-column">
           <legend class="request-item-legend">Request Item</legend>
           <section class="requested-inputs center-column">
             <label class="request-item-label"><input type="text" placeholder="Enter Name" name='requestedItem' autocomplete="off" minlength="1" required></label>
-            <section>
+            <section class="input-radio-section">
               <label><input type="radio" value="Unique" name="itemType" required autocomplete="off">Unique</label>
               <label><input type="radio" value="Gem" name="itemType" autocomplete="off">Gem</label>
               <label><input type="radio" value="Other" name="itemType" autocomplete="off">Other</label>
@@ -71,7 +71,7 @@
     <h3>What you have requested:</h3>
     <p class="centered-description">You can keep your fulfilled items here for your records, or you can delete them.</p>
 
-    <p>Click on a type below to see what you've requested from each:</p>
+    <p class="centered-description">Click on a type below to see what you've requested from each:</p>
     <section class="requestBar">
         <span class="requestButton uniques uniqueButton">Uniques</span>
         <span class="requestButton gems gemsButton">Gems</span>
@@ -80,7 +80,7 @@
 
         <table class="displayed-table uniquesTable uniques">
             <thead>
-                <tr>
+                <tr class="field-description">
                     <th onclick="sortTable(0)">Unique Name ↑↓</th>
                     <th onclick="sortTable(1)" class="table-date">Requested Date ↑↓</th>
                     <th scope="col">Status</th>
@@ -90,22 +90,22 @@
             <tbody>
                 <% if(uniques.length<1){ %>
                     <tr class='requestedItem'>
-                        <td>None Requested</td>
-                        <td>None Requested</td>
-                        <td>None</td>
-                        <td>None</td>
+                        <td class="requested-cell">None Requested</td>
+                        <td class="requested-cell">None Requested</td>
+                        <td class="requested-cell">None</td>
+                        <td class="requested-cell">None</td>
                     </tr>
                 <% }
                 uniques.forEach( el => { %>
                     <tr class='requestedItem' data-id='<%=el._id%>'>
-                        <td><%= el.requestedItem %></td>
-                        <td>
+                        <td class="requested-cell"><%= el.requestedItem %></td>
+                        <td class="requested-cell">
                             <%= 
                                 `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
                                 ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
                             %>
                         </td>
-                        <td>
+                        <td class="requested-cell">
                             <% if(el.completed===true){ %>
                                 <span class="tooltip">Completed by:<div class='tooltiptext'><%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDay()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${el.completedAt.getMinutes()}:${el.completedAt.getSeconds()}`%></div></span>
                             <%}else{%>
@@ -116,12 +116,12 @@
                         </td>
                         <td class="request-actions">
                             <span class='delete-request'>Delete</span>
-                                <% if(el.completed===true){%>
-                                    <span class="mark-uncomplete">Uncomplete</span>
-                                <%}%>
-                                <% if(el.completed!==true){%>
-                                    <span class="complete-item">Complete</span>
-                                <%}%>
+                            <% if(el.completed===true){%>
+                                <span class="mark-uncomplete">Uncomplete</span>
+                            <%}%>
+                            <% if(el.completed!==true){%>
+                                <span class="complete-item">Complete</span>
+                            <%}%>
                         </td>
                     </tr>
                 <% }) %>    
@@ -130,11 +130,11 @@
 
         <table class="displayed-table gemsTable hideTable gems">
             <thead>
-                <tr>
+                <tr class="field-description">
                     <th onclick="sortTable(0)" scope="col">Gem Name ↑↓</th>
                     <th onclick="sortTable(1)" class="table-date" scope="col">Requested Date ↑↓</th>
                     <th scope="col">Status</th>
-                    <th class="table-actions" scope="col">Actions</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -148,9 +148,14 @@
                 <% }
                 gems.forEach( el => { %>
                     <tr class='requestedItem' data-id='<%=el._id%>'>
-                        <td><%= el.requestedItem %></td>
-                        <td><%= `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
-                        <td>
+                        <td class="requested-cell"><%= el.requestedItem %></td>
+                        <td class="requested-cell">
+                            <%= 
+                                `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
+                                ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                            %>
+                        </td>
+                        <td class="requested-cell">
                             <% if(el.completed===true){ %>
                                 <span class="tooltip">Completed by:<div class='tooltiptext'><%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDay()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${el.completedAt.getMinutes()}:${el.completedAt.getSeconds()}`%></div></span>
                             <%}else{%>
@@ -161,12 +166,12 @@
                         </td>
                         <td class="request-actions">
                             <span class='delete-request'>Delete</span>
-                                <% if(el.completed===true){%>
-                                    <span class="mark-uncomplete">Uncomplete</span>
-                                <%}%>
-                                <% if(el.completed!==true){%>
-                                    <span class="complete-item">Complete</span>
-                                <%}%>
+                            <% if(el.completed===true){%>
+                                <span class="mark-uncomplete">Uncomplete</span>
+                            <%}%>
+                            <% if(el.completed!==true){%>
+                                <span class="complete-item">Complete</span>
+                            <%}%>
                         </td>
                     </tr>
                 <% }) %>    
@@ -175,11 +180,11 @@
 
         <table class="displayed-table othersTable hideTable others">
             <thead>
-                <tr>
+                <tr class="field-description">
                     <th onclick="sortTable(0)">Other Name ↑↓</th>
                     <th onclick="sortTable(1)" class="table-date">Requested Date ↑↓</th>
                     <th scope="col">Status</th>
-                    <th class="table-actions">Actions</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -193,9 +198,14 @@
                 <% }
                 others.forEach( el => { %>
                     <tr class='requestedItem' data-id='<%=el._id%>'>
-                        <td><%= el.requestedItem %></td>
-                        <td><%= `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()}` %></td>
-                        <td>
+                        <td class="requested-cell"><%= el.requestedItem %></td>
+                        <td class="requested-cell">
+                            <%= 
+                                `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
+                                ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                            %>
+                        </td>
+                        <td class="requested-cell">
                             <% if(el.completed===true){ %>
                                 <span class="tooltip">Completed by:<div class='tooltiptext'><%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDay()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${el.completedAt.getMinutes()}:${el.completedAt.getSeconds()}`%></div></span>
                             <%}else{%>
@@ -206,12 +216,12 @@
                         </td>
                         <td class="request-actions">
                             <span class='delete-request'>Delete</span>
-                                <% if(el.completed===true){%>
-                                    <span class="mark-uncomplete">Uncomplete</span>
-                                <%}%>
-                                <% if(el.completed!==true){%>
-                                    <span class="complete-item">Complete</span>
-                                <%}%>
+                            <% if(el.completed===true){%>
+                                <span class="mark-uncomplete">Uncomplete</span>
+                            <%}%>
+                            <% if(el.completed!==true){%>
+                                <span class="complete-item">Complete</span>
+                            <%}%>
                         </td>
                     </tr>
                 <% }) %>    

@@ -27,7 +27,7 @@
             <a href="/users" class="nav-link"><span>Users</span></a>
             <a href="/builds" class="nav-link"><span>Builds</span></a>
             <a href="/resources" class="nav-link"><span>Resources</span></a>
-            <a href="/logout" class="nav-link"><span>Logout</span></a>
+            <a href="/logout" class="nav-link logout"><span>Logout</span></a>
         </nav>
     </header>
 
@@ -44,10 +44,10 @@
         <a href="/users" class="nav-link"><span>Users</span></a>
         <a href="/builds" class="nav-link"><span>Builds</span></a>
         <a href="/resources" class="nav-link"><span>Resources</span></a>
-        <a href="/logout" class="nav-link"><span>Logout</span></a>
+        <a href="/logout" class="nav-link logout"><span>Logout</span></a>
     </nav>
 
-    <h1 class="centered-description">Uniques Requested</h1>
+    <h1>Uniques Requested</h1>
 
     <img src="images/duffBlood.gif">
     <p class="centered-description">
@@ -68,10 +68,10 @@
         <tbody>
             <% if(uniques.length<1){%>
                 <tr>
-                    <td>None Requested</td>
-                    <td>None Requested</td>
-                    <td>None Requested</td>
-                    <td>None</td>
+                    <td class="requested-cell">None Requested</td>
+                    <td class="requested-cell">None Requested</td>
+                    <td class="requested-cell">None Requested</td>
+                    <td class="requested-cell">None</td>
                 </tr>
             <%}else{
                 uniques.forEach( el => {
@@ -81,10 +81,10 @@
                         let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
                         let descriptor = descriptorMatch ? descriptorMatch[1] : ''; %>
                     <tr class='requestedItem' data-id='<%=el._id%>'>
-                        <td class="requestingUnique"><%= el.requestedItem %></td>  
-                        <td class="requestingAccount"><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a></td>  
-                        <td class="requestingDiscord"><%= el.discordName%></td>
-                        <td class="requestedDate">
+                        <td class="requestingUnique requested-cell"><%= el.requestedItem %></td>  
+                        <td class="requestingAccount requested-cell"><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a></td>  
+                        <td class="requestingDiscord requested-cell"><%= el.discordName%></td>
+                        <td class="requestedDate requested-cell">
                             <%=
                                 `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
                                 ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`

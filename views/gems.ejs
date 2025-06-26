@@ -27,7 +27,7 @@
             <a href="/users" class="nav-link"><span>Users</span></a>
             <a href="/builds" class="nav-link"><span>Builds</span></a>
             <a href="/resources" class="nav-link"><span>Resources</span></a>
-            <a href="/logout" class="nav-link"><span>Logout</span></a>
+            <a href="/logout" class="nav-link logout"><span>Logout</span></a>
         </nav>
     </header>
 
@@ -44,7 +44,7 @@
         <a href="/users" class="nav-link"><span>Users</span></a>
         <a href="/builds" class="nav-link"><span>Builds</span></a>
         <a href="/resources" class="nav-link"><span>Resources</span></a>
-        <a href="/logout" class="nav-link"><span>Logout</span></a>
+        <a href="/logout" class="nav-link logout"><span>Logout</span></a>
     </nav>
 
     <h1>Gems Requested</h1>
@@ -54,10 +54,10 @@
 
     <section class="labs">
         <h2 class="timer"><span id="time">Loading...</span></h2>
-        <a href="https://www.poelab.com/nlq2j/">Normal Lab</a>
-        <a href="https://www.poelab.com/ecl4r/">Cruel Lab</a>
-        <a href="https://www.poelab.com/iettp/">Merc Lab</a>
-        <a href="https://www.poelab.com/bcwmh/">Uber Lab</a>
+        <h4 class="lab-link"><a href="https://www.poelab.com/nlq2j/">Normal Lab</a></h4>
+        <h4 class="lab-link"><a href="https://www.poelab.com/ecl4r/">Cruel Lab</a></h4>
+        <h4 class="lab-link"><a href="https://www.poelab.com/iettp/">Merc Lab</a></h4>
+        <h4 class="lab-link"><a href="https://www.poelab.com/bcwmh/">Uber Lab</a></h4>
     </section>
 
     <p class="centered-description">To mark your requested gems as uncomplete so they show on this list again, go to the request page, navigate to gems, use the uncomplete button beside your item.</p>
@@ -76,10 +76,10 @@
       <tbody>
         <% if(gems.length<1){ %>
           <tr>
-            <td>None Requested</td>
-            <td>None Requested</td>
-            <td>None Requested</td>
-            <td>None</td>
+            <td class="requested-cell">None Requested</td>
+            <td class="requested-cell">None Requested</td>
+            <td class="requested-cell">None Requested</td>
+            <td class="requested-cell">None</td>
           </tr>
         <% }else{gems.forEach( el => { 
             let poeAccountName = el.userName;
@@ -89,10 +89,10 @@
             let descriptor = descriptorMatch ? descriptorMatch[1] : ''; 
             %>
               <tr class='requestedItem' data-id='<%=el._id%>'>
-                <td><%= el.requestedItem %></td>  
-                <td><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a></td>  
-                <td><%= el.discordName%></td>
-                <td class="requestedDate">
+                <td class="requested-cell"><%= el.requestedItem %></td>  
+                <td class="requested-cell"><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a></td>  
+                <td class="requested-cell"><%= el.discordName%></td>
+                <td class="requestedDate requested-cell">
                     <%=
                         `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
                         ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`

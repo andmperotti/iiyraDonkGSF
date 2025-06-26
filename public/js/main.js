@@ -212,16 +212,16 @@ function verifyModal(action, thing) {
       modalUi.appendChild(actionButtons);
 
       document.querySelector("body").appendChild(modalUi);
-
       let adminAction = document.querySelector("#verifyConfirm");
       let adminCancel = document.querySelector("#cancelConfirm");
       //how do i tell the function to not return undefined and wait for one of these listeners to be invoked and return?
       adminAction.addEventListener("click", () => {
-        document.querySelector(".verifyModal").remove();
+        modalUi.remove();
         resolve(true);
       });
+
       adminCancel.addEventListener("click", () => {
-        document.querySelector(".verifyModal").remove();
+        modalUi.remove();
         resolve(false);
       });
     });
@@ -352,3 +352,29 @@ async function markComplete() {
 markCompleteSpans.forEach((el) => {
   el.addEventListener("click", markComplete);
 });
+
+let adminSeasonWipeButton = document.querySelector("#admin-wipe-button");
+
+if (adminSeasonWipeButton) {
+  adminSeasonWipeButton.addEventListener("click", () => {
+    async function wipeSeason() {
+      try {
+        let confirm = await verifyModal(
+          "Delete:",
+          // eslint-disable-next-line prettier/prettier
+          "Everything (requests, jobs, builds)"
+        );
+        if (confirm === true) {
+          const response = await fetch("admin/seasonWipe", {
+            method: "get",
+            headers: { "Content-type": "application/json" },
+          });
+          const data = await response.json();
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    wipeSeason();
+  });
+}

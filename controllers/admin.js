@@ -1,4 +1,7 @@
 const User = require("../models/User");
+const Build = require("../models/Build");
+const Job = require("../models/Job");
+const Request = require("../models/Request");
 
 module.exports = {
   getPanel: async (req, res) => {
@@ -50,6 +53,24 @@ module.exports = {
       res.json("User Delete Complete");
     } catch (err) {
       console.log(err);
+    }
+  },
+  seasonWipe: async (req, res) => {
+    if (req.user.isAdmin === true) {
+      try {
+        // await Build.deleteMany();
+        // console.log("Builds deleted");
+
+        // await Request.deleteMany();
+        // console.log("Requested items deleted");
+
+        // await Job.deleteMany();
+        // console.log("Jobs deleted");
+        console.log(`${req.user.userName} has wiped the season!`);
+        res.render("seasonWipe.ejs");
+      } catch (err) {
+        console.log(err);
+      }
     }
   },
 };
