@@ -25,7 +25,7 @@ module.exports = {
         console.log(err);
       }
     } else {
-      res.redirect("/request");
+      res.redirect("/restricted");
       console.log("user not verified");
     }
   },
@@ -39,7 +39,7 @@ module.exports = {
         console.log(err);
       }
     } else {
-      res.redirect("/request");
+      res.redirect("/restricted");
       console.log("user not verified");
     }
   },

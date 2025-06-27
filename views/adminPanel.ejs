@@ -27,6 +27,7 @@
             <a href="/users" class="nav-link"><span>Users</span></a>
             <a href="/builds" class="nav-link"><span>Builds</span></a>
             <a href="/resources" class="nav-link"><span>Resources</span></a>
+            <a href="/admin" class="nav-link"><span>Admin</span></a>
             <a href="/logout" class="nav-link logout"><span>Logout</span></a>
         </nav>
     </header>
@@ -44,6 +45,7 @@
         <a href="/users" class="nav-link"><span>Users</span></a>
         <a href="/builds" class="nav-link"><span>Builds</span></a>
         <a href="/resources" class="nav-link"><span>Resources</span></a>
+        <a href="/admin" class="nav-link"><span>Admin</span></a>
         <a href="/logout" class="nav-link logout"><span>Logout</span></a>
     </nav>
 
@@ -111,7 +113,7 @@
                 body: null,
             });
             const data = await response
-            console.log('deleted')
+            location.assign('/seasonWipe')
             }
         } catch (err) {
             console.log(err);
@@ -199,7 +201,7 @@
                     }),
                 });
                 const data = await response.json();
-                location.reload();
+                // location.reload();
                 }
             } catch (err) {
                 console.log(err);

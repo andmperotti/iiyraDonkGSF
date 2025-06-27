@@ -653,10 +653,11 @@ h1 {
   text-align: center;
   position: fixed;
   left: -9909px;
-  max-width: 21%;
+  width: fit-content;
+  border: 1px solid black;
 }
 
-/*class for the modal that appears when the menu button is pressed, used in clientside js*/
+/*class for the modal that appears when the menu button is pressed, used in client side js*/
 .showMenu {
   position: fixed;
   top: 1%;
@@ -698,7 +699,7 @@ img {
 
 .topNav{
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(13, 1fr);
 }
 
 /* media queries for mobile layout */
@@ -711,10 +712,6 @@ img {
   .field-description th {
     top: 0ch;
   }
-  table{
-    /* margin-left: 7ch; */
-  }
-
 }
 
 /*media query for when site isn't loaded on mobile*/

@@ -16,8 +16,9 @@ const otherRoutes = require("./routes/others");
 const gemRoutes = require("./routes/gems");
 const buildRoutes = require("./routes/builds");
 const jobRoutes = require("./routes/jobs");
-// const seasonWipe = require("./routes/seasonWipe");
+const seasonWipe = require("./routes/seasonWipe");
 const adminPanel = require("./routes/adminPanel");
+const restrictedRoutes = require("./routes/restricted");
 
 require("dotenv").config({ path: "./config/.env" });
 
@@ -56,8 +57,9 @@ app.use("/others", otherRoutes);
 app.use("/gems", gemRoutes);
 app.use("/builds", buildRoutes);
 app.use("/jobs", jobRoutes);
-// app.use("/seasonWipe", seasonWipe);
+app.use("/seasonWipe", seasonWipe);
 app.use("/admin", adminPanel);
+app.use("/restricted", restrictedRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log("Server is running, you better catch it!");
