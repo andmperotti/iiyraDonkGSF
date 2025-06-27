@@ -605,7 +605,7 @@ h1 {
   border: 1px solid white;
   overflow-wrap: break-all;
   top: 1.7ch;
-  background-color: white;
+  background-color: lightgray;
   border: 1px solid black;
   position: sticky;
 }
