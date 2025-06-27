@@ -74,4 +74,18 @@ module.exports = {
       console.log(err);
     }
   },
+  unAdminUser: async (req, res) => {
+    try {
+      await User.findOneAndUpdate(
+        { _id: req.body.requestIdFromJsFile },
+        {
+          isAdmin: false,
+          // eslint-disable-next-line prettier/prettier
+        }
+      );
+      res.json("Admin taken away");
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };

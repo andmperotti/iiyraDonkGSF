@@ -351,28 +351,6 @@ template {
   display: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* my styles */
 ul {
   padding: 0 1%;
@@ -399,7 +377,7 @@ nav {
 
 .nav-link {
   color: lightgreen;
-  font-size: calc(.5rem + .85vw);
+  font-size: calc(0.5rem + 0.85vw);
   text-align: center;
 }
 a {
@@ -472,7 +450,7 @@ h1 {
 .centered-description {
   width: 70%;
   text-align: center;
-  font-size: calc(1rem + .25vw);
+  font-size: calc(1rem + 0.25vw);
 }
 
 .signupForm {
@@ -544,7 +522,7 @@ h1 {
 }
 
 /* further styling of request page table elements */
-.displayed-table th{
+.displayed-table th {
   text-align: center;
 }
 
@@ -591,13 +569,12 @@ h1 {
 }
 
 /*Styling table which holds the requested items, users, builds, etc. This class is reused on most pages displaying database data*/
-.all-requested, .displayed-table {
+.all-requested,
+.displayed-table {
   table-layout: auto;
   max-width: 90%;
   border-collapse: collapse;
 }
-
-
 
 /* Table headers of tables that hold data of items requested, users in league, builds of users, etc */
 .field-description th {
@@ -624,18 +601,18 @@ h1 {
   grid-template-rows: repeat(3, 1fr);
   max-width: 80%;
 }
-.loginForm label{
+.loginForm label {
   display: flex;
   justify-content: space-between;
 }
-.loginForm input[type='submit']{
+.loginForm input[type="submit"] {
   justify-self: end;
 }
-.loginForm input{
+.loginForm input {
   max-width: 20ch;
   width: 100%;
 }
-.login-button{
+.login-button {
   margin: 0 auto;
 }
 
@@ -673,21 +650,18 @@ h1 {
 
 #menuButton {
   position: fixed;
-  left: .1ch;
-  top: .1ch;
+  left: 0.1ch;
+  top: 0.1ch;
   z-index: 1;
 }
 /*editing the size of all images*/
 img {
   max-width: 35%;
-
 }
 /*styling the margin on the countdown timer of hte gems page*/
 .timer {
   margin: 0 1%;
 }
-
-
 
 .buildsImg {
   max-width: 400px;
@@ -697,7 +671,7 @@ img {
   margin-top: 1%;
 }
 
-.topNav{
+.topNav {
   display: grid;
   grid-template-columns: repeat(13, 1fr);
 }
@@ -724,7 +698,6 @@ img {
   }
 }
 
-
 /* Styling the verify-disclaimer for the sign up page */
 .verify-disclaimer {
   color: darkred;
@@ -737,15 +710,18 @@ img {
   background-color: green;
 }
 .adminUser {
-  background-color: orange;
+  background-color: green;
 }
 .deleteUser {
   background-color: red;
 }
-.verifyUser, 
-.adminUser, 
-.deleteUser {
+.verifyUser,
+.adminUser,
+.deleteUser,
+.unadmin-button {
   border: 1px solid white;
+  text-align: center;
+  width: 9ch;
   text-align: center;
 }
 /*container for admin action buttons*/
@@ -754,9 +730,7 @@ img {
   flex-wrap: nowrap;
   gap: 1ch;
 }
-.adminActions > span {
-  width: 8ch;
-}
+
 .userDescriptor {
   width: 45%;
   display: inline-flex;
@@ -772,12 +746,15 @@ img {
 }
 
 /*more styling for already verified and admin'd users */
-.verifiedUser,
-.adminedUser {
+.verifiedUser {
   background-color: gray;
   border: 1px solid black;
   color: white;
   text-align: center;
+}
+
+.unadmin-button {
+  background-color: yellow;
 }
 
 /* styling of action buttons on requested item pages like uniques, gems, others*/
@@ -802,21 +779,19 @@ img {
   background-color: black;
   color: white;
 }
-.complete-item, 
+.complete-item,
 .mark-uncomplete,
 .delete-request,
 .delete-job,
 .delete-build,
-.delete-item{
+.delete-item {
   padding: 2px;
   text-align: center;
   border-radius: 2%;
   text-wrap: nowrap;
   min-width: fit-content;
   flex: 1 0 fit-content;
-
 }
-
 
 /*Styling completed by text to be displayed on hover, thanks again to w3schools */
 .tooltip {
@@ -836,8 +811,7 @@ img {
   border-radius: 6px;
   color: black;
   font-size: 1rem;
-  
- 
+
   position: absolute;
   z-index: 1;
 }
@@ -846,18 +820,19 @@ img {
   visibility: visible;
 }
 
-.request-form{
+.request-form {
   max-width: 80%;
 }
 
-th, .requested-cell {
+th,
+.requested-cell {
   text-wrap: wrap;
   word-break: break-word;
 }
 .requested-cell {
-  padding: 0 .5ch;
-  font-size: calc(.8rem + .4vw);
-  border: .5px solid black;
+  padding: 0 0.5ch;
+  font-size: calc(0.8rem + 0.4vw);
+  border: 0.5px solid black;
   overflow-wrap: break-word;
 }
 
@@ -865,28 +840,28 @@ th, .requested-cell {
   display: inline;
   padding: 0;
   margin: 0;
-  font-size: calc(.6rem + .75vw);
+  font-size: calc(0.6rem + 0.75vw);
 }
 
-h1{
+h1 {
   font-size: calc();
 }
 /*Dynamic table header font size of table */
 th {
-  font-size: calc(1rem + .5vw);
+  font-size: calc(1rem + 0.5vw);
 }
 
-#admin-wipe-button{
+#admin-wipe-button {
   margin-top: 10ch;
 }
 
 .completed-table {
   margin-top: 5ch;
 }
-caption{
-  font-size: calc(1.2rem + .5vw);
+caption {
+  font-size: calc(1.2rem + 0.5vw);
 }
 
-.request-description th{
+.request-description th {
   background-color: black;
 }

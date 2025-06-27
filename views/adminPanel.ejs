@@ -85,7 +85,7 @@
                             <span class="adminUser">Admin</span>
                         <%}%>
                         <% if(el.isAdmin){%>
-                            <span class="adminedUser">Admined</span>
+                            <span class="unadmin-button">UnAdmin</span>
                         <%}%>
                         <span class="deleteUser">Delete</span>
                 </td>
@@ -201,12 +201,42 @@
                     }),
                 });
                 const data = await response.json();
-                // location.reload();
+                location.reload();
                 }
             } catch (err) {
                 console.log(err);
             }
         }
+
+        let unadminButtons = document.querySelectorAll('.unadmin-button')
+
+        async function unAdminUser() {
+            const requestId = this.parentNode.parentNode.dataset.id;
+            try {
+                let confirm = await verifyModal(
+                "Unadmin:",
+                // eslint-disable-next-line prettier/prettier
+                this.parentNode.parentNode.childNodes[1].textContent.trim()
+                );
+                if (confirm === true) {
+                const response = await fetch("admin/unAdminUser", {
+                    method: "post",
+                    headers: { "Content-type": "application/json" },
+                    body: JSON.stringify({
+                    requestIdFromJsFile: requestId,
+                    }),
+                });
+                const data = await response.json();
+                location.reload();
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        unadminButtons.forEach(el=>{
+            el.addEventListener('click', unAdminUser)
+        })
     </script>
 </body>
 </html>
