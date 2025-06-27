@@ -1,18 +1,9 @@
 /* eslint-disable no-unused-vars */
 const deleteBtn = document.querySelectorAll(".delete-request");
-const deleteJobBtn = document.querySelectorAll(".delete-job");
-const deleteBuildBtn = document.querySelectorAll(".delete-build");
 let modalActive = false;
 
 Array.from(deleteBtn).forEach((el) => {
   el.addEventListener("click", deleteRequested);
-});
-Array.from(deleteJobBtn).forEach((el) => {
-  el.addEventListener("click", deleteJob);
-});
-
-Array.from(deleteBuildBtn).forEach((el) => {
-  el.addEventListener("click", deleteBuild);
 });
 
 async function deleteRequested() {
@@ -39,54 +30,6 @@ async function deleteRequested() {
   }
 }
 
-async function deleteJob() {
-  const requestId = this.parentNode.parentNode.dataset.id;
-  try {
-    let confirm = await verifyModal(
-      "Delete:",
-      // eslint-disable-next-line prettier/prettier
-      this.parentNode.parentNode.childNodes[1].textContent.trim()
-    );
-    if (confirm === true) {
-      const response = await fetch("jobs/deleteJob", {
-        method: "delete",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({
-          requestIdFromJsFile: requestId,
-        }),
-      });
-      const data = await response.json();
-      location.reload();
-    }
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-async function deleteBuild() {
-  const requestId = this.parentNode.parentNode.dataset.id;
-  try {
-    let confirm = await verifyModal(
-      "Delete:",
-      // eslint-disable-next-line prettier/prettier
-      this.parentNode.parentNode.childNodes[5].textContent.trim()
-    );
-    if (confirm === true) {
-      const response = await fetch("builds/deleteBuild", {
-        method: "delete",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({
-          requestIdFromJsFile: requestId,
-        }),
-      });
-      const data = await response.json();
-      location.reload();
-    }
-  } catch (err) {
-    console.log(err);
-  }
-}
-
 //nav menu button logic, click to open menu
 const navMenu = document.querySelector("#menuButton");
 const menuNav = document.querySelector(".menuNav");
@@ -94,94 +37,7 @@ navMenu.addEventListener("click", () => {
   menuNav.classList.toggle("showMenu");
 });
 
-//admin panel listeners and methods
-const deleteUserBtn = document.querySelectorAll(".deleteUser");
-const verifyUserBtn = document.querySelectorAll(".verifyUser");
-const adminUserBtn = document.querySelectorAll(".adminUser");
-Array.from(deleteUserBtn).forEach((el) => {
-  el.addEventListener("click", deleteUser);
-});
-Array.from(verifyUserBtn).forEach((el) => {
-  el.addEventListener("click", verifyUser);
-});
-
-Array.from(adminUserBtn).forEach((el) => {
-  el.addEventListener("click", adminUser);
-});
-
-async function deleteUser() {
-  const requestId = this.parentNode.parentNode.dataset.id;
-  try {
-    let confirm = await verifyModal(
-      "Delete:",
-      // eslint-disable-next-line prettier/prettier
-      this.parentNode.parentNode.childNodes[1].textContent.trim()
-    );
-    if (confirm === true) {
-      const response = await fetch("admin/deleteUser", {
-        method: "delete",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({
-          requestIdFromJsFile: requestId,
-        }),
-      });
-      const data = await response.json();
-      location.reload();
-    }
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-async function verifyUser() {
-  const requestId = this.parentNode.parentNode.dataset.id;
-  try {
-    let confirm = await verifyModal(
-      "Verify:",
-      // eslint-disable-next-line prettier/prettier
-      this.parentNode.parentNode.childNodes[1].textContent.trim()
-    );
-    if (confirm === true) {
-      const response = await fetch("admin/verifyUser", {
-        method: "post",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({
-          requestIdFromJsFile: requestId,
-        }),
-      });
-      const data = await response.json();
-      location.reload();
-    }
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-async function adminUser() {
-  const requestId = this.parentNode.parentNode.dataset.id;
-  try {
-    let confirm = await verifyModal(
-      "Admin:",
-      // eslint-disable-next-line prettier/prettier
-      this.parentNode.parentNode.childNodes[1].textContent.trim()
-    );
-    if (confirm === true) {
-      const response = await fetch("admin/adminUser", {
-        method: "post",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({
-          requestIdFromJsFile: requestId,
-        }),
-      });
-      const data = await response.json();
-      location.reload();
-    }
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-//modal for verifying actions of admin panel
+//modal for verifying actions
 function verifyModal(action, thing) {
   if (modalActive === false) {
     modalActive = true;
@@ -352,29 +208,3 @@ async function markComplete() {
 markCompleteSpans.forEach((el) => {
   el.addEventListener("click", markComplete);
 });
-
-let adminSeasonWipeButton = document.querySelector("#admin-wipe-button");
-
-if (adminSeasonWipeButton) {
-  adminSeasonWipeButton.addEventListener("click", () => {
-    async function wipeSeason() {
-      try {
-        let confirm = await verifyModal(
-          "Delete:",
-          // eslint-disable-next-line prettier/prettier
-          "Everything (requests, jobs, builds)"
-        );
-        if (confirm === true) {
-          const response = await fetch("admin/seasonWipe", {
-            method: "get",
-            headers: { "Content-type": "application/json" },
-          });
-          const data = await response.json();
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    wipeSeason();
-  });
-}

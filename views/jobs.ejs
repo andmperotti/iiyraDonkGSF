@@ -86,12 +86,12 @@
                         let firstName = firstNameMatch ? firstNameMatch[1] : ''; 
                         let descriptor = descriptorMatch ? descriptorMatch[1] : ''; %>
                         <tr class='requestedItem' data-id='<%=el._id%>'>
-                            <td><%=el.jobName%></td>
-                            <td>
+                            <td class="requested-cell"><%=el.jobName%></td>
+                            <td class="requested-cell">
                                 <a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a>
                             </td>
-                            <td><%= el.discordName%></td> 
-                            <td class="request-actions">
+                            <td class="requested-cell"><%= el.discordName%></td> 
+                            <td class="request-actions requested-cell">
                                 <% if(el.userName===requestor.userName||requestor.isAdmin){%>
                                 <span class="delete-job">Delete</span>
                             <% } %>       
@@ -104,5 +104,36 @@
 
 
     <script src="js/main.js"></script>
+    <script>
+    const deleteJobBtn = document.querySelectorAll(".delete-job");
+
+    async function deleteJob() {
+    const requestId = this.parentNode.parentNode.dataset.id;
+    try {
+        let confirm = await verifyModal(
+        "Delete:",
+        // eslint-disable-next-line prettier/prettier
+        this.parentNode.parentNode.childNodes[1].textContent.trim()
+        );
+        if (confirm === true) {
+        const response = await fetch("jobs/deleteJob", {
+            method: "delete",
+            headers: { "Content-type": "application/json" },
+            body: JSON.stringify({
+            requestIdFromJsFile: requestId,
+            }),
+        });
+        const data = await response.json();
+        location.reload();
+        }
+    } catch (err) {
+        console.log(err);
+    }
+    }
+
+    Array.from(deleteJobBtn).forEach((el) => {
+        el.addEventListener("click", deleteJob);
+    });
+    </script>
 </body>
 </html>

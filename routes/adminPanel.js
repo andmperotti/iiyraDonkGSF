@@ -7,6 +7,6 @@ router.get("/", ensureAuth, admin.getPanel);
 router.post("/verifyUser", ensureAuth, admin.verifyUser);
 router.post("/adminUser", ensureAuth, admin.adminUser);
 router.delete("/deleteUser", ensureAuth, admin.deleteUser);
-router.get("/seasonWipe", ensureAuth, admin.seasonWipe);
+router.delete("/seasonWipe", ensureAuth, admin.seasonWipe);
 
 module.exports = router;

@@ -16,7 +16,7 @@ const otherRoutes = require("./routes/others");
 const gemRoutes = require("./routes/gems");
 const buildRoutes = require("./routes/builds");
 const jobRoutes = require("./routes/jobs");
-const seasonWipe = require("./routes/seasonWipe");
+// const seasonWipe = require("./routes/seasonWipe");
 const adminPanel = require("./routes/adminPanel");
 
 require("dotenv").config({ path: "./config/.env" });
@@ -56,7 +56,7 @@ app.use("/others", otherRoutes);
 app.use("/gems", gemRoutes);
 app.use("/builds", buildRoutes);
 app.use("/jobs", jobRoutes);
-app.use("/seasonWipe", seasonWipe);
+// app.use("/seasonWipe", seasonWipe);
 app.use("/admin", adminPanel);
 
 app.listen(process.env.PORT, () => {

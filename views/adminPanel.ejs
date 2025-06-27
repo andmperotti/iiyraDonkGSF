@@ -94,5 +94,117 @@
     <button id="admin-wipe-button">Wipe Everything/ Season Reset</button>
 
     <script src="js/main.js"></script>
+    <script>
+        let adminSeasonWipeButton = document.querySelector("#admin-wipe-button");
+        
+    async function wipeSeason() {
+        try {
+            let confirm = await verifyModal(
+            "Delete:",
+            // eslint-disable-next-line prettier/prettier
+            'Everything (builds, jobs, requested items)'
+            );
+            if (confirm === true) {
+            const response = await fetch("admin/seasonWipe", {
+                method: "delete",
+                headers: { "Content-type": "application/json" },
+                body: null,
+            });
+            const data = await response
+            console.log('deleted')
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+        adminSeasonWipeButton.addEventListener("click", wipeSeason);
+
+        const deleteUserBtn = document.querySelectorAll(".deleteUser");
+        const verifyUserBtn = document.querySelectorAll(".verifyUser");
+        const adminUserBtn = document.querySelectorAll(".adminUser");
+        Array.from(deleteUserBtn).forEach((el) => {
+            el.addEventListener("click", deleteUser);
+        });
+        Array.from(verifyUserBtn).forEach((el) => {
+            el.addEventListener("click", verifyUser);
+        });
+
+        Array.from(adminUserBtn).forEach((el) => {
+            el.addEventListener("click", adminUser);
+        });
+
+        async function deleteUser() {
+            const requestId = this.parentNode.parentNode.dataset.id;
+            try {
+                let confirm = await verifyModal(
+                "Delete:",
+                // eslint-disable-next-line prettier/prettier
+                this.parentNode.parentNode.childNodes[1].textContent.trim()
+                );
+                if (confirm === true) {
+                const response = await fetch("admin/deleteUser", {
+                    method: "delete",
+                    headers: { "Content-type": "application/json" },
+                    body: JSON.stringify({
+                    requestIdFromJsFile: requestId,
+                    }),
+                });
+                const data = await response.json();
+                location.reload();
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        async function verifyUser() {
+            const requestId = this.parentNode.parentNode.dataset.id;
+            try {
+                let confirm = await verifyModal(
+                "Verify:",
+                // eslint-disable-next-line prettier/prettier
+                this.parentNode.parentNode.childNodes[1].textContent.trim()
+                );
+                if (confirm === true) {
+                const response = await fetch("admin/verifyUser", {
+                    method: "post",
+                    headers: { "Content-type": "application/json" },
+                    body: JSON.stringify({
+                    requestIdFromJsFile: requestId,
+                    }),
+                });
+                const data = await response.json();
+                location.reload();
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        async function adminUser() {
+            const requestId = this.parentNode.parentNode.dataset.id;
+            try {
+                let confirm = await verifyModal(
+                "Admin:",
+                // eslint-disable-next-line prettier/prettier
+                this.parentNode.parentNode.childNodes[1].textContent.trim()
+                );
+                if (confirm === true) {
+                const response = await fetch("admin/adminUser", {
+                    method: "post",
+                    headers: { "Content-type": "application/json" },
+                    body: JSON.stringify({
+                    requestIdFromJsFile: requestId,
+                    }),
+                });
+                const data = await response.json();
+                location.reload();
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        }
+    </script>
 </body>
 </html>
