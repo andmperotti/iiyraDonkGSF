@@ -387,6 +387,9 @@ body,
 header {
   width: 100%;
   margin-bottom: 1%;
+  position: sticky;
+  top: 0ch;
+  background-color: gray;
 }
 nav {
   width: 100%;
@@ -601,7 +604,7 @@ h1 {
   text-align: center;
   border: 1px solid white;
   overflow-wrap: break-all;
-  top: 0ch;
+  top: 1.7ch;
   background-color: white;
   border: 1px solid black;
   position: sticky;
@@ -653,11 +656,13 @@ h1 {
   max-width: 21%;
 }
 
-/*class for toggling menu button menu, used in clientside js*/
+/*class for the modal that appears when the menu button is pressed, used in clientside js*/
 .showMenu {
   position: fixed;
   top: 1%;
-  left: 15%;
+  left: 7ch;
+  border-radius: 2%;
+  z-index: 1;
 }
 
 .menuNav .nav-link {
@@ -667,8 +672,9 @@ h1 {
 
 #menuButton {
   position: fixed;
-  left: 1%;
-  top: 1%;
+  left: .1ch;
+  top: .1ch;
+  z-index: 1;
 }
 /*editing the size of all images*/
 img {
@@ -703,10 +709,10 @@ img {
     left: -9999px;
   }
   .field-description th {
-    top: 6ch;
+    top: 0ch;
   }
   table{
-    margin-left: 6ch;
+    /* margin-left: 7ch; */
   }
 
 }
@@ -875,4 +881,11 @@ th {
 
 #admin-wipe-button{
   margin-top: 10ch;
+}
+
+.completed-table {
+  margin-top: 5ch;
+}
+caption{
+  font-size: calc(1.2rem + .5vw);
 }
