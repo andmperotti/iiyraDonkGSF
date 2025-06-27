@@ -889,3 +889,7 @@ th {
 caption{
   font-size: calc(1.2rem + .5vw);
 }
+
+.request-description th{
+  background-color: black;
+}
