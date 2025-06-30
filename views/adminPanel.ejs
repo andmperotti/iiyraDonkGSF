@@ -211,26 +211,30 @@
         let unadminButtons = document.querySelectorAll('.unadmin-button')
 
         async function unAdminUser() {
-            const requestId = this.parentNode.parentNode.dataset.id;
-            try {
-                let confirm = await verifyModal(
-                "Unadmin:",
-                // eslint-disable-next-line prettier/prettier
-                this.parentNode.parentNode.childNodes[1].textContent.trim()
-                );
-                if (confirm === true) {
-                const response = await fetch("admin/unAdminUser", {
-                    method: "post",
-                    headers: { "Content-type": "application/json" },
-                    body: JSON.stringify({
-                    requestIdFromJsFile: requestId,
-                    }),
-                });
-                const data = await response.json();
-                location.reload();
+            if(this.parentNode.parentNode.children[0].innerText!=='Drevvska#5067'){
+                const requestId = this.parentNode.parentNode.dataset.id;
+                try {
+                    let confirm = await verifyModal(
+                    "Unadmin:",
+                    // eslint-disable-next-line prettier/prettier
+                    this.parentNode.parentNode.childNodes[1].textContent.trim()
+                    );
+                    if (confirm === true) {
+                    const response = await fetch("admin/unAdminUser", {
+                        method: "post",
+                        headers: { "Content-type": "application/json" },
+                        body: JSON.stringify({
+                        requestIdFromJsFile: requestId,
+                        }),
+                    });
+                    const data = await response.json();
+                    location.reload();
+                    }
+                } catch (err) {
+                    console.log(err);
                 }
-            } catch (err) {
-                console.log(err);
+            }else{
+                reject('cannot unadmin drevvska')
             }
         }
 
