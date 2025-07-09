@@ -23,7 +23,7 @@ const RequestSchema = new mongoose.Schema({
   },
   requestedDate: {
     type: Date,
-    default: Date.now(),
+    default: new Date(),
   },
   completedBy: {
     type: String,
