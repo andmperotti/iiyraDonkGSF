@@ -208,3 +208,15 @@ async function markComplete() {
 markCompleteSpans.forEach((el) => {
   el.addEventListener("click", markComplete);
 });
+
+//listener that converts date-object dates to local date and time
+document.addEventListener("DOMContentLoaded", () => {
+  const dateObjects = document.querySelectorAll(".date-object");
+  dateObjects.forEach((date) => {
+    if (date.textContent !== "predate" && date.textContent) {
+      let utcDate = new Date(Date.parse(date.textContent.trim()));
+      date.textContent = `${utcDate.getMonth() + 1}/${utcDate.getDate()}/${utcDate.getFullYear()}
+        ${utcDate.getHours()}:${String(utcDate.getMinutes()).padStart(2, "0")}:${String(utcDate.getSeconds()).padStart(2, "0")}`;
+    }
+  });
+});
