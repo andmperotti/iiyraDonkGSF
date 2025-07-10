@@ -106,7 +106,7 @@
                             <% if(el.requestedDate){ %>
                                 <%=
                                     `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                                    ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
                                 %>
                             <%}else{ %>
                                 <%='predate'%>
@@ -148,10 +148,10 @@
                 <tr class='requestedItem' data-id='<%=el._id%>'>
                     <td class="requested-cell"><%= el.requestedItem %></td>
                     <td class="requested-cell">
-                              <% if(el.requestedDate){ %>
+                            <% if(el.requestedDate){ %>
                                 <%=
                                     `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                                    ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
                                 %>
                             <%}else{ %>
                                 <%='predate'%>
@@ -160,7 +160,7 @@
                     <td class="requested-cell">
                             <span class="tooltip">Completed by:
                                 <div class='tooltiptext'>
-                                    <%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDate()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${el.completedAt.getMinutes()}:${el.completedAt.getSeconds()}`%>
+                                       <%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDate()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${String(el.completedAt.getMinutes()).padStart(2, '0')}:${String(el.completedAt.getSeconds()).padStart(2, '0')}`%>
                                 </div>
                             </span>
                     </td>
@@ -210,7 +210,7 @@
                             <% if(el.requestedDate){ %>
                                 <%=
                                     `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                                    ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
                                 %>
                             <%}else{ %>
                                 <%='predate'%>
@@ -256,7 +256,7 @@
                             <% if(el.requestedDate){ %>
                                 <%=
                                     `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                                    ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
                                 %>
                             <%}else{ %>
                                 <%='predate'%>
@@ -265,7 +265,7 @@
                     <td class="requested-cell">
                             <span class="tooltip">Completed by:
                                 <div class='tooltiptext'>
-                                    <%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDate()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${el.completedAt.getMinutes()}:${el.completedAt.getSeconds()}`%>
+                                    <%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDate()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${String(el.completedAt.getMinutes()).padStart(2, '0')}:${String(el.completedAt.getSeconds()).padStart(2, '0')}`%>
                                 </div>
                             </span>
                     </td>
@@ -315,10 +315,10 @@
                 <tr class='requestedItem' data-id='<%=el._id%>'>
                     <td class="requested-cell"><%= el.requestedItem %></td>
                     <td class="requested-cell">
-                               <% if(el.requestedDate){ %>
+                            <% if(el.requestedDate){ %>
                                 <%=
                                     `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                                    ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
                                 %>
                             <%}else{ %>
                                 <%='predate'%>
@@ -363,7 +363,7 @@
                             <% if(el.requestedDate){ %>
                                 <%=
                                     `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                                    ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
                                 %>
                             <%}else{ %>
                                 <%='predate'%>
@@ -372,7 +372,7 @@
                     <td class="requested-cell">
                             <span class="tooltip">Completed by:
                                 <div class='tooltiptext'>
-                                    <%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDate()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${el.completedAt.getMinutes()}:${el.completedAt.getSeconds()}`%>
+                                    <%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDate()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${String(el.completedAt.getMinutes()).padStart(2, '0')}:${String(el.completedAt.getSeconds()).padStart(2, '0')}`%>
                                 </div>
                             </span>
                     </td>

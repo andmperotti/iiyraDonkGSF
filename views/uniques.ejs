@@ -90,7 +90,7 @@
                             <% if(el.requestedDate){ %>
                                 <%=
                                     `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                                    ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
                                 %>
                             <%}else{ %>
                                 <%='predate'%>

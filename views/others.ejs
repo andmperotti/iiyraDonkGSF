@@ -89,14 +89,14 @@
                             <td class="requested-cell"><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a></td>  
                             <td class="requested-cell"><%= el.discordName%></td>
                             <td class="requestedDate requested-cell">
-                               <% if(el.requestedDate){ %>
-                                <%=
-                                    `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
-                                %>
-                            <%}else{ %>
-                                <%='predate'%>
-                            <% }%>
+                                <% if(el.requestedDate){ %>
+                                    <%=
+                                        `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
+                                        ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
+                                    %>
+                                <%}else{ %>
+                                    <%='predate'%>
+                                <% }%>
                             </td>
                             <td class="request-actions">
                                 <span class="complete-item">Complete</span>
