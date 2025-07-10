@@ -103,10 +103,14 @@
                 <tr class='requestedItem' data-id='<%=el._id%>'>
                     <td class="requested-cell"><%= el.requestedItem %></td>
                     <td class="requested-cell">
-                        <%= 
-                            `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                            ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
-                        %>
+                            <% if(el.requestedDate){ %>
+                                <%=
+                                    `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
+                                    ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                                %>
+                            <%}else{ %>
+                                <%='predate'%>
+                            <% }%>
                     </td>
                     <td class="request-actions">
                         <span class='delete-request'>Delete</span>
@@ -144,10 +148,14 @@
                 <tr class='requestedItem' data-id='<%=el._id%>'>
                     <td class="requested-cell"><%= el.requestedItem %></td>
                     <td class="requested-cell">
-                        <%= 
-                            `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                            ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
-                        %>
+                              <% if(el.requestedDate){ %>
+                                <%=
+                                    `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
+                                    ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                                %>
+                            <%}else{ %>
+                                <%='predate'%>
+                            <% }%>
                     </td>
                     <td class="requested-cell">
                             <span class="tooltip">Completed by:
@@ -199,10 +207,14 @@
                 <tr class='requestedItem' data-id='<%=el._id%>'>
                     <td class="requested-cell"><%= el.requestedItem %></td>
                     <td class="requested-cell">
-                        <%= 
-                            `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                            ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
-                        %>
+                            <% if(el.requestedDate){ %>
+                                <%=
+                                    `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
+                                    ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                                %>
+                            <%}else{ %>
+                                <%='predate'%>
+                            <% }%>
                     </td>
                     <td class="request-actions">
                         <span class='delete-request'>Delete</span>
@@ -241,10 +253,14 @@
                 <tr class='requestedItem' data-id='<%=el._id%>'>
                     <td class="requested-cell"><%= el.requestedItem %></td>
                     <td class="requested-cell">
-                        <%= 
-                            `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                            ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
-                        %>
+                            <% if(el.requestedDate){ %>
+                                <%=
+                                    `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
+                                    ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                                %>
+                            <%}else{ %>
+                                <%='predate'%>
+                            <% }%>
                     </td>
                     <td class="requested-cell">
                             <span class="tooltip">Completed by:
@@ -299,10 +315,14 @@
                 <tr class='requestedItem' data-id='<%=el._id%>'>
                     <td class="requested-cell"><%= el.requestedItem %></td>
                     <td class="requested-cell">
-                        <%= 
-                            `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                            ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
-                        %>
+                               <% if(el.requestedDate){ %>
+                                <%=
+                                    `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
+                                    ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                                %>
+                            <%}else{ %>
+                                <%='predate'%>
+                            <% }%>
                     </td>
                     <td class="request-actions">
                         <span class='delete-request'>Delete</span>
@@ -340,10 +360,14 @@
                 <tr class='requestedItem' data-id='<%=el._id%>'>
                     <td class="requested-cell"><%= el.requestedItem %></td>
                     <td class="requested-cell">
-                        <%= 
-                            `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                            ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
-                        %>
+                            <% if(el.requestedDate){ %>
+                                <%=
+                                    `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
+                                    ${el.requestedDate.getHours()}:${el.requestedDate.getMinutes()}:${el.requestedDate.getSeconds()}`
+                                %>
+                            <%}else{ %>
+                                <%='predate'%>
+                            <% }%>
                     </td>
                     <td class="requested-cell">
                             <span class="tooltip">Completed by:
