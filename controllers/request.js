@@ -36,6 +36,7 @@ module.exports = {
           userName: req.user.userName,
           itemType: req.body.itemType,
           discordName: req.user.discordName,
+          requestedDate: new Date(),
         });
         res.redirect("/request");
       } catch (err) {
@@ -53,7 +54,7 @@ module.exports = {
         {
           completed: true,
           completedBy: `${req.user.userName}`,
-          completedAt: Date.now(),
+          completedAt: new Date(),
           // eslint-disable-next-line prettier/prettier
         }
       );
