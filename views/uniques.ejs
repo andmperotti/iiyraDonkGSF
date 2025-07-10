@@ -86,16 +86,15 @@
                         <td class="requestingUnique requested-cell"><%= el.requestedItem %></td>  
                         <td class="requestingAccount requested-cell"><a href="https://www.pathofexile.com/account/view-profile/<%=firstName%>-<%=descriptor%>"><%= el.userName %></a></td>  
                         <td class="requestingDiscord requested-cell"><%= el.discordName%></td>
-                        <td class="requestedDate requested-cell">
+                    <td class="requested-cell <%if(el.requestedDate){%> date-object<%}%>">
                             <% if(el.requestedDate){ %>
                                 <%=
-                                    `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
+                                    el.requestedDate
                                 %>
                             <%}else{ %>
                                 <%='predate'%>
                             <% }%>
-                        </td>
+                    </td>
                             <td class="request-actions">
                                 <span class="complete-item">Complete</span>
                             </td>

@@ -74,11 +74,14 @@
     <p class="centered-description">You can keep your fulfilled items here for your records, or you can delete them.</p>
 
     <p class="centered-description">Click on a type below to see what you've requested from each:</p>
+
     <section class="requestBar">
         <span class="requestButton uniques uniqueButton">Uniques</span>
         <span class="requestButton gems gemsButton">Gems</span>
         <span class="requestButton others othersButton">Others</span>
     </section>
+    
+
 
     <!-- uncompleted uniques table  -->
     <table class="displayed-table uniquesTable uniques">
@@ -100,15 +103,12 @@
                 </tr>
             <% }
             uncompleteUniques.forEach( el => { %>
-                <!-- <% let localizedDate = new Date(el.requestedDate) %>
-                <span><%=localizedDate%></span> -->
                 <tr class='requestedItem' data-id='<%=el._id%>'>
                     <td class="requested-cell"><%= el.requestedItem %></td>
-                    <td class="requested-cell">
+                    <td class="requested-cell date-object">
                             <% if(el.requestedDate){ %>
                                 <%=
-                                    `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
+                                    el.requestedDate
                                 %>
                             <%}else{ %>
                                 <%='predate'%>
@@ -149,11 +149,10 @@
             completedUniques.forEach( el => { %>
                 <tr class='requestedItem' data-id='<%=el._id%>'>
                     <td class="requested-cell"><%= el.requestedItem %></td>
-                    <td class="requested-cell">
+                    <td class="requested-cell date-object">
                             <% if(el.requestedDate){ %>
                                 <%=
-                                    `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
+                                    el.requestedDate
                                 %>
                             <%}else{ %>
                                 <%='predate'%>
@@ -162,7 +161,7 @@
                     <td class="requested-cell">
                             <span class="tooltip">Completed by:
                                 <div class='tooltiptext'>
-                                       <%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDate()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${String(el.completedAt.getMinutes()).padStart(2, '0')}:${String(el.completedAt.getSeconds()).padStart(2, '0')}`%>
+                                       <%=el.completedBy%> on <span class="date-object"><%=el.completedAt%></span>
                                 </div>
                             </span>
                     </td>
@@ -176,6 +175,7 @@
             <% }) %>    
         </tbody>
     </table>
+
 
 
 
@@ -208,11 +208,10 @@
             uncompleteGems.forEach( el => { %>
                 <tr class='requestedItem' data-id='<%=el._id%>'>
                     <td class="requested-cell"><%= el.requestedItem %></td>
-                    <td class="requested-cell">
+                    <td class="requested-cell date-object">
                             <% if(el.requestedDate){ %>
                                 <%=
-                                    `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
+                                    el.requestedDate
                                 %>
                             <%}else{ %>
                                 <%='predate'%>
@@ -228,7 +227,6 @@
             <% }) %>    
         </tbody>
     </table>
-
 
     <!-- completed gems table -->
     <table class="displayed-table gemsTable gems completed-table hideTable">
@@ -254,11 +252,10 @@
             completeGems.forEach( el => { %>
                 <tr class='requestedItem' data-id='<%=el._id%>'>
                     <td class="requested-cell"><%= el.requestedItem %></td>
-                    <td class="requested-cell">
+                    <td class="requested-cell date-object">
                             <% if(el.requestedDate){ %>
                                 <%=
-                                    `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
+                                    el.requestedDate
                                 %>
                             <%}else{ %>
                                 <%='predate'%>
@@ -267,7 +264,7 @@
                     <td class="requested-cell">
                             <span class="tooltip">Completed by:
                                 <div class='tooltiptext'>
-                                    <%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDate()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${String(el.completedAt.getMinutes()).padStart(2, '0')}:${String(el.completedAt.getSeconds()).padStart(2, '0')}`%>
+                                    <%=el.completedBy%> on <span class="date-object"><%=el.completedAt%></span>
                                 </div>
                             </span>
                     </td>
@@ -292,9 +289,7 @@
 
 
 
-
-
-    <!-- uncompleted others table  -->
+    <!-- uncomplete others table  -->
     <table class="displayed-table othersTable others hideTable">
         <caption>Incomplete Requested Others</caption>
         <thead>
@@ -316,11 +311,10 @@
             uncompleteOthers.forEach( el => { %>
                 <tr class='requestedItem' data-id='<%=el._id%>'>
                     <td class="requested-cell"><%= el.requestedItem %></td>
-                    <td class="requested-cell">
+                      <td class="requested-cell date-object">
                             <% if(el.requestedDate){ %>
                                 <%=
-                                    `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
+                                    el.requestedDate
                                 %>
                             <%}else{ %>
                                 <%='predate'%>
@@ -361,11 +355,10 @@
             completedOthers.forEach( el => { %>
                 <tr class='requestedItem' data-id='<%=el._id%>'>
                     <td class="requested-cell"><%= el.requestedItem %></td>
-                    <td class="requested-cell">
+                    <td class="requested-cell date-object">
                             <% if(el.requestedDate){ %>
                                 <%=
-                                    `${el.requestedDate.getMonth()+1}/${el.requestedDate.getDate()}/${el.requestedDate.getFullYear()} 
-                                    ${el.requestedDate.getHours()}:${String(el.requestedDate.getMinutes()).padStart(2, '0')}:${String(el.requestedDate.getSeconds()).padStart(2, '0')}`
+                                    el.requestedDate
                                 %>
                             <%}else{ %>
                                 <%='predate'%>
@@ -374,7 +367,7 @@
                     <td class="requested-cell">
                             <span class="tooltip">Completed by:
                                 <div class='tooltiptext'>
-                                    <%=el.completedBy%> on <%=`${el.completedAt.getMonth()+1}/${el.completedAt.getDate()}/${el.completedAt.getFullYear()}`%> at <%=`${el.completedAt.getHours()}:${String(el.completedAt.getMinutes()).padStart(2, '0')}:${String(el.completedAt.getSeconds()).padStart(2, '0')}`%>
+                                       <%=el.completedBy%> on <span class="date-object"><%=el.completedAt%></span>
                                 </div>
                             </span>
                     </td>
