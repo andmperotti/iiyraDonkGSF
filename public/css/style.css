@@ -870,3 +870,6 @@ caption {
   color: red;
 
 }
+.nav-link:hover {
+  color: orange;
+}
