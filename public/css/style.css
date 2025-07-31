@@ -618,8 +618,7 @@ h1 {
 
 /*toggle hide styling for request page tables */
 .hideTable {
-  position: absolute;
-  left: -9999px;
+  display: none;
 }
 
 /* style for menu */
@@ -628,10 +627,10 @@ h1 {
   flex-direction: column;
   background-color: lightgray;
   text-align: center;
-  position: fixed;
-  left: -9909px;
   width: fit-content;
   border: 1px solid black;
+  padding: 1ch;
+  display: none;
 }
 
 /*class for the modal that appears when the menu button is pressed, used in client side js*/
@@ -641,6 +640,7 @@ h1 {
   left: 7ch;
   border-radius: 2%;
   z-index: 1;
+  display: flex;
 }
 
 .menuNav .nav-link {
@@ -680,8 +680,7 @@ img {
 /*hide nav element when device of less than 801px wide loads site */
 @media all and (max-width: 800px) {
   .topNav {
-    position: absolute;
-    left: -9999px;
+    display: none;
   }
   .field-description th {
     top: 0ch;
@@ -693,8 +692,7 @@ img {
 @media all and (min-width: 801px) {
   #menuButton,
   .menuNav {
-    position: absolute;
-    left: -99999px;
+    display: none;
   }
 }
 
@@ -844,7 +842,7 @@ th,
 }
 
 h1 {
-  font-size: calc();
+  font-size: calc(1rem + 1vw);
 }
 /*Dynamic table header font size of table */
 th {
