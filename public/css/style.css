@@ -363,16 +363,17 @@ body,
   background-color: gray;
 }
 header {
-  width: 100%;
+  max-width: 100%;
   margin-bottom: 1%;
   position: sticky;
   top: 0ch;
   background-color: gray;
 }
-nav {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
+
+.topNav {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
 }
 
 .nav-link {
@@ -391,12 +392,12 @@ h1 {
 }
 /*main page styling*/
 .intro {
-  width: 50%;
+  max-width: 50%;
   text-align: center;
 }
 .information {
   border: 1px solid black;
-  width: 70%;
+  max-width: 70%;
 }
 .information a {
   color: blue;
@@ -413,7 +414,6 @@ h1 {
 }
 /*chewing emote images*/
 .chewers {
-  width: 128px;
   max-width: 128px;
   max-height: 128px;
 }
@@ -435,7 +435,7 @@ h1 {
   text-align: center;
 }
 .shameless-plug-img {
-  width: 20vw;
+  max-width: 15vw;
 }
 
 /*resource page styling specifics*/
@@ -453,7 +453,7 @@ h1 {
 /*disclaimer on signup page for account name to be === poe account name*/
 .signup,
 .centered-description {
-  width: 70%;
+  max-width: 70%;
   text-align: center;
   font-size: calc(1rem + 0.25vw);
 }
@@ -478,12 +478,7 @@ h1 {
 .requested-inputs-submit {
   display: inline;
 }
-.requested-output {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 1%;
-}
+
 .uniques {
   color: orange;
 }
@@ -544,7 +539,6 @@ h1 {
 
 /*job output element*/
 .job-list {
-  width: 60%;
   max-width: 80%;
 }
 
@@ -570,7 +564,7 @@ h1 {
   flex-direction: column;
   text-align: center;
   border: 1px dotted black;
-  width: 50%;
+  max-width: 80%;
 }
 
 /*Styling table which holds the requested items, users, builds, etc. This class is reused on most pages displaying database data*/
@@ -615,7 +609,6 @@ h1 {
 }
 .loginForm input {
   max-width: 20ch;
-  width: 100%;
 }
 .login-button {
   margin: 0 auto;
@@ -632,7 +625,7 @@ h1 {
   flex-direction: column;
   background-color: lightgray;
   text-align: center;
-  width: fit-content;
+  max-width: fit-content;
   border: 1px solid black;
   padding: 1ch;
   display: none;
@@ -666,6 +659,7 @@ img {
 /*styling the margin on the countdown timer of hte gems page*/
 .timer {
   margin: 0 1%;
+  text-wrap: nowrap;
 }
 
 .buildsImg {
@@ -674,11 +668,6 @@ img {
 
 .signupForm {
   margin-top: 1%;
-}
-
-.topNav {
-  display: grid;
-  grid-template-columns: repeat(13, 1fr);
 }
 
 /* media queries for mobile layout */
@@ -734,10 +723,10 @@ img {
   gap: 1ch;
 }
 
-.userDescriptor {
+/* .userDescriptor {
   width: 45%;
   display: inline-flex;
-}
+} */
 
 /*Admin panel verify modal styling*/
 .verifyModal {
@@ -800,8 +789,8 @@ img {
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-  width: fit-content;
+  border-bottom: 1px dotted black; /* If you want dots under the hover-able text */
+  max-width: fit-content;
   text-wrap: nowrap;
   padding: 0 2px;
 }
