@@ -406,14 +406,16 @@ h1 {
   display: flex;
   align-items: center;
   max-width: 80%;
-  justify-items: space-between;
+  /* justify-items: space-between; */
 }
 .welcome h1{
   margin: 0 1ch;
 }
 /*chewing emote images*/
 .chewers {
-  max-width: 50%;
+  width: 128px;
+  max-width: 128px;
+  max-height: 128px;
 }
 /*image for trade filter*/
 .trade-filter {
@@ -657,7 +659,7 @@ h1 {
   top: 0.1ch;
   z-index: 1;
 }
-/*editing the size of all images*/
+/*editing the size of all images, that don't have a class and thus specific styling*/
 img {
   max-width: 35%;
 }
