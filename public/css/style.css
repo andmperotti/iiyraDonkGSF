@@ -871,3 +871,7 @@ caption {
 .nav-link:hover {
   color: orange;
 }
+
+.menuNav .logout:hover{
+  color: red;
+}
