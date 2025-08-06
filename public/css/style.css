@@ -398,6 +398,7 @@ h1 {
 .information {
   border: 1px solid black;
   max-width: 70%;
+  padding: 1ch;
 }
 .information a {
   color: blue;
