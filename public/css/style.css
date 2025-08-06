@@ -363,7 +363,7 @@ body,
   background-color: gray;
 }
 header {
-  max-width: 100%;
+  width: 100%;
   margin-bottom: 1%;
   position: sticky;
   top: 0ch;
@@ -371,7 +371,7 @@ header {
 }
 
 .topNav {
-  max-width: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(13, 1fr);
 }
@@ -392,12 +392,12 @@ h1 {
 }
 /*main page styling*/
 .intro {
-  max-width: 50%;
+  max-width: 80%;
   text-align: center;
 }
 .information {
   border: 1px solid black;
-  max-width: 70%;
+  max-width: 80%;
   padding: 1ch;
 }
 .information a {
@@ -430,13 +430,13 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 70%;
+  max-width: 75%;
 }
 .shameless-plug h6 {
   text-align: center;
 }
 .shameless-plug-img {
-  max-width: 15vw;
+  max-width: 200px;
 }
 
 /*resource page styling specifics*/
@@ -654,8 +654,8 @@ h1 {
   z-index: 1;
 }
 /*editing the size of all images, that don't have a class and thus specific styling*/
-img {
-  max-width: 35%;
+img:not(.chewers) {
+  max-width: 400px;
 }
 /*styling the margin on the countdown timer of hte gems page*/
 .timer {
