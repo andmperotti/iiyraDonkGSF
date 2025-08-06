@@ -373,9 +373,11 @@ header {
 .topNav {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(13, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(1px, 1fr) ) ;
 }
-
+header .nav-link{
+  padding: 0 1ch;
+}
 .nav-link {
   color: lightgreen;
   font-size: calc(0.5rem + 0.85vw);
